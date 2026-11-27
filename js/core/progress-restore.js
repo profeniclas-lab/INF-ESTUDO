@@ -1,4 +1,4 @@
-/** PT-ESTUDO — restauração integral, protegida contra backups de outros aplicativos. */
+/** INF-ESTUDO — restauração integral, restrita a backups desta aplicação. */
 import { STORAGE_KEY } from './storage.js';
 import { verifyProgressBaseline, acknowledgeProgressWrite } from './progress-conflict-guard.js';
 import { BACKUP_MAX_BYTES, validateProgressBackup } from './progress-backup-validator.js';
@@ -15,11 +15,11 @@ export async function prepareProgressRestore(file){
 function downloadRecoveryCopy(raw){
   const blob=new Blob([raw],{type:'application/json;charset=utf-8'});
   const url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download=`pt-estudo-recuperacao-anterior-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
+  a.href=url;a.download=`inf-estudo-recuperacao-anterior-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
   document.body.appendChild(a);
   try{a.click();}finally{a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
 }
-/** Não escreve dados. Confere o destino, o estado atual e a cópia de recuperação. */
+/** Somente leitura: confere estado, destino e cópia anterior. */
 export function planRepeatRestore(prepared,previousRaw,recoveryRaw){
   if(!prepared?.ok)return {ok:false,message:'Restauração não preparada.'};
   const validation=validateProgressBackup(prepared.backup);

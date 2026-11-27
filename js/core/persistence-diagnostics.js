@@ -1,85 +1,50 @@
-/** PT-ESTUDO — ensaios isolados de persistência; o progresso real é somente lido. */
+/** INF-ESTUDO — ensaios isolados de persistência; dados reais somente leitura. */
 import { STORAGE_KEY } from './storage.js';
 import { createInitialState } from './state.js';
 import { inspectStoredProgress, validateStateForSaving } from './storage-safety.js';
 import { normalizeRecoveryInput, protectCurrentProgress, RECOVERY_KEY } from './progress-recovery-guard.js';
 import { BACKUP_FORMAT, validateProgressBackup } from './progress-backup-validator.js';
-
-function mockStorage(initial = {}, failWrite = false) {
-  const entries = new Map(Object.entries(initial));
-  return {
-    getItem(key) { return entries.has(key) ? entries.get(key) : null; },
-    setItem(key, value) { if (failWrite) throw new Error('Falha simulada'); entries.set(key, String(value)); },
-    removeItem(key) { entries.delete(key); },
-    snapshot() { return JSON.stringify([...entries]); }
-  };
+function mockStorage(initial={}, failWrite=false){
+  const data=new Map(Object.entries(initial));
+  return {getItem:k=>data.has(k)?data.get(k):null,
+    setItem(k,v){if(failWrite)throw Error('Falha simulada');data.set(k,String(v));},
+    removeItem:k=>data.delete(k),snapshot:()=>JSON.stringify([...data])};
 }
-function envelope(state) {
-  return { format: BACKUP_FORMAT, backupVersion: 1,
-    createdAt: new Date().toISOString(), storageKey: STORAGE_KEY,
-    schemaVersion: state.schemaVersion, state };
+const envelope=state=>({format:BACKUP_FORMAT,backupVersion:1,createdAt:new Date().toISOString(),storageKey:STORAGE_KEY,schemaVersion:state.schemaVersion,state});
+export function runPersistenceDiagnostics(storage=window.localStorage){
+  const checks=[],check=(label,passed,detail='')=>checks.push({label,passed:!!passed,detail});
+  const original=createInitialState();original.progress.modules['INF-01']={diagnostic:{answered:2}};
+  const raw=JSON.stringify(original),replacement=JSON.stringify(envelope({...original,metadata:{...original.metadata,updatedAt:new Date().toISOString()}}));
+  try{
+    check('Instalação nova é aceita',inspectStoredProgress(mockStorage()).code==='empty');
+    check('Estado compatível é reconhecido',inspectStoredProgress(mockStorage({[STORAGE_KEY]:raw})).ok);
+    check('Estado PT é bloqueado',!inspectStoredProgress(mockStorage({[STORAGE_KEY]:JSON.stringify({...original,appId:'pt-estudo'})})).ok);
+    check('Estado ADM é bloqueado',!inspectStoredProgress(mockStorage({[STORAGE_KEY]:JSON.stringify({...original,appId:'adm-estudo'})})).ok);
+    check('Esquema incompatível é bloqueado',!inspectStoredProgress(mockStorage({[STORAGE_KEY]:JSON.stringify({...original,schemaVersion:-1})})).ok);
+    check('JSON danificado é preservado',(()=>{const s=mockStorage({[STORAGE_KEY]:'{incompleto'});const before=s.snapshot();return !inspectStoredProgress(s).ok&&before===s.snapshot();})());
+    check('Estado incompleto é recusado',!validateStateForSaving({schemaVersion:original.schemaVersion,progress:{}}));
+    check('Estado válido é aceito',validateStateForSaving(original));
+    check('Backup INF é aceito',validateProgressBackup(envelope(original)).valid);
+    check('Backup PT é recusado',!validateProgressBackup({...envelope(original),format:'pt-estudo-progress-backup'}).valid);
+    check('Backup ADM é recusado',!validateProgressBackup({...envelope(original),format:'adm-estudo-progress-backup'}).valid);
+    check('Recuperação bruta INF é reconhecida',normalizeRecoveryInput(original).ok);
+    const isolated=mockStorage({[STORAGE_KEY]:raw});
+    const result=protectCurrentProgress(raw,replacement,isolated);
+    check('Estado anterior protegido',result.ok&&isolated.getItem(RECOVERY_KEY)===raw&&isolated.getItem(STORAGE_KEY)===raw);
+    check('Recuperação pendente bloqueia nova restauração',!protectCurrentProgress(raw,replacement,isolated).ok);
+    const failing=mockStorage({[STORAGE_KEY]:raw},true),before=failing.snapshot();
+    check('Falha na recuperação preserva progresso',!protectCurrentProgress(raw,replacement,failing).ok&&failing.snapshot()===before);
+    const invalid=mockStorage({[STORAGE_KEY]:raw});
+    check('Backup estrangeiro não cria recuperação',!protectCurrentProgress(raw,JSON.stringify({...original,appId:'pt-estudo'}),invalid).ok&&invalid.getItem(RECOVERY_KEY)===null);
+  }catch(e){check('Execução dos testes isolados',false,String(e?.message||e));}
+  try{
+    const status=inspectStoredProgress(storage);check('Progresso real: somente leitura e compatibilidade',status.ok,status.message);
+    const before=storage.getItem(STORAGE_KEY);
+    if(before!==null)check('Progresso real: serialização reversível',JSON.stringify(JSON.parse(before))===before);
+    const rec=storage.getItem(RECOVERY_KEY);
+    check('Cópia de recuperação real é legível',rec===null||normalizeRecoveryInput(JSON.parse(rec)).ok);
+  }catch(e){check('Leitura do armazenamento real',false,String(e?.message||e));}
+  return {ok:checks.every(x=>x.passed),readOnlyOnRealStorage:true,checks};
 }
-export function runPersistenceDiagnostics(storage = window.localStorage) {
-  const checks = [];
-  const check = (label, passed, detail = '') => checks.push({ label, passed: !!passed, detail });
-  const original = createInitialState();
-  original.progress.modules['POR-01'] = { diagnostic: { answered: 2 } };
-  const raw = JSON.stringify(original);
-  const replacement = JSON.stringify(envelope({ ...original, metadata: { ...original.metadata, updatedAt: new Date().toISOString() } }));
-  try {
-    const empty = mockStorage();
-    check('Instalação nova é aceita', inspectStoredProgress(empty).code === 'empty');
-    check('Estado compatível é reconhecido', inspectStoredProgress(mockStorage({ [STORAGE_KEY]: raw })).ok);
-    check('Estado incompatível é bloqueado', !inspectStoredProgress(mockStorage({ [STORAGE_KEY]: JSON.stringify({ ...original, schemaVersion: -1 }) })).ok);
-    check('JSON danificado é bloqueado sem ser alterado', (() => {
-      const s = mockStorage({ [STORAGE_KEY]: '{incompleto' });
-      const before = s.snapshot();
-      return !inspectStoredProgress(s).ok && before === s.snapshot();
-    })());
-    check('Estado incompleto é recusado para gravação', !validateStateForSaving({ schemaVersion: original.schemaVersion, progress: {} }));
-    check('Estado válido é aceito para gravação', validateStateForSaving(original));
-    check('Backup PT íntegro é aceito', validateProgressBackup(envelope(original)).valid);
-    check('Formato de backup ADM é recusado', !validateProgressBackup({ ...envelope(original),format:'adm-estudo-progress-backup' }).valid);
-    check('Recuperação bruta compatível é reconhecida', normalizeRecoveryInput(original).ok);
-    const isolated = mockStorage({ [STORAGE_KEY]: raw });
-    const before = isolated.getItem(STORAGE_KEY);
-    const result = protectCurrentProgress(before, replacement, isolated);
-    check('Proteção preserva estado anterior antes da restauração', result.ok && isolated.getItem(RECOVERY_KEY) === before && isolated.getItem(STORAGE_KEY) === before);
-    check('Recuperação pendente impede nova restauração', !protectCurrentProgress(before, replacement, isolated).ok);
-    const failing = mockStorage({ [STORAGE_KEY]: raw }, true);
-    const failBefore = failing.snapshot();
-    check('Falha simulada ao criar recuperação não altera progresso', !protectCurrentProgress(raw, replacement, failing).ok && failing.snapshot() === failBefore);
-    check('Backup incompatível não cria recuperação', (() => {
-      const s = mockStorage({ [STORAGE_KEY]: raw });
-      const result = protectCurrentProgress(raw, JSON.stringify({ ...original, schemaVersion: -1 }), s);
-      return !result.ok && s.getItem(RECOVERY_KEY) === null;
-    })());
-  } catch (error) { check('Execução dos testes isolados', false, String(error?.message || error)); }
-  try {
-    const status = inspectStoredProgress(storage);
-    check('Progresso real: leitura e compatibilidade', status.ok, status.message);
-    const before = storage.getItem(STORAGE_KEY);
-    if (before !== null) {
-      const parsed = JSON.parse(before);
-      check('Progresso real: serialização reversível', JSON.stringify(parsed) === before, 'Verifica equivalência textual após interpretação e serialização.');
-    }
-    const recovery = storage.getItem(RECOVERY_KEY);
-    if (recovery !== null) {
-      let normalized;
-      try { normalized = normalizeRecoveryInput(JSON.parse(recovery)); }
-      catch (_) { normalized = { ok: false }; }
-      check('Cópia de recuperação real é legível', normalized.ok);
-    } else check('Cópia de recuperação real', true, 'Nenhuma cópia pendente.');
-  } catch (error) { check('Leitura do armazenamento real', false, String(error?.message || error)); }
-  return { ok: checks.every(c => c.passed), readOnlyOnRealStorage: true, checks };
-}
-export function formatPersistenceDiagnostics(report) {
-  return ['DIAGNÓSTICO DE PERSISTÊNCIA — PT-ESTUDO',
-    'Testes de escrita somente em armazenamento simulado. Armazenamento real: somente leitura.', '',
-    ...report.checks.map(c => `${c.passed ? 'OK' : 'FALHA'} — ${c.label}${c.detail ? ': ' + c.detail : ''}`), '',
-    report.ok ? 'Verificações concluídas sem alertas.' : 'Existem falhas: preserve backups e investigue antes de restaurar.',
-    'Não testa recarga real, conflito simultâneo entre abas nem falhas físicas do navegador.'].join('\n');
-}
-export function renderPersistenceDiagnosticsButton() {
-  return `<section aria-label="Diagnóstico de persistência"><h2 class="section-title">Persistência e recuperação</h2><p>Executa testes isolados de falhas e inspeciona seu progresso real sem modificá-lo.</p><button type="button" class="btn btn-secondary" data-persistence-diagnostics="1">Executar testes de persistência</button></section>`;
-}
+export function formatPersistenceDiagnostics(report){return ['DIAGNÓSTICO DE PERSISTÊNCIA — INF-ESTUDO','Escrita somente em armazenamento simulado. Dados reais: leitura apenas.','',...report.checks.map(c=>`${c.passed?'OK':'FALHA'} — ${c.label}${c.detail?': '+c.detail:''}`),'',report.ok?'Verificações concluídas sem alertas.':'Existem falhas. Preserve backups e investigue.','Não testa rede real nem falhas físicas do navegador.'].join('\n');}
+export function renderPersistenceDiagnosticsButton(){return `<section aria-label="Diagnóstico de persistência"><h2 class="section-title">Persistência e recuperação</h2><p>Testes isolados de falhas; progresso real sem alterações.</p><button type="button" class="btn btn-secondary" data-persistence-diagnostics="1">Executar testes de persistência</button></section>`;}
