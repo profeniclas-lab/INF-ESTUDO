@@ -1,1 +1,1 @@
-https://profeniclas-lab.github.io/pt-estudo/
+https://profeniclas-lab.github.io/INF-ESTUDO/
