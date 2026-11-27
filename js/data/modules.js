@@ -1,1095 +1,1225 @@
-/** PT-ESTUDO — catálogo único. Todos os 27 módulos publicados participam do motor.
- * Os demais aparecem na página Módulos como planejamento; não entram em provas, metas nem estatísticas.
- * Nunca importar quaisquer módulos administrativos nesta aplicação.
+/** INF-ESTUDO — Fase C: planejamento curricular.
+ * Módulos NÃO publicados até receberem diagnósticos, aulas e questões auditadas.
+ * Os IDs são estáveis: INF-XX e INF-XX-YYY. Não carrega nenhum conteúdo PT/ADM.
  */
-export const AREAS = Object.freeze({ POR:'Língua Portuguesa', RED:'Redação Oficial' });
+export const AREAS = Object.freeze({ INF: 'Informática' });
 export const ALL_PLANNED_MODULES = Object.freeze([
   {
-    "id": "POR-01",
-    "area": "POR",
-    "title": "Interpretação e compreensão textual",
+    "id": "INF-01",
+    "area": "INF",
+    "title": "Fundamentos de informática e sistemas digitais",
     "priority": "alta",
-    "objective": "Distinguir informação explícita, inferências autorizadas e extrapolações a partir de textos variados.",
+    "objective": "Distinguir conceitos de dado, informação, hardware, software e serviços digitais, aplicando-os a rotinas administrativas",
     "prerequisites": [],
     "subtopics": [
       {
-        "id": "POR-01-001",
-        "title": "Tema, assunto e ideia central",
+        "id": "INF-01-001",
+        "title": "Dado, informação, processamento e armazenamento",
         "priority": "alta"
       },
       {
-        "id": "POR-01-002",
-        "title": "Informações explícitas e localização textual",
+        "id": "INF-01-002",
+        "title": "Hardware, software e firmware: diferenças e exemplos",
         "priority": "alta"
       },
       {
-        "id": "POR-01-003",
-        "title": "Inferências e pressupostos autorizados",
+        "id": "INF-01-003",
+        "title": "Software básico, aplicativo, utilitário e licenças",
         "priority": "alta"
       },
       {
-        "id": "POR-01-004",
-        "title": "Fato, opinião, tese e argumentos",
+        "id": "INF-01-004",
+        "title": "Sistemas operacionais, aplicativos e usuários",
         "priority": "alta"
       },
       {
-        "id": "POR-01-005",
-        "title": "Intenção comunicativa, ponto de vista e efeitos de sentido",
+        "id": "INF-01-005",
+        "title": "Interface gráfica, janelas, ícones e menus",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-01-006",
+        "title": "Conceitos de arquivo, pasta e extensão",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-02",
-    "area": "POR",
-    "title": "Estrutura e organização textual",
-    "priority": "alta",
-    "objective": "Reconhecer a arquitetura global do texto e a progressão das ideias.",
-    "prerequisites": [
-      "POR-01"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-02-001",
-        "title": "Introdução, desenvolvimento e conclusão",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-02-002",
-        "title": "Parágrafos, tópico frasal e hierarquia das ideias",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-02-003",
-        "title": "Progressão temática e continuidade referencial",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-02-004",
-        "title": "Relações lógicas entre partes do texto",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-02-005",
-        "title": "Síntese, paráfrase e reorganização de informações",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-03",
-    "area": "POR",
-    "title": "Tipos, gêneros e funções da linguagem",
-    "priority": "alta",
-    "objective": "Relacionar finalidade, circulação, tipologia e recursos linguísticos.",
-    "prerequisites": [
-      "POR-01"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-03-001",
-        "title": "Narração, descrição, exposição, argumentação e injunção",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-03-002",
-        "title": "Gêneros jornalísticos, acadêmicos e institucionais",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-03-003",
-        "title": "Funções da linguagem e propósito comunicativo",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-03-004",
-        "title": "Marcas do interlocutor e adequação ao suporte",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-03-005",
-        "title": "Identificação de gêneros e tipologias híbridas",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-04",
-    "area": "POR",
-    "title": "Coerência e coesão textual",
-    "priority": "alta",
-    "objective": "Identificar mecanismos de ligação e avaliar a coerência global e local.",
-    "prerequisites": [
-      "POR-02"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-04-001",
-        "title": "Coerência e conhecimento de mundo",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-04-002",
-        "title": "Referência, anáfora, catáfora e elipse",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-04-003",
-        "title": "Conectores e relações semânticas",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-04-004",
-        "title": "Repetição, substituição, sinonímia e paralelismo",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-04-005",
-        "title": "Rupturas de coesão e revisão de encadeamento",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-05",
-    "area": "POR",
-    "title": "Semântica e significação",
-    "priority": "alta",
-    "objective": "Interpretar sentidos lexicais e contextuais com precisão.",
-    "prerequisites": [
-      "POR-01"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-05-001",
-        "title": "Denotação, conotação e polissemia",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-05-002",
-        "title": "Sinonímia, antonímia e gradação",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-05-003",
-        "title": "Homonímia, paronímia e distinções de sentido",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-05-004",
-        "title": "Ambiguidade lexical e sintática",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-05-005",
-        "title": "Pressuposição, subentendido e ironia",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-06",
-    "area": "POR",
-    "title": "Variação linguística e adequação",
+    "id": "INF-02",
+    "area": "INF",
+    "title": "Hardware, dispositivos e periféricos",
     "priority": "media",
-    "objective": "Reconhecer registros e variedades, diferenciando descrição de uso e norma-padrão.",
+    "objective": "Reconhecer componentes e periféricos, suas funções e características em questões de informática",
     "prerequisites": [
-      "POR-03"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-06-001",
-        "title": "Variedades regionais, sociais e históricas",
+        "id": "INF-02-001",
+        "title": "CPU, memória RAM e dispositivos de entrada e saída",
         "priority": "media"
       },
       {
-        "id": "POR-06-002",
-        "title": "Registro formal, informal e situações comunicativas",
+        "id": "INF-02-002",
+        "title": "Placa-mãe, barramentos, portas e conectores",
         "priority": "media"
       },
       {
-        "id": "POR-06-003",
-        "title": "Norma-padrão, norma culta e preconceito linguístico",
+        "id": "INF-02-003",
+        "title": "Teclado, mouse, monitor, webcam e microfone",
         "priority": "media"
       },
       {
-        "id": "POR-06-004",
-        "title": "Oralidade, escrita e marcas de interação",
+        "id": "INF-02-004",
+        "title": "Impressoras, scanners, multifuncionais e resolução",
         "priority": "media"
       },
       {
-        "id": "POR-06-005",
-        "title": "Adequação linguística em comunicações administrativas",
+        "id": "INF-02-005",
+        "title": "Memória RAM, ROM, cache e armazenamento permanente",
+        "priority": "media"
+      },
+      {
+        "id": "INF-02-006",
+        "title": "Dispositivos externos, USB, Bluetooth e compatibilidade",
         "priority": "media"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-07",
-    "area": "POR",
-    "title": "Ortografia e emprego de letras",
+    "id": "INF-03",
+    "area": "INF",
+    "title": "Armazenamento, unidades e formatos de arquivo",
     "priority": "alta",
-    "objective": "Aplicar regras ortográficas vigentes e diferenciar grafias de uso frequente.",
+    "objective": "Comparar mídias, unidades, organização e características de arquivos digitais",
     "prerequisites": [
-      "POR-05"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-07-001",
-        "title": "Sistema ortográfico e emprego de letras",
+        "id": "INF-03-001",
+        "title": "Bits, bytes e múltiplos de armazenamento",
         "priority": "alta"
       },
       {
-        "id": "POR-07-002",
-        "title": "Por que, porque, por quê e porquê",
+        "id": "INF-03-002",
+        "title": "HD, SSD, pendrive, cartões e mídias ópticas",
         "priority": "alta"
       },
       {
-        "id": "POR-07-003",
-        "title": "Onde, aonde, mas, mais e demais contrastes",
+        "id": "INF-03-003",
+        "title": "Arquivos, pastas, caminhos e extensões",
         "priority": "alta"
       },
       {
-        "id": "POR-07-004",
-        "title": "Uso de maiúsculas, minúsculas e abreviações",
+        "id": "INF-03-004",
+        "title": "Sistemas de arquivos e permissões básicas",
         "priority": "alta"
       },
       {
-        "id": "POR-07-005",
-        "title": "Grafia de palavras e casos de dúvida recorrente",
+        "id": "INF-03-005",
+        "title": "Compressão, extração e formatos ZIP e similares",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-03-006",
+        "title": "PDF, documentos, planilhas, imagens e arquivos executáveis",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-08",
-    "area": "POR",
-    "title": "Acentuação gráfica e hífen",
+    "id": "INF-04",
+    "area": "INF",
+    "title": "Windows 11: ambiente e recursos básicos",
     "priority": "alta",
-    "objective": "Aplicar regras de tonicidade, acentuação e composição.",
+    "objective": "Utilizar recursos essenciais do Windows 11 e distinguir elementos de sua interface",
     "prerequisites": [
-      "POR-07"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-08-001",
-        "title": "Sílaba tônica e classificação quanto à tonicidade",
+        "id": "INF-04-001",
+        "title": "Área de trabalho, menu Iniciar e barra de tarefas",
         "priority": "alta"
       },
       {
-        "id": "POR-08-002",
-        "title": "Regras de acentuação de oxítonas e paroxítonas",
+        "id": "INF-04-002",
+        "title": "Janelas, menus, pesquisa e configurações",
         "priority": "alta"
       },
       {
-        "id": "POR-08-003",
-        "title": "Proparoxítonas, hiatos e acentos diferenciais",
+        "id": "INF-04-003",
+        "title": "Contas de usuário, sessão, bloqueio e encerramento",
         "priority": "alta"
       },
       {
-        "id": "POR-08-004",
-        "title": "Acordo Ortográfico e alterações relevantes",
+        "id": "INF-04-004",
+        "title": "Aplicativos, instalação e desinstalação",
         "priority": "alta"
       },
       {
-        "id": "POR-08-005",
-        "title": "Hífen em prefixos e palavras compostas",
+        "id": "INF-04-005",
+        "title": "Painel de Configurações, dispositivos e impressoras",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-04-006",
+        "title": "Gerenciador de Tarefas e aplicativos em execução",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-04-007",
+        "title": "Atalhos de teclado e recursos de acessibilidade",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-09",
-    "area": "POR",
-    "title": "Estrutura e formação de palavras",
+    "id": "INF-05",
+    "area": "INF",
+    "title": "Windows 11: arquivos, pastas e Explorador",
+    "priority": "alta",
+    "objective": "Realizar operações com arquivos e pastas e interpretar seus efeitos no Windows 11",
+    "prerequisites": [
+      "INF-03",
+      "INF-04"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-05-001",
+        "title": "Explorador de Arquivos, painéis, caminhos e navegação",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-05-002",
+        "title": "Criar, renomear, selecionar, mover e copiar itens",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-05-003",
+        "title": "Excluir, restaurar e esvaziar a Lixeira",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-05-004",
+        "title": "Pesquisa, propriedades, visualizações e ordenação",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-05-005",
+        "title": "Atalhos de teclado para operações com arquivos",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-05-006",
+        "title": "Armazenamento local, pastas compartilhadas e permissões",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-06",
+    "area": "INF",
+    "title": "Linux e software livre: noções para concursos",
     "priority": "media",
-    "objective": "Identificar morfemas e mecanismos de criação lexical.",
+    "objective": "Reconhecer a organização básica do Linux, seus conceitos e diferenças em relação ao Windows",
     "prerequisites": [
-      "POR-07"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-09-001",
-        "title": "Radical, afixos e desinências",
+        "id": "INF-06-001",
+        "title": "Distribuições Linux, kernel e ambiente gráfico",
         "priority": "media"
       },
       {
-        "id": "POR-09-002",
-        "title": "Derivação prefixal, sufixal e parassintética",
+        "id": "INF-06-002",
+        "title": "Estrutura de diretórios e caminhos no Linux",
         "priority": "media"
       },
       {
-        "id": "POR-09-003",
-        "title": "Composição por justaposição e aglutinação",
+        "id": "INF-06-003",
+        "title": "Arquivos, usuários e permissões básicas",
         "priority": "media"
       },
       {
-        "id": "POR-09-004",
-        "title": "Abreviação, siglas e outros processos",
+        "id": "INF-06-004",
+        "title": "Gerenciadores de arquivos, terminais e comandos elementares",
         "priority": "media"
       },
       {
-        "id": "POR-09-005",
-        "title": "Famílias de palavras e sentido dos afixos",
+        "id": "INF-06-005",
+        "title": "Software livre, código aberto e licenciamento",
         "priority": "media"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-10",
-    "area": "POR",
-    "title": "Substantivos, artigos e adjetivos",
+    "id": "INF-07",
+    "area": "INF",
+    "title": "Editor de textos: Word e Writer — fundamentos",
     "priority": "alta",
-    "objective": "Analisar flexão, determinação e valor semântico das classes nominais.",
+    "objective": "Criar e formatar documentos com foco em tarefas administrativas comuns",
     "prerequisites": [
-      "POR-09"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-10-001",
-        "title": "Substantivo: classificação e flexões",
+        "id": "INF-07-001",
+        "title": "Interface, documento, página e modos de exibição",
         "priority": "alta"
       },
       {
-        "id": "POR-10-002",
-        "title": "Artigos e efeitos de determinação",
+        "id": "INF-07-002",
+        "title": "Inserção, seleção, edição e localização de texto",
         "priority": "alta"
       },
       {
-        "id": "POR-10-003",
-        "title": "Adjetivos, locuções e valor discursivo",
+        "id": "INF-07-003",
+        "title": "Fontes, parágrafos, alinhamento, recuos e espaçamento",
         "priority": "alta"
       },
       {
-        "id": "POR-10-004",
-        "title": "Flexão nominal e graus",
+        "id": "INF-07-004",
+        "title": "Listas, tabulações, bordas e sombreamento",
         "priority": "alta"
       },
       {
-        "id": "POR-10-005",
-        "title": "Relações de concordância no sintagma nominal",
+        "id": "INF-07-005",
+        "title": "Configuração de página, margens e orientação",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-07-006",
+        "title": "Salvar, exportar, imprimir e formatos DOCX, ODT e PDF",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-11",
-    "area": "POR",
-    "title": "Pronomes e referência",
+    "id": "INF-08",
+    "area": "INF",
+    "title": "Editor de textos: recursos avançados",
     "priority": "alta",
-    "objective": "Empregar pronomes e reconhecer relações de referência no texto.",
+    "objective": "Aplicar recursos de revisão, estruturação e automação de documentos de texto",
     "prerequisites": [
-      "POR-04",
-      "POR-10"
+      "INF-07"
     ],
     "subtopics": [
       {
-        "id": "POR-11-001",
-        "title": "Pronomes pessoais, possessivos e demonstrativos",
+        "id": "INF-08-001",
+        "title": "Cabeçalho, rodapé e numeração de páginas",
         "priority": "alta"
       },
       {
-        "id": "POR-11-002",
-        "title": "Pronomes relativos e retomada de antecedentes",
+        "id": "INF-08-002",
+        "title": "Tabelas, colunas, imagens e objetos",
         "priority": "alta"
       },
       {
-        "id": "POR-11-003",
-        "title": "Indefinidos, interrogativos e tratamento",
+        "id": "INF-08-003",
+        "title": "Estilos, temas, sumário automático e seções",
         "priority": "alta"
       },
       {
-        "id": "POR-11-004",
-        "title": "Emprego de este, esse, aquele e variantes",
+        "id": "INF-08-004",
+        "title": "Revisão ortográfica, comentários e controle de alterações",
         "priority": "alta"
       },
       {
-        "id": "POR-11-005",
-        "title": "Coesão pronominal e ambiguidades de referência",
+        "id": "INF-08-005",
+        "title": "Localizar e substituir, navegação e referências",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-08-006",
+        "title": "Mala direta, etiquetas e correspondências",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-08-007",
+        "title": "Compartilhamento, proteção e restrições de edição",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-12",
-    "area": "POR",
-    "title": "Verbos e flexão verbal",
+    "id": "INF-09",
+    "area": "INF",
+    "title": "Planilhas: Excel e Calc — fundamentos",
     "priority": "alta",
-    "objective": "Reconhecer valores temporais e modais e aplicar flexões regulares e irregulares.",
+    "objective": "Compreender a estrutura e operações essenciais de planilhas eletrônicas",
     "prerequisites": [
-      "POR-10"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-12-001",
-        "title": "Tempos, modos e aspectos verbais",
+        "id": "INF-09-001",
+        "title": "Pasta de trabalho, planilha, células, linhas e colunas",
         "priority": "alta"
       },
       {
-        "id": "POR-12-002",
-        "title": "Formação dos tempos e verbos irregulares",
+        "id": "INF-09-002",
+        "title": "Seleção, edição, cópia, preenchimento e séries",
         "priority": "alta"
       },
       {
-        "id": "POR-12-003",
-        "title": "Voz ativa, passiva e reflexiva",
+        "id": "INF-09-003",
+        "title": "Tipos de dados, números, datas e textos",
         "priority": "alta"
       },
       {
-        "id": "POR-12-004",
-        "title": "Locuções verbais e formas nominais",
+        "id": "INF-09-004",
+        "title": "Formatação de células e formatos numéricos",
         "priority": "alta"
       },
       {
-        "id": "POR-12-005",
-        "title": "Correlação verbal e sentido no texto",
+        "id": "INF-09-005",
+        "title": "Operadores aritméticos e precedência de fórmulas",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-09-006",
+        "title": "Referências relativas, absolutas e mistas",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-09-007",
+        "title": "Salvar, abrir, importar e exportar planilhas",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-13",
-    "area": "POR",
-    "title": "Advérbios, preposições, conjunções e interjeições",
+    "id": "INF-10",
+    "area": "INF",
+    "title": "Planilhas: fórmulas e funções",
     "priority": "alta",
-    "objective": "Relacionar classes invariáveis aos sentidos e vínculos sintáticos.",
+    "objective": "Resolver situações de planilha envolvendo fórmulas, referências e funções usuais",
     "prerequisites": [
-      "POR-12"
+      "INF-09"
     ],
     "subtopics": [
       {
-        "id": "POR-13-001",
-        "title": "Advérbios e locuções adverbiais",
+        "id": "INF-10-001",
+        "title": "Funções SOMA, MÉDIA, MÍNIMO e MÁXIMO",
         "priority": "alta"
       },
       {
-        "id": "POR-13-002",
-        "title": "Preposições e relações de sentido",
+        "id": "INF-10-002",
+        "title": "CONT.NÚM, CONT.VALORES e CONT.SE",
         "priority": "alta"
       },
       {
-        "id": "POR-13-003",
-        "title": "Conjunções coordenativas e valores semânticos",
+        "id": "INF-10-003",
+        "title": "SE, E, OU e condições lógicas",
         "priority": "alta"
       },
       {
-        "id": "POR-13-004",
-        "title": "Conjunções subordinativas e relações lógicas",
+        "id": "INF-10-004",
+        "title": "SOMASE, MÉDIASE e critérios simples",
         "priority": "alta"
       },
       {
-        "id": "POR-13-005",
-        "title": "Interjeições, partículas e classificação contextual",
+        "id": "INF-10-005",
+        "title": "PROCV, PROCX e pesquisa de informações (quando disponíveis)",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-10-006",
+        "title": "Funções de texto, data e arredondamento",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-10-007",
+        "title": "Erros de fórmulas, referências e precedência",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-10-008",
+        "title": "Diferenças de sintaxe e separadores entre versões e suítes",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-14",
-    "area": "POR",
-    "title": "Sintaxe da oração e termos essenciais",
+    "id": "INF-11",
+    "area": "INF",
+    "title": "Planilhas: organização, análise e gráficos",
     "priority": "alta",
-    "objective": "Analisar predicação, sujeitos e relações básicas do período simples.",
+    "objective": "Organizar e analisar dados administrativos em planilhas",
     "prerequisites": [
-      "POR-10",
-      "POR-12"
+      "INF-09",
+      "INF-10"
     ],
     "subtopics": [
       {
-        "id": "POR-14-001",
-        "title": "Frase, oração, período e predicação",
+        "id": "INF-11-001",
+        "title": "Classificar, filtrar e localizar dados",
         "priority": "alta"
       },
       {
-        "id": "POR-14-002",
-        "title": "Tipos de sujeito e oração sem sujeito",
+        "id": "INF-11-002",
+        "title": "Formatação condicional e validação de dados",
         "priority": "alta"
       },
       {
-        "id": "POR-14-003",
-        "title": "Predicado nominal, verbal e verbo-nominal",
+        "id": "INF-11-003",
+        "title": "Tabelas, intervalos e referências estruturadas",
         "priority": "alta"
       },
       {
-        "id": "POR-14-004",
-        "title": "Predicativo do sujeito e do objeto",
+        "id": "INF-11-004",
+        "title": "Gráficos: escolha, criação e interpretação",
         "priority": "alta"
       },
       {
-        "id": "POR-14-005",
-        "title": "Sujeito posposto, indeterminação e impessoalidade",
+        "id": "INF-11-005",
+        "title": "Tabelas dinâmicas: finalidade e uso básico",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-11-006",
+        "title": "Impressão, área de impressão e layout de página",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-15",
-    "area": "POR",
-    "title": "Termos integrantes e acessórios da oração",
-    "priority": "alta",
-    "objective": "Identificar complementação e funções sintáticas que afetam reescritas.",
-    "prerequisites": [
-      "POR-14"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-15-001",
-        "title": "Objeto direto, indireto e complementos verbais",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-15-002",
-        "title": "Complemento nominal e distinção de adjunto",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-15-003",
-        "title": "Agente da passiva e transformações",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-15-004",
-        "title": "Adjunto adnominal e adjunto adverbial",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-15-005",
-        "title": "Aposto, vocativo e valores sintáticos",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-16",
-    "area": "POR",
-    "title": "Concordância verbal e nominal",
-    "priority": "alta",
-    "objective": "Aplicar regras de concordância em casos simples e controversos.",
-    "prerequisites": [
-      "POR-14",
-      "POR-15"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-16-001",
-        "title": "Regra geral de concordância verbal",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-16-002",
-        "title": "Sujeito composto, posposto e casos especiais",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-16-003",
-        "title": "Verbos impessoais haver e fazer; existir",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-16-004",
-        "title": "Concordância nominal e expressões invariáveis",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-16-005",
-        "title": "Concordância em reescritas e casos de prova",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-17",
-    "area": "POR",
-    "title": "Regência verbal e nominal",
-    "priority": "alta",
-    "objective": "Analisar exigências de complementos e implicações de sentido.",
-    "prerequisites": [
-      "POR-15"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-17-001",
-        "title": "Transitividade e seleção de preposições",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-17-002",
-        "title": "Regência de verbos frequentes em concursos",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-17-003",
-        "title": "Mudança de sentido segundo a regência",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-17-004",
-        "title": "Regência nominal e complementos preposicionados",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-17-005",
-        "title": "Regência na norma-padrão e reescrita",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-18",
-    "area": "POR",
-    "title": "Crase",
-    "priority": "alta",
-    "objective": "Reconhecer contextos de fusão preposicional e casos de proibição/faculdade.",
-    "prerequisites": [
-      "POR-11",
-      "POR-17"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-18-001",
-        "title": "Fusão de preposição e artigo; teste do masculino",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-18-002",
-        "title": "Crase obrigatória em locuções e termos femininos",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-18-003",
-        "title": "Casos proibidos e situações sem artigo",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-18-004",
-        "title": "Casos facultativos e pronomes",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-18-005",
-        "title": "Crase em topônimos, horas e reescritas",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-19",
-    "area": "POR",
-    "title": "Período composto: coordenação e subordinação",
-    "priority": "alta",
-    "objective": "Interpretar as relações entre orações e efeitos da alteração de conectivos.",
-    "prerequisites": [
-      "POR-13",
-      "POR-14"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-19-001",
-        "title": "Orações coordenadas sindéticas e assindéticas",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-19-002",
-        "title": "Subordinadas substantivas e funções",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-19-003",
-        "title": "Subordinadas adjetivas restritivas e explicativas",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-19-004",
-        "title": "Subordinadas adverbiais e valores semânticos",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-19-005",
-        "title": "Orações reduzidas, desenvolvidas e reescritas",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-20",
-    "area": "POR",
-    "title": "Pontuação",
-    "priority": "alta",
-    "objective": "Empregar sinais de pontuação conforme estrutura e efeitos de sentido.",
-    "prerequisites": [
-      "POR-15",
-      "POR-19"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-20-001",
-        "title": "Vírgula e termos deslocados, intercalados ou enumerados",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-20-002",
-        "title": "Vírgula entre orações e conjunções",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-20-003",
-        "title": "Restrições: sujeito, verbo e complementos",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-20-004",
-        "title": "Ponto e vírgula, dois-pontos e travessão",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-20-005",
-        "title": "Pontuação, sentido e reescrita de textos",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-21",
-    "area": "POR",
-    "title": "Colocação pronominal",
-    "priority": "alta",
-    "objective": "Aplicar regras de próclise, ênclise e mesóclise em contextos formais.",
-    "prerequisites": [
-      "POR-11",
-      "POR-12"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-21-001",
-        "title": "Posições pronominais e critérios gerais",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-21-002",
-        "title": "Fatores de atração da próclise",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-21-003",
-        "title": "Ênclise e construções formais",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-21-004",
-        "title": "Mesóclise e tempos verbais",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-21-005",
-        "title": "Colocação pronominal em locuções e reescrita",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-22",
-    "area": "POR",
-    "title": "Reescrita, correção e paralelismo",
-    "priority": "alta",
-    "objective": "Avaliar equivalência semântica e correção gramatical em transformações.",
-    "prerequisites": [
-      "POR-04",
-      "POR-16",
-      "POR-17",
-      "POR-19",
-      "POR-20"
-    ],
-    "subtopics": [
-      {
-        "id": "POR-22-001",
-        "title": "Manutenção de sentido em substituições",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-22-002",
-        "title": "Voz passiva, nominalização e transformação",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-22-003",
-        "title": "Paralelismo sintático e semântico",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-22-004",
-        "title": "Correção de períodos com ambiguidade ou redundância",
-        "priority": "alta"
-      },
-      {
-        "id": "POR-22-005",
-        "title": "Coesão, pontuação, regência e concordância integradas",
-        "priority": "alta"
-      }
-    ],
-    "status": "disponivel"
-  },
-  {
-    "id": "POR-23",
-    "area": "POR",
-    "title": "Figuras de linguagem e recursos expressivos",
+    "id": "INF-12",
+    "area": "INF",
+    "title": "Apresentações: PowerPoint e Impress",
     "priority": "media",
-    "objective": "Reconhecer recursos de estilo sem confundir sentido literal e implícito.",
+    "objective": "Criar e compreender apresentações com recursos básicos e intermediários",
     "prerequisites": [
-      "POR-05"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "POR-23-001",
-        "title": "Metáfora, metonímia e comparação",
+        "id": "INF-12-001",
+        "title": "Slides, layouts, temas e modelos",
         "priority": "media"
       },
       {
-        "id": "POR-23-002",
-        "title": "Antítese, paradoxo e eufemismo",
+        "id": "INF-12-002",
+        "title": "Caixas de texto, imagens, formas e tabelas",
         "priority": "media"
       },
       {
-        "id": "POR-23-003",
-        "title": "Hipérbole, personificação e ironia",
+        "id": "INF-12-003",
+        "title": "Mestre de slides e padronização visual",
         "priority": "media"
       },
       {
-        "id": "POR-23-004",
-        "title": "Elipse, pleonasmo e inversão",
+        "id": "INF-12-004",
+        "title": "Transições, animações e ordem de apresentação",
         "priority": "media"
       },
       {
-        "id": "POR-23-005",
-        "title": "Efeito expressivo e interpretação contextual",
+        "id": "INF-12-005",
+        "title": "Anotações, apresentação de slides e modos de exibição",
+        "priority": "media"
+      },
+      {
+        "id": "INF-12-006",
+        "title": "Exportação, impressão e formatos PPTX, ODP e PDF",
         "priority": "media"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "POR-24",
-    "area": "POR",
-    "title": "Produção textual para provas discursivas",
+    "id": "INF-13",
+    "area": "INF",
+    "title": "LibreOffice, Microsoft 365 e formatos compatíveis",
+    "priority": "alta",
+    "objective": "Reconhecer diferenças de suíte e compatibilidade de arquivos em contextos de concurso",
+    "prerequisites": [
+      "INF-07",
+      "INF-09"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-13-001",
+        "title": "Word, Excel, PowerPoint e correspondentes no LibreOffice",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-13-002",
+        "title": "Formatos DOCX, XLSX, PPTX, ODT, ODS e ODP",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-13-003",
+        "title": "Salvar como, exportar e importar documentos",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-13-004",
+        "title": "Recursos compartilhados e diferenças de interface",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-13-005",
+        "title": "Compatibilidade, conversões e limitações entre suítes",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-14",
+    "area": "INF",
+    "title": "Internet, Web e pesquisa de informações",
+    "priority": "alta",
+    "objective": "Distinguir conceitos de internet e utilizar mecanismos de pesquisa com segurança",
+    "prerequisites": [
+      "INF-01"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-14-001",
+        "title": "Internet, intranet, extranet e World Wide Web",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-14-002",
+        "title": "Endereços URL, domínio, DNS e hiperlinks",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-14-003",
+        "title": "HTTP, HTTPS, transferência e serviços da internet",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-14-004",
+        "title": "Motores de busca e operadores de pesquisa avançada",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-14-005",
+        "title": "Resultados, fontes confiáveis e avaliação de credibilidade",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-14-006",
+        "title": "Downloads, uploads, links e arquivos online",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-15",
+    "area": "INF",
+    "title": "Navegadores: Edge, Chrome e Firefox",
+    "priority": "alta",
+    "objective": "Operar recursos comuns dos navegadores e reconhecer suas configurações",
+    "prerequisites": [
+      "INF-14"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-15-001",
+        "title": "Guias, janelas, navegação e atalhos",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-15-002",
+        "title": "Favoritos, histórico e downloads",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-15-003",
+        "title": "Cookies, cache e dados de navegação",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-15-004",
+        "title": "Pesquisa na página, zoom e impressão",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-15-005",
+        "title": "Modo privativo, perfis, extensões e sincronização",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-15-006",
+        "title": "Permissões de site, certificados HTTPS e alertas",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-16",
+    "area": "INF",
+    "title": "Correio eletrônico e comunicação digital",
+    "priority": "alta",
+    "objective": "Utilizar corretamente e-mail e ferramentas de comunicação profissional",
+    "prerequisites": [
+      "INF-14"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-16-001",
+        "title": "Campos Para, Cc, Cco, assunto e destinatários",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-16-002",
+        "title": "Responder, responder a todos e encaminhar",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-16-003",
+        "title": "Anexos, tamanho de arquivos e links compartilhados",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-16-004",
+        "title": "Pastas, etiquetas, filtros, pesquisa e organização",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-16-005",
+        "title": "Spam, phishing e sinais de mensagens suspeitas",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-16-006",
+        "title": "Netiqueta, comunicação institucional e cuidados com dados",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-17",
+    "area": "INF",
+    "title": "Redes de computadores e conectividade",
     "priority": "media",
-    "objective": "Planejar e revisar textos curtos e argumentativos exigidos por editais específicos.",
+    "objective": "Compreender componentes, conexões e conceitos básicos de redes",
     "prerequisites": [
-      "POR-01",
-      "POR-02",
-      "POR-04",
-      "POR-22"
+      "INF-01",
+      "INF-14"
     ],
     "subtopics": [
       {
-        "id": "POR-24-001",
-        "title": "Compreensão do comando e delimitação do tema",
+        "id": "INF-17-001",
+        "title": "LAN, WAN, redes locais e internet",
         "priority": "media"
       },
       {
-        "id": "POR-24-002",
-        "title": "Planejamento, tese e recorte argumentativo",
+        "id": "INF-17-002",
+        "title": "Roteador, switch, modem e ponto de acesso",
         "priority": "media"
       },
       {
-        "id": "POR-24-003",
-        "title": "Desenvolvimento de argumentos e exemplos",
+        "id": "INF-17-003",
+        "title": "Wi-Fi, Ethernet, Bluetooth e conexão móvel",
         "priority": "media"
       },
       {
-        "id": "POR-24-004",
-        "title": "Coesão, progressão e conclusão",
+        "id": "INF-17-004",
+        "title": "Endereço IP, DNS, MAC e conceitos básicos de DHCP",
         "priority": "media"
       },
       {
-        "id": "POR-24-005",
-        "title": "Revisão, concisão, norma-padrão e critérios da banca",
+        "id": "INF-17-005",
+        "title": "Taxa de transferência, latência e disponibilidade",
+        "priority": "media"
+      },
+      {
+        "id": "INF-17-006",
+        "title": "Compartilhamento de recursos e conexão segura",
         "priority": "media"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "RED-01",
-    "area": "RED",
-    "title": "Fundamentos e qualidade da Redação Oficial",
+    "id": "INF-18",
+    "area": "INF",
+    "title": "Segurança da informação: fundamentos",
     "priority": "alta",
-    "objective": "Distinguir atributos da comunicação institucional e sua aplicação prática.",
+    "objective": "Identificar princípios e controles essenciais de segurança",
     "prerequisites": [
-      "POR-04",
-      "POR-06"
+      "INF-01"
     ],
     "subtopics": [
       {
-        "id": "RED-01-001",
-        "title": "Finalidade da comunicação oficial e interesse público",
+        "id": "INF-18-001",
+        "title": "Confidencialidade, integridade e disponibilidade",
         "priority": "alta"
       },
       {
-        "id": "RED-01-002",
-        "title": "Clareza, precisão e objetividade",
+        "id": "INF-18-002",
+        "title": "Autenticidade, não repúdio e controle de acesso",
         "priority": "alta"
       },
       {
-        "id": "RED-01-003",
-        "title": "Concisão e impessoalidade",
+        "id": "INF-18-003",
+        "title": "Políticas de segurança e classificação de informações",
         "priority": "alta"
       },
       {
-        "id": "RED-01-004",
-        "title": "Formalidade, padronização e norma-padrão",
+        "id": "INF-18-004",
+        "title": "Princípio do menor privilégio e gestão de permissões",
         "priority": "alta"
       },
       {
-        "id": "RED-01-005",
-        "title": "Coesão e coerência na redação institucional",
+        "id": "INF-18-005",
+        "title": "Atualizações, correções e ciclo de vida de software",
         "priority": "alta"
       },
       {
-        "id": "RED-01-006",
-        "title": "Identificação de inadequações em documentos",
+        "id": "INF-18-006",
+        "title": "Boas práticas de proteção em ambientes institucionais",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "RED-02",
-    "area": "RED",
-    "title": "Padrão ofício e expedientes oficiais",
+    "id": "INF-19",
+    "area": "INF",
+    "title": "Ameaças digitais e engenharia social",
     "priority": "alta",
-    "objective": "Reconhecer elementos e convenções do padrão ofício previsto no Manual vigente.",
+    "objective": "Reconhecer riscos e adotar medidas preventivas na rotina digital",
     "prerequisites": [
-      "RED-01"
+      "INF-18"
     ],
     "subtopics": [
       {
-        "id": "RED-02-001",
-        "title": "Padrão ofício: finalidade, destinatário e identificação",
+        "id": "INF-19-001",
+        "title": "Vírus, worms, trojans e spyware: conceitos",
         "priority": "alta"
       },
       {
-        "id": "RED-02-002",
-        "title": "Cabeçalho, local, data, assunto e vocativo",
+        "id": "INF-19-002",
+        "title": "Ransomware e consequências para dados e serviços",
         "priority": "alta"
       },
       {
-        "id": "RED-02-003",
-        "title": "Corpo do texto, fecho, assinatura e identificação",
+        "id": "INF-19-003",
+        "title": "Phishing, smishing, vishing e engenharia social",
         "priority": "alta"
       },
       {
-        "id": "RED-02-004",
-        "title": "Tratamento e endereçamento conforme normas aplicáveis",
+        "id": "INF-19-004",
+        "title": "Anexos, links falsos e páginas fraudulentas",
         "priority": "alta"
       },
       {
-        "id": "RED-02-005",
-        "title": "Distinção entre padrões anteriores e modelo vigente",
+        "id": "INF-19-005",
+        "title": "Boatos, desinformação e golpes comuns",
         "priority": "alta"
       },
       {
-        "id": "RED-02-006",
-        "title": "Escolha de vocativo, fecho e tratamento",
-        "priority": "alta"
-      },
-      {
-        "id": "RED-02-007",
-        "title": "Padronização e conferência de informações",
+        "id": "INF-19-006",
+        "title": "Procedimentos preventivos e comunicação de incidentes",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
   },
   {
-    "id": "RED-03",
-    "area": "RED",
-    "title": "Comunicações institucionais e aplicação prática",
+    "id": "INF-20",
+    "area": "INF",
+    "title": "Autenticação, privacidade e proteção de dispositivos",
     "priority": "alta",
-    "objective": "Escolher forma adequada para diferentes comunicações administrativas.",
+    "objective": "Aplicar conceitos de proteção de contas e dados",
     "prerequisites": [
-      "RED-01",
-      "RED-02"
+      "INF-18",
+      "INF-19"
     ],
     "subtopics": [
       {
-        "id": "RED-03-001",
-        "title": "E-mail institucional: assunto, texto e anexos",
+        "id": "INF-20-001",
+        "title": "Senhas, frases secretas e gerenciadores de senhas",
         "priority": "alta"
       },
       {
-        "id": "RED-03-002",
-        "title": "Comunicação eletrônica, registro e rastreabilidade",
+        "id": "INF-20-002",
+        "title": "Autenticação multifator e verificação de identidade",
         "priority": "alta"
       },
       {
-        "id": "RED-03-003",
-        "title": "Convites, solicitações e respostas institucionais",
+        "id": "INF-20-003",
+        "title": "Bloqueio de tela, contas e perfis de acesso",
         "priority": "alta"
       },
       {
-        "id": "RED-03-004",
-        "title": "Publicidade, destinatário e dados pessoais no texto",
+        "id": "INF-20-004",
+        "title": "Antivírus, firewall e atualizações automáticas",
         "priority": "alta"
       },
       {
-        "id": "RED-03-005",
-        "title": "Revisão de tom, concisão e organização de mensagens",
+        "id": "INF-20-005",
+        "title": "Privacidade, permissões de aplicativos e compartilhamentos",
         "priority": "alta"
       },
       {
-        "id": "RED-03-006",
-        "title": "Reescrita com clareza e impessoalidade",
-        "priority": "alta"
-      },
-      {
-        "id": "RED-03-007",
-        "title": "Casos integradores de protocolo, ofício e e-mail",
+        "id": "INF-20-006",
+        "title": "Cuidados com redes públicas e dispositivos compartilhados",
         "priority": "alta"
       }
     ],
-    "status": "disponivel"
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-21",
+    "area": "INF",
+    "title": "Backup, recuperação e armazenamento em nuvem",
+    "priority": "alta",
+    "objective": "Diferenciar cópias de segurança, sincronização e compartilhamento",
+    "prerequisites": [
+      "INF-03",
+      "INF-18"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-21-001",
+        "title": "Backup completo, incremental e diferencial",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-21-002",
+        "title": "Cópia local, externa e em nuvem",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-21-003",
+        "title": "Sincronização não equivale a backup",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-21-004",
+        "title": "Versionamento, restauração e testes de recuperação",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-21-005",
+        "title": "Serviços de nuvem, armazenamento e compartilhamento",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-21-006",
+        "title": "Permissões, acesso e riscos em documentos compartilhados",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-22",
+    "area": "INF",
+    "title": "Colaboração digital: Workspace e Microsoft 365",
+    "priority": "media",
+    "objective": "Utilizar noções de colaboração e produtividade em nuvem",
+    "prerequisites": [
+      "INF-14",
+      "INF-21"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-22-001",
+        "title": "Google Drive, Docs, Sheets e Slides: noções",
+        "priority": "media"
+      },
+      {
+        "id": "INF-22-002",
+        "title": "OneDrive, Word, Excel e PowerPoint na Web",
+        "priority": "media"
+      },
+      {
+        "id": "INF-22-003",
+        "title": "Compartilhamento, permissões e acesso por link",
+        "priority": "media"
+      },
+      {
+        "id": "INF-22-004",
+        "title": "Coautoria, comentários e histórico de versões",
+        "priority": "media"
+      },
+      {
+        "id": "INF-22-005",
+        "title": "Calendários, reuniões e organização de atividades",
+        "priority": "media"
+      },
+      {
+        "id": "INF-22-006",
+        "title": "Sincronização, edição offline e conflitos de versões",
+        "priority": "media"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-23",
+    "area": "INF",
+    "title": "PDF, digitalização e documentos eletrônicos",
+    "priority": "media",
+    "objective": "Compreender fluxos básicos de documentos digitais e sua acessibilidade",
+    "prerequisites": [
+      "INF-07"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-23-001",
+        "title": "PDF: finalidade, leitura, exportação e impressão",
+        "priority": "media"
+      },
+      {
+        "id": "INF-23-002",
+        "title": "Digitalização, OCR e características de imagem",
+        "priority": "media"
+      },
+      {
+        "id": "INF-23-003",
+        "title": "Assinaturas eletrônicas e conceitos de verificação",
+        "priority": "media"
+      },
+      {
+        "id": "INF-23-004",
+        "title": "Metadados, propriedades e organização documental",
+        "priority": "media"
+      },
+      {
+        "id": "INF-23-005",
+        "title": "Acessibilidade digital: texto alternativo e estrutura",
+        "priority": "media"
+      },
+      {
+        "id": "INF-23-006",
+        "title": "Proteção, compartilhamento e cuidados com informações",
+        "priority": "media"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-24",
+    "area": "INF",
+    "title": "Proteção de dados e cidadania digital no serviço público",
+    "priority": "alta",
+    "objective": "Reconhecer boas práticas de tratamento de dados e uso responsável de serviços digitais",
+    "prerequisites": [
+      "INF-18"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-24-001",
+        "title": "Dados pessoais, dados sensíveis e finalidade do tratamento",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-24-002",
+        "title": "Princípios básicos da LGPD em rotinas administrativas",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-24-003",
+        "title": "Compartilhamento seguro e minimização de dados",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-24-004",
+        "title": "Transparência, sigilo, acesso e registro de operações",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-24-005",
+        "title": "Serviços públicos digitais, gov.br e autenticação",
+        "priority": "alta"
+      },
+      {
+        "id": "INF-24-006",
+        "title": "Cuidados com dados em e-mails, planilhas e arquivos",
+        "priority": "alta"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-25",
+    "area": "INF",
+    "title": "Produtividade e resolução de problemas cotidianos",
+    "priority": "media",
+    "objective": "Resolver situações administrativas comuns relacionadas a informática",
+    "prerequisites": [
+      "INF-04",
+      "INF-05"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-25-001",
+        "title": "Atalhos de produtividade e gerenciamento de janelas",
+        "priority": "media"
+      },
+      {
+        "id": "INF-25-002",
+        "title": "Compatibilidade de formatos, impressoras e drivers",
+        "priority": "media"
+      },
+      {
+        "id": "INF-25-003",
+        "title": "Falhas comuns de acesso, rede e impressão",
+        "priority": "media"
+      },
+      {
+        "id": "INF-25-004",
+        "title": "Organização de pastas, versões e nomes de arquivos",
+        "priority": "media"
+      },
+      {
+        "id": "INF-25-005",
+        "title": "Diagnóstico básico de erros sem alterar dados importantes",
+        "priority": "media"
+      },
+      {
+        "id": "INF-25-006",
+        "title": "Boas práticas de ergonomia, acessibilidade e organização",
+        "priority": "media"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-26",
+    "area": "INF",
+    "title": "Sistemas de informação e dados: conceitos básicos",
+    "priority": "complementar",
+    "objective": "Distinguir conceitos elementares de sistemas, dados estruturados e integração",
+    "prerequisites": [
+      "INF-01"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-26-001",
+        "title": "Sistemas de informação e seus componentes",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-26-002",
+        "title": "Banco de dados: registros, campos e tabelas",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-26-003",
+        "title": "Arquivos CSV e estruturas tabulares",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-26-004",
+        "title": "Integração, interoperabilidade e formatos abertos",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-26-005",
+        "title": "Noções de qualidade, consistência e ciclo de vida dos dados",
+        "priority": "complementar"
+      }
+    ],
+    "status": "em_preparacao"
+  },
+  {
+    "id": "INF-27",
+    "area": "INF",
+    "title": "Tecnologias emergentes e uso responsável de IA",
+    "priority": "complementar",
+    "objective": "Reconhecer conceitos atuais de ferramentas digitais com avaliação crítica",
+    "prerequisites": [
+      "INF-14",
+      "INF-18"
+    ],
+    "subtopics": [
+      {
+        "id": "INF-27-001",
+        "title": "Conceito geral de inteligência artificial e IA generativa",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-27-002",
+        "title": "Limitações, imprecisões e necessidade de conferência",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-27-003",
+        "title": "Privacidade e proteção de dados no uso de ferramentas",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-27-004",
+        "title": "Automação de tarefas simples e supervisão humana",
+        "priority": "complementar"
+      },
+      {
+        "id": "INF-27-005",
+        "title": "Critérios de confiabilidade, autoria e segurança digital",
+        "priority": "complementar"
+      }
+    ],
+    "status": "em_preparacao"
   }
 ]);
-export const MODULES = Object.freeze(ALL_PLANNED_MODULES.filter(m=>m.status==='disponivel'));
-export const PENDING_MODULES = Object.freeze(ALL_PLANNED_MODULES.filter(m=>m.status!=='disponivel'));
-export function getModuleById(id) { return MODULES.find(m=>m.id===id)||null; }
+export const MODULES = Object.freeze(ALL_PLANNED_MODULES.filter(m => m.status === 'disponivel'));
+export const PENDING_MODULES = Object.freeze(ALL_PLANNED_MODULES.filter(m => m.status !== 'disponivel'));
+export function getModuleById(id) { return MODULES.find(m => m.id === id) || null; }
 export function getSubtopicById(id) {
-  for (const module of MODULES) { const subtopic=module.subtopics.find(t=>t.id===id);
-    if(subtopic)return {module,subtopic}; }
+  for (const module of MODULES) {
+    const subtopic = module.subtopics.find(t => t.id === id);
+    if (subtopic) return {module, subtopic};
+  }
   return null;
 }
 export function validateCatalog() {
-  const errors=[],ids=new Set();
-  for(const m of ALL_PLANNED_MODULES){
-    if(ids.has(m.id))errors.push(`ID duplicado: ${m.id}`);
+  const errors = [], ids = new Set(), moduleIds = new Set(ALL_PLANNED_MODULES.map(m => m.id));
+  const rank = {alta: 0, media: 1, baixa: 2, complementar: 3};
+  const byId = new Map(ALL_PLANNED_MODULES.map(m => [m.id, m]));
+  for (const m of ALL_PLANNED_MODULES) {
+    if (!/^INF-\d{2}$/.test(m.id)) errors.push(`ID de módulo inválido: ${m.id}`);
+    if (ids.has(m.id)) errors.push(`ID duplicado: ${m.id}`);
     ids.add(m.id);
-    if(!AREAS[m.area])errors.push(`Área inválida: ${m.id}`);
-    if(!Array.isArray(m.subtopics)||!m.subtopics.length)errors.push(`Sem subtópicos: ${m.id}`);
-    for(const t of m.subtopics||[]) {
-      if(ids.has(t.id))errors.push(`ID duplicado: ${t.id}`);
-      ids.add(t.id);
-      if(!t.id.startsWith(m.id+'-'))errors.push(`Vínculo inválido: ${t.id}`);
+    if (!AREAS[m.area]) errors.push(`Área inválida: ${m.id}`);
+    if (!Object.hasOwn(rank, m.priority)) errors.push(`Prioridade inválida: ${m.id}`);
+    if (!['em_preparacao','disponivel'].includes(m.status)) errors.push(`Status inválido: ${m.id}`);
+    if (!Array.isArray(m.subtopics) || !m.subtopics.length) errors.push(`Sem subtópicos: ${m.id}`);
+    const local = new Set();
+    for (const t of m.subtopics || []) {
+      if (!/^INF-\d{2}-\d{3}$/.test(t.id) || !t.id.startsWith(m.id + '-')) errors.push(`Vínculo inválido: ${t.id}`);
+      if (ids.has(t.id) || local.has(t.id)) errors.push(`ID duplicado: ${t.id}`);
+      ids.add(t.id); local.add(t.id);
+      if (!t.title?.trim()) errors.push(`Subtópico sem título: ${t.id}`);
+    }
+    for (const previous of m.prerequisites || []) {
+      if (!moduleIds.has(previous)) errors.push(`Pré-requisito ausente: ${m.id} → ${previous}`);
+      if (previous === m.id) errors.push(`Autodependência: ${m.id}`);
     }
   }
+  const visiting = new Set(), visited = new Set();
+  function visit(id) {
+    if (visiting.has(id)) { errors.push(`Ciclo de pré-requisitos envolvendo ${id}`); return; }
+    if (visited.has(id)) return;
+    visiting.add(id);
+    for (const prev of byId.get(id)?.prerequisites || []) if (byId.has(prev)) visit(prev);
+    visiting.delete(id); visited.add(id);
+  }
+  for (const id of moduleIds) visit(id);
   return errors;
 }

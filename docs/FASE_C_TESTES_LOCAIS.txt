@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: Identidade curricular somente INF
+ok 1 - Identidade curricular somente INF
+  ---
+  duration_ms: 2.565272
+  type: 'test'
+  ...
+# Subtest: IDs estáveis e exclusivos de módulos e subtópicos
+ok 2 - IDs estáveis e exclusivos de módulos e subtópicos
+  ---
+  duration_ms: 1.80866
+  type: 'test'
+  ...
+# Subtest: Pré-requisitos existentes e não circulares
+ok 3 - Pré-requisitos existentes e não circulares
+  ---
+  duration_ms: 0.45711
+  type: 'test'
+  ...
+# Subtest: Nenhum conteúdo de Português é importado pelos adaptadores ativos
+ok 4 - Nenhum conteúdo de Português é importado pelos adaptadores ativos
+  ---
+  duration_ms: 0.636661
+  type: 'test'
+  ...
+# Subtest: Conteúdo não auditado não é publicado prematuramente
+ok 5 - Conteúdo não auditado não é publicado prematuramente
+  ---
+  duration_ms: 0.249276
+  type: 'test'
+  ...
+# Subtest: Contratos de dados são preservados para publicação futura
+ok 6 - Contratos de dados são preservados para publicação futura
+  ---
+  duration_ms: 0.287945
+  type: 'test'
+  ...
+# Subtest: Catálogo JSON documental coincide com o catálogo ES Modules
+ok 7 - Catálogo JSON documental coincide com o catálogo ES Modules
+  ---
+  duration_ms: 0.862061
+  type: 'test'
+  ...
+# Subtest: Módulos de informática priorizam assuntos de prova de nível médio
+ok 8 - Módulos de informática priorizam assuntos de prova de nível médio
+  ---
+  duration_ms: 0.184188
+  type: 'test'
+  ...
+# Subtest: Interface mostra número dinâmico e não abre módulos pendentes
+ok 9 - Interface mostra número dinâmico e não abre módulos pendentes
+  ---
+  duration_ms: 0.692445
+  type: 'test'
+  ...
+# Subtest: Estrutura do pacote não altera identidade do INF-ESTUDO
+ok 10 - Estrutura do pacote não altera identidade do INF-ESTUDO
+  ---
+  duration_ms: 1.059278
+  type: 'test'
+  ...
+# Subtest: Drive recusa configuração com pasta ou arquivo de outro aplicativo
+ok 11 - Drive recusa configuração com pasta ou arquivo de outro aplicativo
+  ---
+  duration_ms: 1.118198
+  type: 'test'
+  ...
+# Subtest: Drive recusa ID, pasta, nome, MIME ou appProperties incompatíveis
+ok 12 - Drive recusa ID, pasta, nome, MIME ou appProperties incompatíveis
+  ---
+  duration_ms: 0.237499
+  type: 'test'
+  ...
+# Subtest: constrói backup INF e rejeita estados e históricos estranhos
+ok 13 - constrói backup INF e rejeita estados e históricos estranhos
+  ---
+  duration_ms: 4.267111
+  type: 'test'
+  ...
+# Subtest: interface do Drive cita só o destino INF
+ok 14 - interface do Drive cita só o destino INF
+  ---
+  duration_ms: 0.475277
+  type: 'test'
+  ...
+# Subtest: restauração de JSON dos outros aplicativos é recusada antes da escrita
+ok 15 - restauração de JSON dos outros aplicativos é recusada antes da escrita
+  ---
+  duration_ms: 0.62941
+  type: 'test'
+  ...
+# Subtest: salvamento local lê e grava exclusivamente a própria chave
+ok 16 - salvamento local lê e grava exclusivamente a própria chave
+  ---
+  duration_ms: 0.658434
+  type: 'test'
+  ...
+# Subtest: diagnósticos internos agora aprovam apenas referências INF
+ok 17 - diagnósticos internos agora aprovam apenas referências INF
+  ---
+  duration_ms: 4.507814
+  type: 'test'
+  ...
+# Subtest: identidade e chaves exclusivas
+ok 18 - identidade e chaves exclusivas
+  ---
+  duration_ms: 0.903243
+  type: 'test'
+  ...
+# Subtest: rejeita backups de Português e Administração
+ok 19 - rejeita backups de Português e Administração
+  ---
+  duration_ms: 2.897213
+  type: 'test'
+  ...
+# Subtest: rejeita IDs estranhos mesmo em estado com appId falsificado
+ok 20 - rejeita IDs estranhos mesmo em estado com appId falsificado
+  ---
+  duration_ms: 1.004126
+  type: 'test'
+  ...
+# Subtest: aceita estado vazio ou com IDs de informática
+ok 21 - aceita estado vazio ou com IDs de informática
+  ---
+  duration_ms: 0.621428
+  type: 'test'
+  ...
+# Subtest: não lê chaves alheias no mecanismo de validação
+ok 22 - não lê chaves alheias no mecanismo de validação
+  ---
+  duration_ms: 0.996744
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 121.59821

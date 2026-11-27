@@ -1,30 +1,5 @@
-/** PT-ESTUDO — banco ativo, sem qualquer import de questões administrativas. */
-import { POR_01_QUESTIONS } from './portugues/por-01-questions.js';
-import { POR_02_QUESTIONS } from './portugues/por-02-questions.js';
-import { POR_03_QUESTIONS } from './portugues/por-03-questions.js';
-import { POR_04_QUESTIONS } from './portugues/por-04-questions.js';
-import { POR_05_QUESTIONS } from './portugues/por-05-questions.js';
-import { POR_06_QUESTIONS } from './portugues/por-06-questions.js';
-import { POR_07_QUESTIONS } from './portugues/por-07-questions.js';
-import { POR_08_QUESTIONS } from './portugues/por-08-questions.js';
-import { POR_09_QUESTIONS } from './portugues/por-09-questions.js';
-import { POR_10_QUESTIONS } from './portugues/por-10-questions.js';
-import { POR_11_QUESTIONS } from './portugues/por-11-questions.js';
-import { POR_12_QUESTIONS } from './portugues/por-12-questions.js';
-import { POR_13_QUESTIONS } from './portugues/por-13-questions.js';
-import { POR_14_QUESTIONS } from './portugues/por-14-questions.js';
-import { POR_15_QUESTIONS } from './portugues/por-15-questions.js';
-import { POR_16_QUESTIONS } from './portugues/por-16-questions.js';
-import { POR_17_QUESTIONS } from './portugues/por-17-questions.js';
-import { POR_18_QUESTIONS } from './portugues/por-18-questions.js';
-import { POR_19_QUESTIONS } from './portugues/por-19-questions.js';
-import { POR_20_QUESTIONS } from './portugues/por-20-questions.js';
-import { POR_21_QUESTIONS } from './portugues/por-21-questions.js';
-import { POR_22_QUESTIONS } from './portugues/por-22-questions.js';
-import { POR_23_QUESTIONS } from './portugues/por-23-questions.js';
-import { POR_24_QUESTIONS } from './portugues/por-24-questions.js';
-import { RED_01_QUESTIONS } from './portugues/red-01-questions.js';
-import { RED_02_QUESTIONS } from './portugues/red-02-questions.js';
-import { RED_03_QUESTIONS } from './portugues/red-03-questions.js';
-export const QUESTIONS = [...POR_01_QUESTIONS,...POR_02_QUESTIONS,...POR_03_QUESTIONS,...POR_04_QUESTIONS,...POR_05_QUESTIONS,...POR_06_QUESTIONS,...POR_07_QUESTIONS,...POR_08_QUESTIONS,...POR_09_QUESTIONS,...POR_10_QUESTIONS,...POR_11_QUESTIONS,...POR_12_QUESTIONS,...POR_13_QUESTIONS,...POR_14_QUESTIONS,...POR_15_QUESTIONS,...POR_16_QUESTIONS,...POR_17_QUESTIONS,...POR_18_QUESTIONS,...POR_19_QUESTIONS,...POR_20_QUESTIONS,...POR_21_QUESTIONS,...POR_22_QUESTIONS,...POR_23_QUESTIONS,...POR_24_QUESTIONS,...RED_01_QUESTIONS,...RED_02_QUESTIONS,...RED_03_QUESTIONS];
-export const questionsForModule = id => QUESTIONS.filter(q=>q.moduleId===id);
+/** INF-ESTUDO — Fase C: banco vazio, sem importação de questões de outros aplicativos.
+ * O contrato de questão (id, moduleId, options, answer, difficulty) fica preservado.
+ */
+export const QUESTIONS = Object.freeze([]);
+export const questionsForModule = id => QUESTIONS.filter(q => q.moduleId === id);
