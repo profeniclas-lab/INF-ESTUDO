@@ -1,0 +1,10 @@
+/** PT-ESTUDO — página informativa somente leitura. */
+export function renderAbout(main){
+main.innerHTML=`<section class="module-detail" aria-labelledby="about-title">
+<h1 class="page-title" id="about-title">Sobre o PT-ESTUDO</h1>
+<p class="page-subtitle">Preparação em Língua Portuguesa e Redação Oficial para concursos públicos de nível médio, especialmente cargos administrativos.</p>
+<div class="cards-grid"><article class="stat-card"><div class="stat-label">Aplicativo</div><div class="stat-value" style="font-size:18px">PT-ESTUDO</div><p class="stat-hint">Versão 2.0 · arquitetura modular</p></article><article class="stat-card"><div class="stat-label">Identidade visual</div><div class="stat-value" style="font-size:18px">Energia e aprendizagem</div><p class="stat-hint">Tema claro e escuro pelo cabeçalho</p></article></div>
+<article class="module-stage"><h2>Como funciona</h2><p>Os módulos publicados oferecem diagnóstico por cartões, aulas, exercícios comentados, banco de questões, revisão espaçada e simulados. Os módulos futuros aparecem como “Em preparação”.</p><p>O aproveitamento combina diagnóstico (20 pontos), aulas (30), exercícios (30) e Banco de Questões (20). A meta é 75 pontos.</p></article>
+<article class="module-stage"><h2>Seu progresso</h2><p>O progresso do Português é salvo em uma chave própria deste navegador, isolada do aplicativo de Administração.</p><p>Em Configurações, é possível exportar e restaurar backups específicos do PT-ESTUDO ou usar o Google Drive manualmente por botão. Não existe sincronização automática entre dispositivos.</p><button class="btn btn-primary" type="button" data-nav="configuracoes">Abrir Configurações</button></article>
+<article class="module-stage"><h2>Projeto</h2><p>HTML, CSS e JavaScript sem frameworks obrigatórios. Conteúdo pedagógico separado do motor.</p><p><a href="https://github.com/profeniclas-lab/pt-estudo/tree/nova-arquitetura" target="_blank" rel="noopener noreferrer">Repositório PT-ESTUDO no GitHub</a></p><button class="btn" type="button" data-nav="dashboard">Voltar ao Dashboard</button></article></section>`;
+}
