@@ -1,13 +1,9 @@
-/** PT-ESTUDO — preferência visual isolada, sem alterar estado pedagógico. */
+/** INF-ESTUDO — preferência de tema sem acesso ao progresso pedagógico. */
 (function () {
   'use strict';
-  const THEME_KEY = 'ptEstudo.ui.theme';
+  const THEME_KEY = 'infEstudo.ui.theme';
   const buttonSelector = '[data-theme-toggle]';
-
-  function isDark() {
-    return document.body.classList.contains('dark');
-  }
-
+  function isDark() { return document.body.classList.contains('dark'); }
   function refreshThemeControls() {
     const dark = isDark();
     document.querySelectorAll(buttonSelector).forEach(button => {
@@ -21,31 +17,20 @@
       if (label) label.textContent = dark ? 'Modo claro' : 'Modo escuro';
     });
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', dark ? '#241B40' : '#3F326D');
-    }
+    if (metaThemeColor) metaThemeColor.setAttribute('content', dark ? '#241B40' : '#3F326D');
   }
-
   function toggleTheme() {
     const next = isDark() ? 'light' : 'dark';
     document.body.classList.toggle('dark', next === 'dark');
-    try {
-      window.localStorage.setItem(THEME_KEY, next);
-    } catch (error) {
-      console.warn('[PT-ESTUDO] Não foi possível salvar a preferência visual.', error);
-    }
+    try { window.localStorage.setItem(THEME_KEY, next); }
+    catch (error) { console.warn('[INF-ESTUDO] Falha ao salvar tema.', error); }
     refreshThemeControls();
   }
-
   document.addEventListener('click', event => {
     const toggle = event.target.closest(buttonSelector);
     if (!toggle) return;
     toggleTheme();
   });
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', refreshThemeControls, { once: true });
-  } else {
-    refreshThemeControls();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refreshThemeControls, { once: true });
+  else refreshThemeControls();
 })();

@@ -1,4 +1,4 @@
-/** PT-ESTUDO — validação não destrutiva e isolamento de identidade. */
+/** INF-ESTUDO — validação não destrutiva e isolamento de identidade. */
 import { STORAGE_KEY } from './storage.js';
 import { STATE_SCHEMA_VERSION, APP_ID } from './state.js';
 import { inspectProgressIdentity } from './progress-identity.js';
@@ -25,7 +25,7 @@ export function inspectStoredProgress(storage = window.localStorage) {
     return { ok: false, code: 'structure', message: 'Listas essenciais do progresso inválidas. A gravação foi bloqueada.' };
   }
   const identity = inspectProgressIdentity(state);
-  if (!identity.ok) return {ok:false,code:'identity',message:'O progresso salvo contém referências de outro aplicativo ou excede o limite de verificação. Os dados foram preservados sem alterações.'};
+  if (!identity.ok) return {ok:false,code:'identity',message:'O progresso contém identificadores de outra matéria ou excede o limite de verificação. Dados preservados.'};
   return { ok: true, code: 'compatible', message: 'Progresso compatível.', state };
 }
 
@@ -39,14 +39,14 @@ export function validateStateForSaving(state) {
 
 export function showStorageSafetyWarning(status) {
   if (status?.ok || typeof document === 'undefined') return;
-  if (document.getElementById('pt-storage-safety-warning')) return;
+  if (document.getElementById('inf-storage-safety-warning')) return;
   const notice = document.createElement('section');
-  notice.id = 'pt-storage-safety-warning';
+  notice.id = 'inf-storage-safety-warning';
   notice.setAttribute('role', 'alert');
   notice.style.cssText = 'position:fixed;inset:12px;z-index:2147483647;overflow:auto;background:#fff9ed;color:#352400;border:3px solid #a65c00;border-radius:12px;padding:24px;box-shadow:0 0 0 9999px rgba(0,0,0,.55);max-width:760px;max-height:calc(100vh - 24px);margin:auto;font:16px/1.5 system-ui';
   const heading = document.createElement('h2'); heading.textContent = 'Progresso protegido — gravações bloqueadas';
   const description = document.createElement('p'); description.textContent = status.message;
-  const guidance = document.createElement('p'); guidance.textContent = 'Não limpe os dados do navegador. Preserve o armazenamento e os backups antes de corrigir qualquer incompatibilidade. Não há migração automática.';
+  const guidance = document.createElement('p'); guidance.textContent = 'Não limpe os dados do navegador. Preserve armazenamento e backups antes de corrigir incompatibilidades. Sem migração automática.';
   notice.append(heading, description, guidance);
   (document.body || document.documentElement).appendChild(notice);
 }

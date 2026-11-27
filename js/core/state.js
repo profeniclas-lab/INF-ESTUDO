@@ -1,5 +1,5 @@
 export const STATE_SCHEMA_VERSION = 3;
-export const APP_ID = 'pt-estudo';
+export const APP_ID = 'inf-estudo';
 
 export function createInitialState() {
   return {
@@ -23,7 +23,7 @@ export function createInitialState() {
 export function normalizeState(candidate) {
   const initial = createInitialState();
   if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) return initial;
-  // Falha fechada: jamais transforma um estado administrativo em Português.
+  // Falha fechada: não migra estados de Português ou Administração.
   if (candidate.schemaVersion !== STATE_SCHEMA_VERSION || candidate.appId !== APP_ID) return initial;
   return {
     ...initial, ...candidate,

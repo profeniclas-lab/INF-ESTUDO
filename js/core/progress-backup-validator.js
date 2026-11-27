@@ -1,9 +1,9 @@
-/** PT-ESTUDO — validação de envelopes de backup, sem escrita. */
+/** INF-ESTUDO — validação de envelopes de backup, sem escrita. */
 import { STORAGE_KEY } from './storage.js';
 import { APP_ID, STATE_SCHEMA_VERSION } from './state.js';
 import { inspectProgressIdentity } from './progress-identity.js';
 
-export const BACKUP_FORMAT = 'pt-estudo-progress-backup';
+export const BACKUP_FORMAT = 'inf-estudo-progress-backup';
 export const BACKUP_MAX_BYTES = 20 * 1024 * 1024;
 const isObject = x => x !== null && typeof x === 'object' && !Array.isArray(x);
 const hasOwn = (o,k) => Object.prototype.hasOwnProperty.call(o,k);
@@ -12,9 +12,9 @@ const isDate = x => typeof x === 'string' && Number.isFinite(Date.parse(x));
 export function summarizeRecordedActivity(progress) {
   const p = isObject(progress) ? progress : {};
   const modules = new Set();
-  const include = id => {if (typeof id === 'string' && /^(?:POR|RED)-\d+$/.test(id)) modules.add(id);};
-  const fromTopic = id => {const match=/^((?:POR|RED)-\d+)-\d+$/.exec(String(id));if(match)include(match[1]);};
-  const fromQuestion = id => {const match=/^Q-((?:POR|RED)-\d+)-/.exec(String(id));if(match)include(match[1]);};
+  const include = id => {if (typeof id === 'string' && /^INF-\d+$/.test(id)) modules.add(id);};
+  const fromTopic = id => {const match=/^(INF-\d+)-\d+$/.exec(String(id));if(match)include(match[1]);};
+  const fromQuestion = id => {const match=/^Q-(?:REAL-|AUT-|AUTORAL-)?(INF-\d+)-/.exec(String(id));if(match)include(match[1]);};
   for(const id of Object.keys(isObject(p.modules)?p.modules:{}))include(id);
   for(const [id,diag] of Object.entries(isObject(p.diagnostics)?p.diagnostics:{}))if(Object.keys(isObject(diag?.answers)?diag.answers:{}).length)include(id);
   for(const [id,lesson] of Object.entries(isObject(p.lessons)?p.lessons:{}))if(lesson&&(lesson.completed===true||lesson.rating!==undefined))fromTopic(id);
@@ -44,7 +44,7 @@ export function validateProgressBackup(value) {
   if(!isDate(value.createdAt))errors.push('Data de criação inválida.');
   if(!isObject(value.state))errors.push('O estado pedagógico não é um objeto válido.');
   const state=isObject(value.state)?value.state:{};
-  if(state.appId!==APP_ID)errors.push('Identidade do estado incompatível com PT-ESTUDO.');
+  if(state.appId!==APP_ID)errors.push('Identidade do estado incompatível com INF-ESTUDO.');
   if(value.schemaVersion!==STATE_SCHEMA_VERSION||state.schemaVersion!==STATE_SCHEMA_VERSION||value.schemaVersion!==state.schemaVersion)errors.push(`Esquema incompatível: exigida versão ${STATE_SCHEMA_VERSION}.`);
   for(const field of ['progress','navigation','preferences','metadata'])if(!isObject(state[field]))errors.push(`Seção ${field} ausente ou inválida.`);
   const p=isObject(state.progress)?state.progress:{};
@@ -57,9 +57,8 @@ export function validateProgressBackup(value) {
     if(hasOwn(p.simulados,'history')&&!Array.isArray(p.simulados.history))errors.push('Histórico de simulados inválido.');
     if(hasOwn(p.simulados,'active')&&p.simulados.active!==null&&!isObject(p.simulados.active))errors.push('Simulado ativo inválido.');
   }
-  // Rejeita referências administrativas também em campos aninhados, sem ler textos livres.
   const identity = inspectProgressIdentity(state);
-  if (!identity.ok) errors.push('O backup contém identificadores administrativos incompatíveis ou excede o limite de inspeção ('+identity.issues.join('; ')+').');
+  if (!identity.ok) errors.push('Identificadores de outra matéria ou inspeção inconclusiva ('+identity.issues.join('; ')+').');
   if(isDate(value.createdAt)&&Date.parse(value.createdAt)>Date.now()+86400000)warnings.push('Data de criação no futuro.');
   if(isDate(state.metadata?.updatedAt)&&Date.parse(state.metadata.updatedAt)>Date.now()+86400000)warnings.push('Atualização do progresso no futuro.');
   const activity=summarizeRecordedActivity(p);

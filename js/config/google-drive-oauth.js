@@ -1,7 +1,7 @@
-/** PT-ESTUDO — configuração pública; nunca inserir client secret ou token. */
+/** INF-ESTUDO — Client ID público; nunca inserir client secret ou tokens. */
 export const DRIVE_OAUTH_CONFIG = Object.freeze({
-  // Mesmo Client ID público; confirme no Google Cloud se a origem publicada está autorizada.
+  // A origem do novo Pages precisa estar autorizada no Google Cloud Console.
   clientId: '790773011179-asqekk0d7v06vusutktnp8pvdonl06m4.apps.googleusercontent.com',
-  folderName: 'PT-ESTUDO',
-  fileName: 'PT-ESTUDO-progresso.json'
+  folderName: 'INF-ESTUDO',
+  fileName: 'INF-ESTUDO-progresso.json'
 });

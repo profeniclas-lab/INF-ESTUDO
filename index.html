@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#3F326D">
-<title>PT-ESTUDO v2.0 — Português e Redação Oficial</title>
+<title>INF-ESTUDO v2.0 — Informática</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="css/module-detail.css">
 <link rel="stylesheet" href="css/diagnostic.css">
@@ -19,19 +19,17 @@
 </head>
 <body>
 <script>
-  // Preferência visual exclusiva desta instalação, sem ler progresso pedagógico.
+  // Tema exclusivo INF-ESTUDO; não lê progresso de outros aplicativos.
   try {
-    if (localStorage.getItem('ptEstudo.ui.theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-  } catch (_) { /* Navegador com armazenamento indisponível: usa modo claro. */ }
+    if (localStorage.getItem('infEstudo.ui.theme') === 'dark') document.body.classList.add('dark');
+  } catch (_) { /* Sem armazenamento: usa modo claro. */ }
 </script>
   <div id="app">
     <header class="app-header">
       <button class="menu-toggle" data-action="toggle-sidebar" aria-label="Abrir menu" aria-controls="sidebar" aria-expanded="false">☰</button>
       <div class="brand">
-        <span id="brandName">PT-ESTUDO</span>
-        <span class="brand-sub" id="brandSubtitle">Português e Redação Oficial</span>
+        <span id="brandName">INF-ESTUDO</span>
+        <span class="brand-sub" id="brandSubtitle">Informática para Concursos</span>
       </div>
       <div class="header-spacer"></div>
       <button type="button" class="theme-switch" data-theme-toggle aria-label="Ativar modo escuro" aria-pressed="false" title="Ativar modo escuro">
@@ -62,6 +60,7 @@
     <main class="main" id="main"></main>
   </div>
   <script type="module" src="js/start-f25-lote04.js"></script>
+  <script type="module" src="js/core/pt-title-sync.js"></script>
   <script defer src="js/core/theme-toggle.js"></script>
 </body>
 </html>
