@@ -9,6 +9,11 @@ import { INF_07_DIAGNOSTICS } from "./informatica/inf-07-diagnostics.js";
 import { INF_08_DIAGNOSTICS } from "./informatica/inf-08-diagnostics.js";
 import { INF_09_DIAGNOSTICS } from "./informatica/inf-09-diagnostics.js";
 import { INF_10_DIAGNOSTICS } from "./informatica/inf-10-diagnostics.js";
+import { INF_11_DIAGNOSTICS } from "./informatica/inf-11-diagnostics.js";
+import { INF_12_DIAGNOSTICS } from "./informatica/inf-12-diagnostics.js";
+import { INF_13_DIAGNOSTICS } from "./informatica/inf-13-diagnostics.js";
+import { INF_14_DIAGNOSTICS } from "./informatica/inf-14-diagnostics.js";
+import { INF_15_DIAGNOSTICS } from "./informatica/inf-15-diagnostics.js";
 export const DIAGNOSTICS = Object.freeze({
   ...INF_01_DIAGNOSTICS,
   ...INF_02_DIAGNOSTICS,
@@ -19,7 +24,12 @@ export const DIAGNOSTICS = Object.freeze({
   ...INF_07_DIAGNOSTICS,
   ...INF_08_DIAGNOSTICS,
   ...INF_09_DIAGNOSTICS,
-  ...INF_10_DIAGNOSTICS
+  ...INF_10_DIAGNOSTICS,
+  ...INF_11_DIAGNOSTICS,
+  ...INF_12_DIAGNOSTICS,
+  ...INF_13_DIAGNOSTICS,
+  ...INF_14_DIAGNOSTICS,
+  ...INF_15_DIAGNOSTICS
 });
 export function getDiagnosticCards(module) {
   const entries = module && DIAGNOSTICS[module.id];

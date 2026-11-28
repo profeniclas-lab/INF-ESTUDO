@@ -1,0 +1,1771 @@
+{
+  "INF-11-001": {
+    "principle": "Classificar reordena registros por uma chave; filtrar apenas restringe quais linhas ficam visíveis, sem apagar os registros excluídos da visualização.",
+    "theory": "Em uma base com colunas de processo, unidade, data e prazo, cada linha deve representar um registro completo. Na classificação por data, as demais células da mesma linha precisam acompanhar a data; selecionar somente uma coluna isolada pode desassociar processo e prazo. Um filtro automático mostra, por exemplo, apenas processos da unidade A. As outras linhas continuam na base e reaparecem ao limpar o filtro. A localização pode ser feita por pesquisa ou pelos critérios de filtro, mas não altera o conteúdo por si só. Cabeçalhos inequívocos facilitam localizar campos, aplicar critérios e evitar combinações erradas.",
+    "compare": "Classificação crescente e decrescente alteram a ordem; filtragem preserva a sequência relativa do conjunto visível, mas oculta registros que não atendem ao critério. Localizar uma palavra não equivale a filtrar todas as linhas de um setor. Remover filtro não é desfazer exclusão de dados.",
+    "procedure": "Antes de ordenar, confira se todo o bloco de dados está selecionado, com cabeçalhos consistentes e sem linhas de separação indevidas. Use ordenação por prazo mantendo as linhas unidas; aplique filtro para visualizar só pendências de um setor e limpe o filtro ao retornar ao total. Confira a contagem de registros.",
+    "pitfalls": "Ordenar exclusivamente a coluna de datas quebra o vínculo com os protocolos. Confundir linhas ocultas pelo filtro com linhas excluídas leva à falsa impressão de perda. Uma coluna com datas como texto pode ser ordenada alfabeticamente, e não cronologicamente.",
+    "scenario": "Uma planilha de 80 protocolos possui as colunas número, setor e vencimento. A chefia quer ver apenas o setor Compras, em ordem crescente de vencimento, sem perder linhas dos demais setores.",
+    "decision": "Filtrar o campo Setor por Compras e classificar a tabela inteira pelo campo Vencimento, em ordem crescente.",
+    "wrongs": [
+      [
+        "Excluir todas as linhas de outros setores e classificar apenas a coluna de datas",
+        "A exclusão remove dados e a ordenação isolada rompe a correspondência entre protocolo e prazo."
+      ],
+      [
+        "Localizar a palavra Compras em uma célula e considerar os 80 registros filtrados",
+        "A pesquisa pontual não restringe o conjunto de linhas apresentado."
+      ],
+      [
+        "Ordenar a coluna de vencimento sozinha e usar a cor da fonte para identificar Compras",
+        "A coluna deixa de acompanhar o registro, e cor de fonte não substitui o critério de filtro."
+      ]
+    ],
+    "truths": [
+      [
+        "Um filtro pode esconder linhas sem removê-las da base",
+        "O critério controla a exibição; as linhas voltam quando o filtro é limpo."
+      ],
+      [
+        "Ordenar a tabela inteira preserva a associação dos campos de cada registro",
+        "Todas as colunas da linha precisam acompanhar a chave de ordenação."
+      ],
+      [
+        "Datas tratadas como texto podem apresentar ordenação incorreta",
+        "A interpretação do tipo de dado afeta a ordem cronológica."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Limpar um filtro restaura automaticamente linhas que foram excluídas do arquivo",
+        "Limpar filtro altera visibilidade; exclusões exigem desfazer ou recuperar os dados."
+      ],
+      [
+        "Classificar somente a coluna de vencimento mantém, necessariamente, o protocolo correto ao lado da data",
+        "Sem expandir a seleção, valores podem deixar de corresponder ao seu registro."
+      ]
+    ],
+    "terms": [
+      [
+        "Classificar",
+        "Reorganizar a sequência dos registros de acordo com uma chave."
+      ],
+      [
+        "Filtrar",
+        "Exibir somente as linhas que satisfazem os critérios definidos."
+      ],
+      [
+        "Localizar",
+        "Procurar uma ocorrência ou posição de um valor no conteúdo."
+      ]
+    ]
+  },
+  "INF-11-002": {
+    "principle": "Validação de dados orienta ou restringe entradas; formatação condicional modifica a aparência conforme uma regra, sem corrigir o valor armazenado.",
+    "theory": "Uma planilha de patrimônio pode aceitar exclusivamente estados como Em uso, Em manutenção e Baixado. A validação permite uma lista de escolhas ou uma condição para o preenchimento; valores já existentes podem exigir inspeção adicional, pois configurar validação não equivale a higienizar todo o histórico. A formatação condicional pode destacar de vermelho datas vencidas e de amarelo as próximas de vencer. A cor é resultado de uma regra aplicada à célula; o conteúdo não vira outra data. Regras podem ter prioridade e diferentes alcances, por isso é preciso verificar intervalo, tipo dos dados e referência das fórmulas.",
+    "compare": "Validação age na entrada dos dados ou alerta sobre valores inválidos; formatação condicional sinaliza visualmente um estado. Formatação manual é fixa até o usuário alterá-la; a condicional pode mudar quando o valor mudar. Destaque visual não equivale a bloqueio da edição.",
+    "procedure": "Defina o conjunto autorizado de estados para a coluna Situação e aplique validação de lista ao intervalo de registros. Depois crie regra de formatação condicional na coluna Prazo, comparando a data com a data de referência. Teste uma entrada inválida, uma data vencida e uma dentro do prazo antes de divulgar a planilha.",
+    "pitfalls": "Inserir cores manualmente para sinalizar prazo não é uma regra automática. Considerar que a validação impede todas as formas de colagem/importação pode gerar falsa segurança. Se o prazo estiver armazenado como texto, comparações de data podem apresentar resultados inesperados.",
+    "scenario": "Um setor cadastra material com situação digitada por vários servidores e prazos de vistoria. Precisa reduzir variações de escrita e destacar as vistorias vencidas.",
+    "decision": "Aplicar validação por lista à coluna Situação e formatação condicional baseada em data à coluna Prazo.",
+    "wrongs": [
+      [
+        "Colorir todas as células de Prazo e aceitar qualquer texto em Situação",
+        "A cor fixa não avalia vencimento e a entrada continua inconsistente."
+      ],
+      [
+        "Proteger somente a primeira linha, supondo que o cabeçalho valide as demais entradas",
+        "Proteger cabeçalhos não estabelece regra de valores aceitos."
+      ],
+      [
+        "Substituir automaticamente todas as datas vencidas por hoje",
+        "Isso altera dados históricos em vez de apenas sinalizar quais prazos venceram."
+      ]
+    ],
+    "truths": [
+      [
+        "Formatação condicional pode atualizar o destaque após mudança do valor",
+        "A regra é reavaliada para o intervalo ao qual está aplicada."
+      ],
+      [
+        "Uma lista de validação ajuda a padronizar a coluna Situação",
+        "Oferece opções permitidas e reduz variantes de digitação."
+      ],
+      [
+        "Células contendo datas como texto exigem cautela nas regras de prazo",
+        "Tipos inadequados podem comprometer comparação com datas reais."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "A cor criada pela formatação condicional altera o valor numérico do prazo",
+        "Formatação modifica apresentação, não o conteúdo do campo."
+      ],
+      [
+        "Validação de dados e formatação condicional são o mesmo mecanismo de proteção",
+        "Validação trata entrada; formatação condicional trata aparência."
+      ]
+    ],
+    "terms": [
+      [
+        "Validação",
+        "Regra para orientar ou restringir a entrada de valores."
+      ],
+      [
+        "Formatação condicional",
+        "Regra visual dependente do conteúdo ou de fórmula."
+      ],
+      [
+        "Formatação manual",
+        "Aparência aplicada diretamente, independente de uma condição."
+      ]
+    ]
+  },
+  "INF-11-003": {
+    "principle": "Um intervalo comum é apenas uma região de células; uma Tabela do Excel é um objeto com cabeçalhos, filtros e referências estruturadas.",
+    "theory": "No Excel para Microsoft 365/2021/2024, transformar uma lista consistente em Tabela cria uma estrutura com nome, cabeçalhos e recursos próprios. Em uma tabela denominada Estoque, fórmulas podem usar referências como Estoque[Quantidade] para a coluna e [@Quantidade] para o valor da linha atual, conforme o contexto da fórmula. Uma referência simples A2:A50 aponta endereços fixados manualmente; a tabela pode expandir o alcance quando novos registros são inseridos. No LibreOffice Calc existem intervalos de banco de dados e filtros, mas não se deve presumir equivalência literal da sintaxe de referências estruturadas do Excel.",
+    "compare": "Uma Tabela do Excel não é apenas células coloridas com bordas: tem comportamento e nomenclatura específicos. Uma referência estruturada usa nomes de tabela/coluna, enquanto A1 utiliza letras e números. O Calc trabalha com recursos semelhantes de organização, mas com diferenças de interface e expressão.",
+    "procedure": "Converta uma lista sem linhas em branco internas em Tabela no Excel e confira se a primeira linha foi reconhecida como cabeçalho. Dê nome descritivo, crie uma coluna de cálculo com referência estruturada e insira um novo registro para observar a expansão. Guarde uma cópia e teste a importação no Calc se o documento circular entre suítes.",
+    "pitfalls": "Atribuir o nome Estoque a uma planilha não cria automaticamente uma Tabela Excel chamada Estoque. Uma fórmula escrita com sintaxe estruturada específica do Excel pode precisar adaptação no Calc. Selecionar apenas parte dos dados ao criar a tabela deixa registros de fora.",
+    "scenario": "O almoxarifado recebe novos itens toda semana. Em Excel Microsoft 365, a fórmula de relatório deve referenciar a coluna Quantidade mesmo quando novas linhas forem adicionadas.",
+    "decision": "Transformar a lista em Tabela chamada Estoque e usar referência à coluna, como Estoque[Quantidade], em fórmula compatível.",
+    "wrongs": [
+      [
+        "Formatar A1:A50 com bordas e afirmar que isso criou uma Tabela com expansão automática",
+        "Estilo visual não cria o objeto de Tabela."
+      ],
+      [
+        "Digitar a palavra Estoque na aba e usar [@Quantidade] em qualquer célula fora de contexto",
+        "Nomear uma aba não define o objeto e o contexto da referência de linha."
+      ],
+      [
+        "Fixar manualmente um intervalo curto sem revisar quando linhas são incluídas",
+        "Novos registros podem ficar fora da fórmula e gerar total incompleto."
+      ]
+    ],
+    "truths": [
+      [
+        "Uma Tabela do Excel pode ampliar referências ao incluir novos registros",
+        "Seu comportamento estruturado facilita manter intervalos coerentes."
+      ],
+      [
+        "A referência Estoque[Quantidade] identifica uma coluna de tabela chamada Estoque",
+        "O nome e os colchetes pertencem à sintaxe estruturada do Excel."
+      ],
+      [
+        "A sintaxe de referências estruturadas do Excel não deve ser presumida idêntica no Calc",
+        "Os dois programas têm modelos e funções de tabela com diferenças."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Aplicar cores e bordas transforma obrigatoriamente o intervalo em Tabela do Excel",
+        "Formatação estética não cria objeto estruturado."
+      ],
+      [
+        "O nome de uma planilha equivale necessariamente ao nome de uma Tabela no Excel",
+        "São entidades diferentes e têm opções próprias de nomeação."
+      ]
+    ],
+    "terms": [
+      [
+        "Intervalo",
+        "Endereços de células, como A2:A50, numa planilha."
+      ],
+      [
+        "Tabela do Excel",
+        "Objeto com cabeçalhos, nome e referências estruturadas."
+      ],
+      [
+        "Referência estruturada",
+        "Expressão que usa o nome da tabela e de suas colunas."
+      ]
+    ]
+  },
+  "INF-11-004": {
+    "principle": "Gráficos transformam dados em representação visual: colunas comparam categorias, linhas destacam evolução temporal e setores exibem partes de um todo.",
+    "theory": "Para comparar a quantidade de atendimentos entre unidades no mesmo mês, um gráfico de colunas facilita ver diferenças de altura. Para mostrar a evolução mensal de janeiro a dezembro, a linha explicita tendência e variações. Um gráfico de setores funciona melhor com poucas categorias mutuamente exclusivas que componham um total; não é apropriado para comparar séries muito numerosas ou valores negativos como fatias. A fonte do gráfico deve conter categorias, números verificáveis e rótulos claros. Títulos, eixos e unidades devem informar exatamente o que se compara; eixos truncados podem ampliar visualmente pequenas diferenças.",
+    "compare": "Gráfico não substitui a tabela-fonte: sua correção depende dos dados. Um gráfico de linha com meses ordenados não significa automaticamente relação causal entre ações e resultados. Setores pressupõem uma decomposição consistente do total; colunas são mais flexíveis para diferenças entre categorias.",
+    "procedure": "Identifique a pergunta: comparar unidades ou acompanhar o tempo? Selecione apenas os dados relevantes e inclua rótulos corretos. Insira um tipo coerente de gráfico, verifique intervalos, legenda, título e escala. Antes de imprimir, compare alguns pontos representados com os valores da tabela.",
+    "pitfalls": "Selecionar meses como texto fora de ordem produz uma tendência enganosa. Um eixo vertical começando perto do maior número pode exagerar diferenças em gráficos de colunas. Um gráfico em pizza com muitas categorias torna leitura e comparações pouco confiáveis.",
+    "scenario": "A direção deseja avaliar os atendimentos de janeiro a junho e identificar quais meses tiveram quedas.",
+    "decision": "Construir um gráfico de linhas com meses em ordem cronológica no eixo horizontal e total de atendimentos no vertical.",
+    "wrongs": [
+      [
+        "Usar gráfico de setores para mostrar cada mês como fração fixa do total anual e inferir tendência contínua",
+        "Fatias expressam participação e não deixam clara a evolução entre períodos."
+      ],
+      [
+        "Ordenar os meses alfabeticamente e ligar os pontos com uma linha",
+        "A sequência alfabética altera a ordem temporal e distorce a tendência."
+      ],
+      [
+        "Omitir rótulos e unidades para caber mais efeitos visuais",
+        "Sem identificação, não é possível conferir a interpretação dos números."
+      ]
+    ],
+    "truths": [
+      [
+        "Colunas são adequadas para comparar quantidades entre setores",
+        "Alturas permitem contraste direto entre categorias."
+      ],
+      [
+        "Linhas ajudam a acompanhar séries ordenadas no tempo",
+        "Conectar pontos em ordem temporal evidencia variações."
+      ],
+      [
+        "Escalas e rótulos interferem na interpretação dos gráficos",
+        "Eixos truncados e falta de unidades podem induzir conclusões equivocadas."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Gráfico de setores é sempre a melhor forma de mostrar crescimento mês a mês",
+        "Setores representam composições do total, não sequência temporal."
+      ],
+      [
+        "Alterar o desenho do gráfico corrige automaticamente valores incorretos na tabela-fonte",
+        "Visualização não valida nem conserta dados de origem."
+      ]
+    ],
+    "terms": [
+      [
+        "Colunas",
+        "Comparação de categorias por barras verticais."
+      ],
+      [
+        "Linhas",
+        "Evolução de valores ao longo de uma sequência ordenada."
+      ],
+      [
+        "Setores",
+        "Proporção de categorias em relação a um todo."
+      ]
+    ]
+  },
+  "INF-11-005": {
+    "principle": "Tabela dinâmica resume dados por campos agrupados e operações como soma ou contagem; não altera obrigatoriamente os registros da origem.",
+    "theory": "Uma lista de compras com Unidade, Categoria, Quantidade e Valor pode gerar uma tabela dinâmica que agrupa por Unidade nas linhas e Categoria nas colunas, exibindo a soma de Valor. O mesmo campo numérico pode ser resumido por soma, média ou contagem, dependendo da pergunta e da configuração. Campo em Filtro restringe o recorte; campo em Linhas define agrupamento, enquanto Valores define a agregação. Alterar a base pode exigir atualização da tabela dinâmica para refletir novos registros, conforme a fonte e o programa. Campos com datas como texto ou valores numéricos mal importados prejudicam agrupamentos e somas.",
+    "compare": "Filtro comum apenas mostra linhas; tabela dinâmica reorganiza e sintetiza informações. Contagem de registros não significa soma de valores. Mudanças no relatório dinâmico normalmente não reescrevem a tabela de origem, e o resumo depende de uma fonte consistente.",
+    "procedure": "Escolha uma base com cabeçalhos únicos e registros sem linhas vazias intercaladas. Insira tabela dinâmica e posicione Unidade em Linhas e Valor em Valores, conferindo a operação Soma. Compare um subtotal com a origem. Quando inserir novas linhas, verifique o intervalo da fonte e atualize o relatório conforme necessário.",
+    "pitfalls": "Se o campo Valor for interpretado como texto, o aplicativo pode sugerir contagem em vez de soma. Esquecer a atualização pode ocultar novos lançamentos. Misturar unidades de medida na mesma coluna invalida o total agregado.",
+    "scenario": "O setor financeiro tem 200 lançamentos com Unidade, Despesa e Valor e precisa saber o total de despesas por unidade sem mudar a base original.",
+    "decision": "Criar tabela dinâmica com Unidade em Linhas e Valor em Valores configurado para Soma, conferindo os totais.",
+    "wrongs": [
+      [
+        "Deletar as linhas originais após obter a primeira soma e manter apenas o resumo",
+        "Isso destrói rastreabilidade e impede auditoria de registros individuais."
+      ],
+      [
+        "Colocar Valor em Linhas e Unidade em Valores sem revisar o tipo de agregação",
+        "A disposição não responde diretamente ao total monetário por unidade."
+      ],
+      [
+        "Usar somente um filtro por unidade e afirmar que foi criado um resumo automático de todas as unidades",
+        "O filtro não agrega os totais de cada grupo simultaneamente."
+      ]
+    ],
+    "truths": [
+      [
+        "O campo Valores define a operação de agregação em uma tabela dinâmica",
+        "Soma, contagem e média produzem resumos distintos."
+      ],
+      [
+        "O campo Linhas pode agrupar registros por unidade",
+        "Cada unidade compõe um grupo do relatório."
+      ],
+      [
+        "Mudanças na fonte podem exigir atualização da tabela dinâmica",
+        "Relatórios podem usar dados em cache e intervalos previamente definidos."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Tabela dinâmica exige apagar a base original para mostrar somas por grupo",
+        "A base pode ser preservada e consultada."
+      ],
+      [
+        "Contar lançamentos gera necessariamente o mesmo resultado que somar valores monetários",
+        "Contagem mede registros; soma agrega os valores numéricos."
+      ]
+    ],
+    "terms": [
+      [
+        "Linhas",
+        "Agrupamento de categorias no relatório."
+      ],
+      [
+        "Valores",
+        "Medida resumida com função como Soma ou Contagem."
+      ],
+      [
+        "Atualizar",
+        "Recalcular o relatório a partir dos dados da origem."
+      ]
+    ]
+  },
+  "INF-11-006": {
+    "principle": "Área de impressão define quais células serão impressas; orientação, escala e margens controlam como a seleção será distribuída nas páginas.",
+    "theory": "Planilhas com muitas colunas podem sair cortadas em folhas diferentes. A área de impressão permite selecionar somente a parte do documento destinada ao papel ou PDF. A orientação paisagem amplia espaço horizontal disponível; retrato favorece relatórios estreitos. Ajustar escala para caber em determinada largura pode reduzir a fonte e comprometer legibilidade, portanto não substitui a escolha de colunas relevantes. Quebras de página mostram limites entre folhas e podem ser ajustadas. Repetir títulos de impressão, quando o recurso estiver disponível na versão usada, ajuda a identificar cabeçalhos em páginas sucessivas.",
+    "compare": "Área de impressão é o recorte; orientação é a direção da folha; escala altera o tamanho impresso; margem é o espaço ao redor do conteúdo. Configuração de papel não corrige valores nem formata automaticamente a tabela-fonte.",
+    "procedure": "Selecione o bloco que deve ir ao relatório, configure a área de impressão, escolha paisagem se a largura justificar e abra Visualizar Impressão. Confira que cabeçalhos e totais aparecem. Ajuste escala, quebras e repetição de títulos, se necessária, e gere uma prévia em PDF antes de enviar.",
+    "pitfalls": "Imprimir a planilha inteira expõe abas ou colunas auxiliares sem necessidade. Reduzir para caber tudo numa folha pode tornar letras ilegíveis. Um intervalo de impressão fixado anteriormente pode deixar de incluir novos registros.",
+    "scenario": "Uma relação de materiais possui 12 colunas, mas o conselho precisa apenas de Código, Descrição, Quantidade e Valor em PDF legível.",
+    "decision": "Definir área de impressão para as quatro colunas necessárias e conferir orientação, escala e prévia antes de exportar.",
+    "wrongs": [
+      [
+        "Imprimir todas as colunas e reduzir a escala até que os textos se tornem quase ilegíveis",
+        "A redução excessiva compromete leitura e pode divulgar dados auxiliares."
+      ],
+      [
+        "Excluir permanentemente as oito colunas não solicitadas para reduzir a impressão",
+        "É desnecessário destruir os dados da planilha de trabalho."
+      ],
+      [
+        "Alterar o tamanho da fonte da tela e presumir que as quebras de página serão adequadas",
+        "A visualização em tela não substitui verificar área, escala e paginação de impressão."
+      ]
+    ],
+    "truths": [
+      [
+        "Área de impressão pode restringir as células enviadas para impressão",
+        "O recorte é configurado independentemente da seleção atual de tela."
+      ],
+      [
+        "Paisagem pode acomodar mais colunas lado a lado",
+        "A folha tem mais espaço horizontal que em retrato de mesmo tamanho."
+      ],
+      [
+        "Pré-visualizar a impressão ajuda a detectar cortes e páginas vazias",
+        "A prévia mostra a distribuição estimada do conteúdo."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Ajustar a escala para uma página garante automaticamente legibilidade de todas as colunas",
+        "A redução excessiva pode deixar texto pequeno demais."
+      ],
+      [
+        "Configurar área de impressão apaga todas as células fora do intervalo escolhido",
+        "A área delimita saída impressa, não exclui conteúdo da planilha."
+      ]
+    ],
+    "terms": [
+      [
+        "Área de impressão",
+        "Conjunto de células escolhido para a saída."
+      ],
+      [
+        "Orientação",
+        "Disposição retrato ou paisagem da folha."
+      ],
+      [
+        "Escala",
+        "Redução ou ampliação do conteúdo na impressão."
+      ]
+    ]
+  },
+  "INF-12-001": {
+    "principle": "Slide é a página de uma apresentação; layout define a disposição de espaços reservados, tema coordena estilos e modelo fornece estrutura reutilizável.",
+    "theory": "Uma apresentação institucional pode usar slide de título, slide com duas colunas e slide de encerramento. O layout determina onde títulos, imagens e corpo serão inseridos e pode ser alterado sem reescrever o texto. Um tema reúne cores, tipografia e efeitos visuais coerentes; aplicar tema pode alterar a aparência de diversos slides sem trocar os argumentos. Um modelo (template) pode incluir slides predefinidos, temas e elementos institucionais. Em PowerPoint para Microsoft 365 e LibreOffice Impress, nomes e menus podem diferir, mas os conceitos de slide e esquema visual são comparáveis.",
+    "compare": "Tema não equivale a layout: o tema trata identidade visual, enquanto layout organiza elementos no slide. Modelo também não é arquivo PDF; uma apresentação editável permite modificar textos e objetos. Duplicar slide copia seu conteúdo, mas não cria automaticamente um novo layout global.",
+    "procedure": "Comece com título e objetivo da reunião, escolha um modelo acessível e defina layouts conforme o tipo de informação. Distribua um assunto central por slide, mantenha contraste legível e revise se o tema institucional é consistente. Não use fontes muito pequenas apenas para colocar todas as informações num único slide.",
+    "pitfalls": "Trocar o layout pode deslocar objetos que não usam espaços reservados. Um tema de cores pode deixar gráficos sem contraste suficiente. Confundir modelos prontos com identidade institucional aprovada pode gerar documento visualmente inconsistente.",
+    "scenario": "Uma coordenação precisa preparar dez slides com capa, agenda, resultados e encaminhamentos, mantendo fontes e cores uniformes.",
+    "decision": "Aplicar tema institucional e escolher layouts adequados a capa, conteúdos e encerramento, revisando cada slide.",
+    "wrongs": [
+      [
+        "Aplicar um layout de título a todos os slides, independentemente dos dados",
+        "O layout único pode prejudicar hierarquia de gráficos e textos."
+      ],
+      [
+        "Escolher cores e fontes aleatórias em cada slide para criar variedade",
+        "A inconsistência dificulta leitura e identificação institucional."
+      ],
+      [
+        "Converter a apresentação para PDF antes de inserir os dados, esperando edição normal dos slides",
+        "PDF de distribuição não substitui arquivo editável para construir a apresentação."
+      ]
+    ],
+    "truths": [
+      [
+        "Layout organiza espaços de conteúdo em um slide",
+        "Títulos, texto e mídia podem ocupar posições predefinidas."
+      ],
+      [
+        "Tema ajuda a manter padronização visual entre slides",
+        "Cores e fontes podem seguir conjunto consistente."
+      ],
+      [
+        "Modelo pode fornecer uma estrutura reutilizável para apresentações futuras",
+        "Ele pode conter layouts, elementos e estilo predefinidos."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Tema e layout são sinônimos exatos, ambos mudam somente o conteúdo do texto",
+        "Tema define estilo; layout define arranjo."
+      ],
+      [
+        "Duplicar um slide cria automaticamente um novo padrão para todos os slides da apresentação",
+        "Duplicação cria cópia local, não modifica o mestre ou tema."
+      ]
+    ],
+    "terms": [
+      [
+        "Slide",
+        "Unidade de exibição da apresentação."
+      ],
+      [
+        "Layout",
+        "Arranjo de espaços reservados e conteúdo."
+      ],
+      [
+        "Tema",
+        "Conjunto coordenado de estilos visuais."
+      ]
+    ]
+  },
+  "INF-12-002": {
+    "principle": "Texto, imagens, formas e tabelas são objetos de slide que podem ser posicionados e formatados separadamente, respeitando hierarquia e legibilidade.",
+    "theory": "Uma caixa de texto permite criar conteúdo fora do marcador de posição; uma forma pode destacar uma etapa de processo, e uma imagem ilustra algo que palavras sozinhas não explicam. Uma tabela é útil quando é necessário ler valores precisos, enquanto gráfico é melhor para mostrar padrões. Ao redimensionar imagens, preservar proporção evita distorção de pessoas, símbolos ou documentos. Objetos podem se sobrepor e ser reordenados para frente ou para trás, mas isso não muda a informação do arquivo original. Além de estética, acessibilidade pede descrições alternativas para imagens relevantes, contraste suficiente e ordem de leitura compreensível.",
+    "compare": "Caixa de texto é objeto editável; texto incorporado à imagem normalmente não pode ser alterado como texto da apresentação. Tabela apresenta valores exatos; gráfico resume relações. Recortar imagem não é equivalente a apagar seus pixels do arquivo original em todas as circunstâncias.",
+    "procedure": "Insira texto com título breve, escolha uma tabela para indicadores exatos e reserve imagens para ilustrar processos. Ajuste tamanho mantendo proporção, alinhe objetos por guias, confira a ordem de sobreposição e inclua texto alternativo quando relevante. Teste a visualização na tela de projeção.",
+    "pitfalls": "Alongar uma imagem sem manter proporções gera distorção; excesso de caixas soltas dificulta padronização. Usar capturas de tela com texto minúsculo não garante legibilidade. Acessibilidade não se resolve apenas com cores diferenciadas.",
+    "scenario": "Um slide de prestação de contas deve mostrar três valores exatos e uma foto de uma unidade, sem que a imagem encubra a tabela.",
+    "decision": "Usar uma tabela para os valores e imagem proporcional posicionada fora da área da tabela, revisando contraste e alinhamento.",
+    "wrongs": [
+      [
+        "Transformar os três números em uma foto de baixa resolução e ampliá-la até preencher o slide",
+        "O texto da imagem pode perder nitidez e não ser acessível."
+      ],
+      [
+        "Colocar a fotografia sobre as células da tabela para aproveitar espaço",
+        "O objeto encobre informações que deveriam ser lidas."
+      ],
+      [
+        "Aplicar apenas uma cor diferente a cada informação sem rótulos textuais",
+        "Cor sozinha não identifica valores de forma acessível."
+      ]
+    ],
+    "truths": [
+      [
+        "Objetos em slides podem ser reordenados em camadas",
+        "Um objeto à frente pode ocultar outro."
+      ],
+      [
+        "Preservar a proporção ajuda a evitar imagens deformadas",
+        "Modificar apenas largura ou altura distorce a relação entre dimensões."
+      ],
+      [
+        "Tabela ajuda a apresentar valores que precisam ser lidos exatamente",
+        "Células e cabeçalhos explicitam cada dado."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Texto inserido numa imagem raster torna-se automaticamente caixa de texto editável no slide",
+        "A apresentação pode tratar o conteúdo apenas como pixels."
+      ],
+      [
+        "Uma legenda colorida sem palavras resolve sozinha todas as necessidades de acessibilidade",
+        "Contraste, rótulos e leitura alternativa também importam."
+      ]
+    ],
+    "terms": [
+      [
+        "Caixa de texto",
+        "Objeto editável destinado a conteúdo textual."
+      ],
+      [
+        "Forma",
+        "Elemento gráfico para destacar ou organizar informação."
+      ],
+      [
+        "Tabela",
+        "Estrutura de linhas e colunas para dados exatos."
+      ]
+    ]
+  },
+  "INF-12-003": {
+    "principle": "Mestre de slides estabelece elementos e layouts reutilizáveis, permitindo mudanças coerentes em grupos de slides vinculados.",
+    "theory": "No PowerPoint desktop, o modo de exibição Mestre de Slides apresenta a hierarquia entre mestre principal e layouts associados. Elementos como logomarca, posição do título e rodapé podem ser definidos de maneira consistente. Alterar o mestre ou layout apropriado pode repercutir nos slides que o utilizam; alterações locais e objetos inseridos manualmente podem não obedecer integralmente ao padrão. No LibreOffice Impress, a ideia de slide mestre também serve à identidade visual, mas menus e opções não são idênticos. No PowerPoint para a Web, recursos avançados de edição de mestre podem não estar disponíveis como no aplicativo desktop.",
+    "compare": "Editar o mestre altera o padrão; editar um slide comum modifica aquele slide. Alterar o layout de um slide pode corrigir posição de campos herdados, mas não reposiciona automaticamente todos os objetos livres. Tema é conjunto visual; mestre organiza e distribui elementos reutilizáveis.",
+    "procedure": "Abra uma cópia da apresentação no aplicativo desktop e localize o mestre correspondente ao conjunto de slides. Configure fonte, logomarca e espaços reservados nos layouts apropriados; volte ao modo normal, reaplique layouts quando necessário e revise as exceções. Não edite apenas a primeira página esperando reflexo global.",
+    "pitfalls": "Modificar um logo em slide comum não atualiza os demais. Criar logomarcas duplicadas sobre o mestre gera sobreposição. Substituir tema sem conferir layouts pode ocultar contraste ou desalinhamentos.",
+    "scenario": "Uma instituição trocou seu logotipo e precisa atualizar 40 slides sem editar manualmente cada ocorrência.",
+    "decision": "Editar o mestre ou layout que controla a marca, depois conferir os slides vinculados e exceções locais.",
+    "wrongs": [
+      [
+        "Substituir o logotipo apenas no slide 1 e presumir que os outros herdarão a alteração",
+        "Slides comuns não funcionam como mestres automaticamente."
+      ],
+      [
+        "Colar um novo logotipo sobre cada slide sem remover o anterior",
+        "Duplicação dificulta manutenção e pode encobrir elementos."
+      ],
+      [
+        "Converter todos os slides para imagens para facilitar futuras trocas de marca",
+        "Imagens achatadas dificultam alterações futuras e acessibilidade."
+      ]
+    ],
+    "truths": [
+      [
+        "Mestres permitem padronizar elementos reutilizados",
+        "Slides vinculados aos layouts podem herdar propriedades visuais."
+      ],
+      [
+        "Alterações locais podem não acompanhar toda mudança feita no mestre",
+        "Objetos independentes podem preservar configurações próprias."
+      ],
+      [
+        "Edição de mestre no PowerPoint Web pode ser mais limitada que no desktop",
+        "Nem todos os recursos de autoria avançada estão disponíveis no navegador."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Editar a logomarca no slide inicial modifica automaticamente todos os demais slides",
+        "Alteração num slide comum costuma ficar restrita a ele."
+      ],
+      [
+        "Mestre é recurso que substitui a necessidade de conferir slides após mudança de layout",
+        "Há exceções e objetos locais que exigem revisão."
+      ]
+    ],
+    "terms": [
+      [
+        "Mestre",
+        "Base compartilhada de estilo e componentes."
+      ],
+      [
+        "Layout do mestre",
+        "Variante de organização herdada pelos slides."
+      ],
+      [
+        "Objeto local",
+        "Elemento criado ou modificado num slide específico."
+      ]
+    ]
+  },
+  "INF-12-004": {
+    "principle": "Transição ocorre ao passar de um slide para outro; animação atua sobre objetos dentro de um slide, segundo sequência e gatilhos definidos.",
+    "theory": "Em uma reunião, uma transição suave pode marcar a mudança de página sem alterar a ordem do conteúdo. Já uma animação pode revelar itens de uma lista gradualmente, controlando a atenção. É possível configurar início ao clicar, com o anterior ou após o anterior, dependendo do aplicativo e recurso. O painel de animação ajuda a revisar a ordem; elementos animados nem sempre ficam visíveis em exportações estáticas. Efeitos excessivos aumentam o risco de distração e podem prejudicar pessoas sensíveis a movimento. Uma apresentação institucional deve priorizar clareza em vez de demonstrar o maior número de efeitos disponíveis.",
+    "compare": "Transição: efeito entre slides; animação: efeito em texto ou outro objeto no mesmo slide. Ordem de slides define narrativa; ordem de animações define revelação interna. Exportação para PDF é estática e não conserva a reprodução interativa dos efeitos como no arquivo de apresentação.",
+    "procedure": "Defina a sequência lógica dos slides antes de inserir efeitos. Aplique transições discretas apenas onde ajudam a orientar; no slide com processo de três passos, use animação simples se a revelação gradual for útil. Execute apresentação de teste verificando ordem e tempo, e forneça alternativa acessível.",
+    "pitfalls": "Usar uma transição para tentar animar só uma figura confunde níveis de efeito. Configurar avanço automático muito rápido pode impedir leitura. Presumir que o PDF irá reproduzir todas as animações compromete distribuição.",
+    "scenario": "Uma capacitação deve revelar três etapas de protocolo no mesmo slide, uma por vez, sem mudar para outra página.",
+    "decision": "Aplicar animação de entrada aos três objetos e conferir a ordem de execução no painel correspondente.",
+    "wrongs": [
+      [
+        "Criar transição entre slides para fazer cada etapa surgir na mesma página",
+        "Transições atuam na passagem entre slides, não em objetos internos."
+      ],
+      [
+        "Definir avanço automático do slide antes que o público possa ler as três etapas",
+        "O ritmo retira conteúdo de cena precocemente."
+      ],
+      [
+        "Exportar em PDF e depender da reprodução das animações para explicar as etapas",
+        "O PDF normalmente apresenta páginas estáticas, sem tais efeitos."
+      ]
+    ],
+    "truths": [
+      [
+        "Animação pode controlar a entrada de objetos dentro de um slide",
+        "A sequência interna pode ser configurada separadamente."
+      ],
+      [
+        "Transições são aplicadas à mudança entre slides",
+        "Elas afetam como uma página passa à seguinte."
+      ],
+      [
+        "A exportação estática para PDF não preserva a experiência interativa de animações",
+        "Efeitos de apresentação não equivalem à visualização de páginas fixas."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Transição é o recurso indicado para controlar a aparição de um único texto sem trocar de slide",
+        "Esse papel pertence às animações de objetos."
+      ],
+      [
+        "Definir animação dispensa verificar a ordem de apresentação dos slides",
+        "A sequência dos slides continua independente."
+      ]
+    ],
+    "terms": [
+      [
+        "Transição",
+        "Efeito de passagem entre dois slides."
+      ],
+      [
+        "Animação",
+        "Efeito de entrada, ênfase ou saída de um objeto."
+      ],
+      [
+        "Sequência",
+        "Ordem de reprodução dos efeitos ou páginas."
+      ]
+    ]
+  },
+  "INF-12-005": {
+    "principle": "Anotações do apresentador auxiliam a fala; modos Normal, Classificação e Apresentação oferecem perspectivas diferentes do mesmo arquivo.",
+    "theory": "Em PowerPoint desktop para Microsoft 365, o modo Normal é adequado à edição de cada slide; a Classificação de Slides ajuda a reorganizar a sequência; a Apresentação de Slides mostra a sequência destinada ao público. O Modo de Exibição do Apresentador, conforme suporte e configuração de telas, pode mostrar anotações e próximo slide ao expositor sem revelar esses recursos ao público. No Impress, existem modos correspondentes, mas posições e nomes de comandos variam. A presença de notas não deve ser confundida com garantia de privacidade: configurações, compartilhamento de tela e exportação podem expor informações dependendo do que está sendo transmitido.",
+    "compare": "Notas são apoio ao expositor, não conteúdo obrigatório do slide. Classificação organiza várias miniaturas; Apresentação ocupa a tela em modo de exibição. Duplicar monitor sem configurar a tela certa pode mostrar ao público o painel que deveria ser privado.",
+    "procedure": "Crie anotações concisas com fontes dos dados e mensagens-chave. Use Classificação para conferir sequência; teste a apresentação com o projetor antes da reunião. Se usar Modo do Apresentador, confira qual tela vai ao público e não inclua dados sensíveis nas anotações sem avaliar exposição.",
+    "pitfalls": "Ler textos longos de notas sem olhar o público prejudica comunicação. Compartilhar a tela errada revela ferramentas internas. Acreditar que anotações são automaticamente excluídas de toda impressão ou exportação é arriscado.",
+    "scenario": "Um palestrante precisa consultar observações sobre indicadores enquanto a plateia visualiza somente os slides.",
+    "decision": "Preparar anotações e testar o Modo do Apresentador em telas corretamente configuradas, conferindo o que a plateia vê.",
+    "wrongs": [
+      [
+        "Inserir todas as anotações no corpo do slide e reduzir a fonte para caber",
+        "A tela do público fica sobrecarregada e menos legível."
+      ],
+      [
+        "Compartilhar indiscriminadamente a área de trabalho sem verificar a janela exibida",
+        "A plateia pode ver o painel de anotações ou outros aplicativos."
+      ],
+      [
+        "Usar apenas Classificação de Slides como modo de exposição final",
+        "Esse modo serve principalmente à organização, não à exibição legível de cada slide."
+      ]
+    ],
+    "truths": [
+      [
+        "Notas podem servir de apoio ao apresentador durante a exposição",
+        "Não precisam integrar o conteúdo projetado."
+      ],
+      [
+        "Classificação de Slides ajuda a reordenar a apresentação",
+        "Miniaturas permitem avaliar a sequência geral."
+      ],
+      [
+        "O Modo do Apresentador exige conferir quais telas recebem cada visualização",
+        "Compartilhamento incorreto pode expor notas e controles."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Adicionar anotações garante que elas jamais aparecerão numa transmissão de tela",
+        "A escolha da janela ou monitor compartilhado influencia a exposição."
+      ],
+      [
+        "O modo Classificação de Slides tem a mesma finalidade principal do modo Apresentação",
+        "Classificação organiza; Apresentação exibe o conteúdo para o público."
+      ]
+    ],
+    "terms": [
+      [
+        "Notas",
+        "Informações de apoio à fala no arquivo."
+      ],
+      [
+        "Classificação",
+        "Visão de múltiplas miniaturas para organização."
+      ],
+      [
+        "Modo do Apresentador",
+        "Visualização de apoio em configuração de telas compatível."
+      ]
+    ]
+  },
+  "INF-12-006": {
+    "principle": "PPTX e ODP preservam estruturas editáveis de apresentação; PDF é especialmente útil para distribuir uma versão visual estática.",
+    "theory": "O formato PPTX é empregado por versões atuais do PowerPoint, enquanto ODP faz parte da família OpenDocument usada pelo LibreOffice Impress. Ambos permitem edição, mas efeitos, fontes, layouts e objetos podem sofrer alterações ao abrir em outro aplicativo. Exportar PDF oferece uma cópia com paginação e aparência mais previsíveis para leitura ou impressão, porém o PDF não equivale ao projeto editável de apresentação. Também é possível configurar impressões como páginas inteiras, folhetos ou anotações, dependendo da suíte. Antes de enviar à instituição, cabe conferir o arquivo final no programa de destino.",
+    "compare": "Salvar como PPTX/ODP continua permitindo alterações estruturais; exportar PDF costuma limitar edição posterior e perde a dinâmica da apresentação. Imprimir em folhetos pode colocar várias miniaturas na mesma folha; PDF não indica por si só que o documento foi assinado digitalmente.",
+    "procedure": "Mantenha uma cópia editável no formato nativo escolhido, exporte outra em PDF para distribuição e abra o PDF para conferir fonte, cortes e ordem. Se o destinatário editará a apresentação, combine PPTX ou ODP e teste a compatibilidade. Não suponha que qualquer recurso será idêntico entre programas.",
+    "pitfalls": "Sobrescrever a única versão editável com um formato inadequado pode complicar futuras alterações. Enviar apenas PDF quando a equipe precisa ajustar slides não atende à finalidade. Efeitos animados não são preservados como execução interativa em cópia PDF estática.",
+    "scenario": "Uma comissão publicará slides da reunião em portal público, mas a secretaria continuará atualizando o material para o encontro seguinte.",
+    "decision": "Guardar o arquivo editável e publicar uma cópia PDF revisada, conferindo fontes e disposição das páginas.",
+    "wrongs": [
+      [
+        "Descartar o PPTX ou ODP e guardar somente PDF como versão de edição principal",
+        "Alterações estruturais futuras ficam mais difíceis."
+      ],
+      [
+        "Enviar somente arquivos editáveis ao público e supor renderização idêntica em qualquer suíte",
+        "Fontes e recursos podem variar conforme programa e versão."
+      ],
+      [
+        "Exportar PDF e prometer que botões e animações da apresentação funcionarão sem adaptação",
+        "A exportação estática não mantém necessariamente a interatividade."
+      ]
+    ],
+    "truths": [
+      [
+        "PPTX e ODP são formatos de apresentação editáveis",
+        "Os programas podem salvar e alterar objetos dos slides."
+      ],
+      [
+        "PDF é útil quando a prioridade é uma distribuição com visual estável",
+        "Ele conserva melhor paginação e aspecto do documento final."
+      ],
+      [
+        "A abertura cruzada entre suítes deve ser conferida visualmente",
+        "Nem todos os recursos são reproduzidos exatamente."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Um PDF exportado oferece o mesmo ambiente de edição de slides de um PPTX",
+        "A versão PDF costuma ser destinada à leitura e distribuição."
+      ],
+      [
+        "Toda animação do PowerPoint passa a funcionar automaticamente no PDF",
+        "Conteúdo PDF é predominantemente estático nesse contexto."
+      ]
+    ],
+    "terms": [
+      [
+        "PPTX",
+        "Formato OOXML de apresentações, comum no PowerPoint."
+      ],
+      [
+        "ODP",
+        "Formato OpenDocument de apresentações, comum no Impress."
+      ],
+      [
+        "PDF",
+        "Formato de distribuição e visualização de páginas."
+      ]
+    ]
+  },
+  "INF-13-001": {
+    "principle": "Word, Excel e PowerPoint correspondem principalmente a Writer, Calc e Impress, mas ferramentas parecidas não garantem comportamento idêntico.",
+    "theory": "O Word e o Writer são processadores de texto para criar ofícios e relatórios; Excel e Calc organizam cálculos e planilhas; PowerPoint e Impress constroem apresentações. A correspondência funcional permite realizar tarefas semelhantes, porém recursos avançados, localização de comandos e formato de gravação variam. Além deles, a suíte LibreOffice pode incluir Draw, Base e Math, que não são substitutos diretos desses três aplicativos centrais. Microsoft 365 combina aplicativos e serviços de nuvem conforme a licença, portanto nome de assinatura não significa que cada função de desktop exista na Web. Em concurso, é importante identificar o aplicativo e sua versão quando uma questão pedir procedimento ou opção de menu.",
+    "compare": "Editor de texto não substitui planilha para fórmulas estruturadas. Uma apresentação tem páginas de slide, não páginas de documento corrido. LibreOffice é suíte de programas; Microsoft 365 pode incluir assinatura, armazenamento e serviços além dos aplicativos.",
+    "procedure": "Associe primeiro a tarefa ao tipo de documento: memorando em Writer ou Word, controle de orçamento em Calc ou Excel, exposição de resultados em Impress ou PowerPoint. Confirme o programa e a edição instalados antes de procurar o comando específico. Preserve o formato necessário para a equipe e teste a visualização do destinatário.",
+    "pitfalls": "Afirmar que Writer executa planilhas porque pertence à mesma suíte confunde aplicativos. Supor que uma ferramenta do Excel 365 esteja presente no Calc ou em versão antiga ignora diferenças técnicas. A mesma extensão pode ser aberta por mais de um programa sem equivalência total.",
+    "scenario": "Uma unidade precisa redigir um ofício, controlar quantitativos de estoque e apresentar resultados em reunião usando o LibreOffice.",
+    "decision": "Usar Writer para o ofício, Calc para os quantitativos e Impress para os slides, verificando os formatos de entrega.",
+    "wrongs": [
+      [
+        "Utilizar apenas Writer e digitar fórmulas de controle em parágrafos como se fossem células",
+        "Processador de texto não oferece a estrutura completa de planilha."
+      ],
+      [
+        "Criar slides no Calc e tratar abas como páginas de apresentação",
+        "Planilhas e apresentações têm estruturas de exibição distintas."
+      ],
+      [
+        "Abrir todos os arquivos no Impress e esperar edição equivalente dos documentos",
+        "Impress é ferramenta de apresentação, não editor universal da suíte."
+      ]
+    ],
+    "truths": [
+      [
+        "Writer corresponde funcionalmente ao Word na edição de textos",
+        "Ambos oferecem páginas, estilos e formatação de documentos."
+      ],
+      [
+        "Calc corresponde ao Excel em tarefas de planilha",
+        "Células, intervalos e fórmulas fazem parte do propósito desses programas."
+      ],
+      [
+        "Impress corresponde ao PowerPoint na produção de slides",
+        "Ambos criam apresentações editáveis."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "LibreOffice Writer é o equivalente principal do Microsoft Excel",
+        "Writer edita textos; Calc é o correspondente de planilha."
+      ],
+      [
+        "Um mesmo nome de recurso garante que atalhos e menus sejam idênticos entre suítes",
+        "Implementações, traduções e versões podem divergir."
+      ]
+    ],
+    "terms": [
+      [
+        "Writer/Word",
+        "Produção e revisão de textos."
+      ],
+      [
+        "Calc/Excel",
+        "Estruturação de planilhas e fórmulas."
+      ],
+      [
+        "Impress/PowerPoint",
+        "Produção de apresentações e slides."
+      ]
+    ]
+  },
+  "INF-13-002": {
+    "principle": "DOCX, XLSX e PPTX são formatos Office Open XML; ODT, ODS e ODP pertencem à família OpenDocument para texto, planilha e apresentação.",
+    "theory": "Um ofício em ODT normalmente é editado em Writer; uma planilha em ODS, no Calc; uma apresentação em ODP, no Impress. Seus equivalentes Office Open XML usuais são DOCX, XLSX e PPTX. Cada extensão indica formato de arquivo e sugere aplicativo compatível, mas não garante que a associação padrão do computador esteja correta. Microsoft Office e LibreOffice podem abrir e salvar diversos formatos de outra suíte. É necessário distinguir também PDF como formato de distribuição, CSV como dados tabulares e ZIP como compactação. Alterar apenas a extensão no nome de um arquivo não converte sua estrutura interna.",
+    "compare": "DOCX não é arquivo executável; XLSX não é apresentação. A família ODF adota formatos como ODT, ODS e ODP; PDF é distinto de ambos. Compatibilidade para abrir arquivo não significa fidelidade de todos os recursos, como macros, estilos e gráficos.",
+    "procedure": "Verifique o objetivo: documento de texto, planilha ou apresentação. Escolha um formato de edição coerente com a equipe e realize Salvar como no programa, em vez de renomear apenas a extensão. Abra o arquivo salvo para conferir dados, fontes e objetos; exporte PDF apenas se o destinatário precisar de visualização estável.",
+    "pitfalls": "Renomear resumo.odt para resumo.docx não produz um DOCX válido. Tratar todo arquivo com ícone do Word como necessariamente DOCX ignora associações do sistema. Compartilhar uma planilha complexa em CSV pode eliminar fórmulas e múltiplas folhas.",
+    "scenario": "Um servidor recebeu relatorio.odt, despesas.ods e reuniao.odp e precisa identificar o programa apropriado para editar cada um.",
+    "decision": "Abrir relatorio.odt no Writer, despesas.ods no Calc e reuniao.odp no Impress, conferindo a associação correta.",
+    "wrongs": [
+      [
+        "Abrir despesas.ods no Writer porque todos usam OpenDocument",
+        "ODS é planilha e demanda editor apropriado."
+      ],
+      [
+        "Renomear reuniao.odp para reuniao.pptx e considerar convertido",
+        "Trocar o nome não altera o formato interno do documento."
+      ],
+      [
+        "Exportar relatorio.odt como CSV para manter formatação e imagens",
+        "CSV não preserva estrutura de páginas, imagens e estilos de texto."
+      ]
+    ],
+    "truths": [
+      [
+        "ODT é formato OpenDocument de texto",
+        "É apropriado a documentos como ofícios editáveis."
+      ],
+      [
+        "XLSX é formato de planilha da família Office Open XML",
+        "O arquivo comporta células, fórmulas e folhas."
+      ],
+      [
+        "ODP é formato OpenDocument de apresentação",
+        "É usado para slides editáveis no Impress."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Mudar o nome de um arquivo de ODT para DOCX altera automaticamente sua estrutura para OOXML",
+        "Conversão exige gravação apropriada por software compatível."
+      ],
+      [
+        "XLSX e PPTX identificam, respectivamente, apresentação e planilha",
+        "É o inverso: XLSX é planilha; PPTX é apresentação."
+      ]
+    ],
+    "terms": [
+      [
+        "ODT",
+        "Documento de texto OpenDocument."
+      ],
+      [
+        "ODS",
+        "Planilha OpenDocument."
+      ],
+      [
+        "ODP",
+        "Apresentação OpenDocument."
+      ]
+    ]
+  },
+  "INF-13-003": {
+    "principle": "Salvar grava o trabalho no formato escolhido; Salvar como permite definir outro nome, local ou formato; Exportar costuma produzir uma representação destinada a outro uso.",
+    "theory": "Quando um relatório está em ODT e precisa ser enviado em DOCX, o usuário pode usar Salvar como e selecionar tipo correspondente, verificando eventuais alertas de compatibilidade. Exportar para PDF gera um arquivo que facilita distribuição sem exigir o mesmo editor. Importar abre ou incorpora informações de outro formato e pode exigir opções de codificação ou delimitação, como em CSV. A distinção entre os verbos importa porque as operações podem ou não substituir o arquivo ativo. Também é preciso verificar se a extensão corresponde ao tipo realmente gravado e se a cópia editável ficou preservada.",
+    "compare": "Salvar é persistência da versão atual; Salvar como pode criar nova versão; exportar PDF costuma gerar saída de leitura. Importar CSV envolve analisar separadores e codificação, não apenas selecionar o arquivo. Um arquivo duplicado por nome pode ainda conter alterações e fórmulas diferentes.",
+    "procedure": "Guarde primeiro a versão original em formato nativo. Para compartilhar, use Salvar como ou Exportar com formato adequado e nome distinto. Reabra as duas cópias para verificar aparência, dados e possibilidade de edição. Ao importar texto CSV, confira delimitadores, acentos, tipos de data e zeros à esquerda antes de aceitar a importação.",
+    "pitfalls": "Salvar como outro formato sem conferir aviso de compatibilidade pode perder recurso. Alterar só extensão não equivale a exportar. Importar códigos de material com zeros à esquerda como números pode modificar identificadores.",
+    "scenario": "Uma secretaria tem um ofício em ODT e precisa manter versão editável interna e disponibilizar PDF assinado posteriormente ao público.",
+    "decision": "Preservar o ODT original e exportar uma cópia PDF conferida, sem substituir o arquivo de edição.",
+    "wrongs": [
+      [
+        "Renomear manualmente a extensão para .pdf e enviar o mesmo conteúdo interno",
+        "O arquivo não é convertido só pela mudança de nome."
+      ],
+      [
+        "Sobrescrever a única cópia ODT com um PDF e descartar a versão de edição",
+        "Modificações futuras ficam dificultadas e a versão matriz se perde."
+      ],
+      [
+        "Copiar somente o texto para um editor simples e supor que estilos e paginação serão iguais",
+        "Formatação e elementos do documento não são preservados dessa forma."
+      ]
+    ],
+    "truths": [
+      [
+        "Salvar como permite escolher novo formato conforme recursos do aplicativo",
+        "Um tipo de arquivo diferente pode exigir conversão."
+      ],
+      [
+        "Exportar PDF é apropriado para divulgação de uma cópia de leitura",
+        "O arquivo resultante preserva representação de páginas."
+      ],
+      [
+        "Importar CSV pode exigir escolha de delimitador e tipo de campo",
+        "Essas opções afetam a interpretação dos dados."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Renomear um arquivo basta para converter fielmente qualquer formato de documento",
+        "Conteúdo e estrutura interna não são reescritos pelo nome."
+      ],
+      [
+        "Exportar em PDF mantém necessariamente toda a editabilidade e fórmulas do arquivo original",
+        "A saída é orientada à leitura e não preserva essas operações como edição nativa."
+      ]
+    ],
+    "terms": [
+      [
+        "Salvar",
+        "Persistir alterações do documento."
+      ],
+      [
+        "Salvar como",
+        "Gravar com outra identidade, local ou formato."
+      ],
+      [
+        "Exportar",
+        "Produzir saída em formato de intercâmbio ou distribuição."
+      ]
+    ]
+  },
+  "INF-13-004": {
+    "principle": "Suítes de escritório compartilham conceitos como estilos, revisão e planilhas, mas seus menus, atalhos e disponibilidade de recursos variam por aplicação e versão.",
+    "theory": "Word e Writer oferecem estilos para títulos e corpo; Excel e Calc oferecem fórmulas e filtros; PowerPoint e Impress oferecem slides e objetos. Embora sejam tarefas equivalentes, não se deve memorizar um caminho de menu do Microsoft 365 e atribuí-lo automaticamente ao LibreOffice. A interface do Excel desktop, da Web e do Calc pode apresentar opções em locais distintos. Em navegadores, salvamento e colaboração dependem também de conta, permissões e conectividade. Quando provas perguntam uma ação específica, o nome e a versão do programa são parte das premissas técnicas para identificar a resposta.",
+    "compare": "Equivalência funcional significa resultado semelhante, não comando idêntico. Um atalho depende do sistema operacional, configuração e contexto do foco. Recursos de coautoria e armazenamento online podem estar integrados ao Microsoft 365 e depender de solução adicional no LibreOffice.",
+    "procedure": "Leia o enunciado para identificar aplicativo, versão e ambiente (desktop ou Web). Localize a categoria funcional do comando e confira a interface correspondente. Se a tarefa for colaborar em tempo real, teste conta e permissões antes de enviar convites. Documente diferenças quando houver equipes usando duas suítes.",
+    "pitfalls": "Atribuir ao Calc uma função cujo nome ou separador pertence a outra versão pode causar erro. Um atalho de navegador pode prevalecer sobre atalho de aplicativo Web. Julgar comandos apenas pela posição da barra, sem considerar edição, pode ser inadequado.",
+    "scenario": "Uma equipe usa Excel Microsoft 365 no computador, enquanto outra abre o mesmo arquivo no Calc e pergunta por que alguns comandos estão em lugares diferentes.",
+    "decision": "Orientar cada equipe a procurar a função equivalente na própria interface, verificando limites de formato e versão.",
+    "wrongs": [
+      [
+        "Garantir que todos os menus são idênticos porque os dois programas editam planilhas",
+        "Suítes têm organização de comandos e recursos diferentes."
+      ],
+      [
+        "Mandar copiar o mesmo atalho de teclado sem verificar sistema e aplicação",
+        "Atalhos podem variar ou entrar em conflito com o navegador."
+      ],
+      [
+        "Concluir que a ausência do mesmo botão impede qualquer função equivalente",
+        "A operação pode existir com outro nome, menu ou método."
+      ]
+    ],
+    "truths": [
+      [
+        "Word e Writer usam conceitos de estilos de parágrafo",
+        "Os comandos podem ter organização visual diferente."
+      ],
+      [
+        "Funções equivalentes podem possuir nomes ou sintaxes diferentes entre suítes",
+        "É necessário conferir idioma e versão."
+      ],
+      [
+        "Ambiente Web pode oferecer conjunto de recursos diferente do desktop",
+        "A disponibilidade depende do produto e das condições de uso."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Se um comando estiver em outra guia no Calc, a tarefa é necessariamente impossível",
+        "A posição do menu não determina a existência do recurso."
+      ],
+      [
+        "Ter a mesma extensão de arquivo torna os atalhos dos dois aplicativos idênticos",
+        "Associação de formato não controla atalhos de interface."
+      ]
+    ],
+    "terms": [
+      [
+        "Equivalência funcional",
+        "Tarefas semelhantes em aplicativos distintos."
+      ],
+      [
+        "Interface",
+        "Organização de ferramentas e comandos apresentados ao usuário."
+      ],
+      [
+        "Versão",
+        "Edição que determina detalhes e disponibilidade de recursos."
+      ]
+    ]
+  },
+  "INF-13-005": {
+    "principle": "Interoperabilidade significa trocar e utilizar arquivos entre softwares, mas conversões podem afetar fontes, macros, fórmulas, layouts e funcionalidades especiais.",
+    "theory": "Um arquivo DOCX pode abrir no Writer, e um XLSX pode ser editado no Calc, porém elementos específicos do programa de origem podem exigir ajuste. Fontes inexistentes no computador são substituídas, alterando quebras de linha. Macros VBA e funções de planilha nem sempre são executadas de modo equivalente. Em apresentações, transições e elementos multimídia podem perder fidelidade quando convertidos. O objetivo de uma conversão deve orientar a revisão: se a planilha alimenta cálculo financeiro, confira fórmulas e resultados; se o documento será impresso, confira paginação; se é apresentação, confira slides e efeitos.",
+    "compare": "Abrir não equivale a preservar toda função; converter não equivale a renomear. PDF é adequado quando a edição não é necessária, enquanto ODT/DOCX mantêm edição. Testar apenas a primeira página não é evidência de fidelidade de uma pasta de trabalho com várias abas.",
+    "procedure": "Guarde uma cópia original, converta pelo comando apropriado e compare antes/depois: contagem de páginas, fontes, tabelas, fórmulas, gráficos e itens especiais. Se houver conteúdo crítico, realize teste funcional com valores conhecidos. Documente qualquer recurso não suportado e escolha formato alternativo se necessário.",
+    "pitfalls": "Confiar que um arquivo abriu sem alerta como prova de integridade ignora perdas silenciosas. Macros e referências externas podem não funcionar. Fonte substituída pode mudar assinatura e paginação do documento.",
+    "scenario": "Uma planilha XLSX com fórmulas de reembolso será editada no Calc antes de nova distribuição à equipe.",
+    "decision": "Manter o XLSX original, abrir no Calc e testar fórmulas, resultados e formato antes de salvar a versão distribuída.",
+    "wrongs": [
+      [
+        "Confiar apenas em que o arquivo abriu sem mensagem de erro",
+        "A abertura não comprova fidelidade de todas as funções."
+      ],
+      [
+        "Trocar manualmente o nome de arquivo .xlsx para .ods sem conversão",
+        "A estrutura interna não acompanha a extensão."
+      ],
+      [
+        "Remover todas as fórmulas e armazenar só resultados sem necessidade",
+        "Isso inviabiliza atualização posterior dos cálculos e auditoria das regras."
+      ]
+    ],
+    "truths": [
+      [
+        "Abrir um DOCX no Writer pode exigir revisão da paginação",
+        "Fontes e recursos de layout podem ser interpretados diferentemente."
+      ],
+      [
+        "Macros e funções específicas podem ter limitações entre suítes",
+        "Nem toda implementação tem suporte equivalente."
+      ],
+      [
+        "Conferir fórmulas com dados conhecidos é prudente após converter planilhas",
+        "A checagem detecta diferenças de cálculo e referências."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Um arquivo aberto sem alerta garante fidelidade completa de fontes, macros e fórmulas",
+        "Alguns problemas só aparecem em inspeção ou execução."
+      ],
+      [
+        "Converter XLSX em ODS elimina a necessidade de testar os resultados",
+        "A conversão pode modificar ou não reconhecer elementos específicos."
+      ]
+    ],
+    "terms": [
+      [
+        "Interoperabilidade",
+        "Capacidade de trocar informação entre sistemas."
+      ],
+      [
+        "Conversão",
+        "Gravação dos dados em estrutura de outro formato."
+      ],
+      [
+        "Fidelidade",
+        "Grau de preservação de conteúdo, forma e funcionamento."
+      ]
+    ]
+  },
+  "INF-14-001": {
+    "principle": "Internet é uma rede mundial de redes; Web é um dos serviços executados sobre essa infraestrutura; intranet restringe acesso a usuários de uma organização.",
+    "theory": "A internet usa protocolos para conectar redes e transportar diversos serviços, como Web, e-mail e transferência de arquivos. A World Wide Web integra recursos acessados por navegadores via tecnologias como HTTP e HTTPS. Uma intranet reúne aplicações e informações destinadas a uma organização; pode usar as mesmas tecnologias Web sem ser pública. A extranet estende acesso controlado a parceiros externos, por exemplo fornecedores. A delimitação de acesso depende de autenticação, permissões e projeto da rede: não é determinado apenas pelo endereço ou pelo visual da página. Um servidor pode abrir portal interno conectado à internet por acesso seguro, mas isso não transforma automaticamente toda a intranet em conteúdo público.",
+    "compare": "Internet é infraestrutura; Web é aplicação sobre a infraestrutura. Intranet é espaço de acesso restrito; extranet incorpora usuários externos autorizados. Portal público e portal interno podem usar HTTPS, mas essa tecnologia não determina quem tem permissão de acesso.",
+    "procedure": "Identifique público-alvo e controle de acesso do serviço: informações abertas ao cidadão na Web, procedimentos internos na intranet e área compartilhada com fornecedores na extranet. Confirme autenticação e direitos de cada grupo. Ao prestar suporte, diferencie indisponibilidade de conexão e indisponibilidade do serviço Web.",
+    "pitfalls": "Dizer que internet e Web são sinônimos ignora e-mail e outros serviços. Presumir que intranet não utiliza protocolos da internet é incorreto. Tornar arquivo público por um link não é medida adequada de autorização para dados internos.",
+    "scenario": "Um órgão mantém notícias abertas no portal público, formulários exclusivos para servidores e acompanhamento controlado para empresas contratadas.",
+    "decision": "Usar portal público para notícias, intranet para servidores e acesso de extranet autorizado às contratadas.",
+    "wrongs": [
+      [
+        "Publicar os formulários internos sem autenticação no portal aberto",
+        "Expor recursos internos confunde público-alvo com acesso autorizado."
+      ],
+      [
+        "Chamar o site público de intranet apenas porque foi criado pelo órgão",
+        "Intranet se caracteriza por acesso restrito e finalidade interna."
+      ],
+      [
+        "Proibir toda conexão externa aos fornecedores e ainda chamar o serviço de extranet",
+        "Extranet pressupõe algum acesso controlado de usuários externos."
+      ]
+    ],
+    "truths": [
+      [
+        "Web é um serviço que funciona sobre a internet",
+        "A rede também oferece serviços como e-mail."
+      ],
+      [
+        "Intranet costuma restringir conteúdo a integrantes autorizados da organização",
+        "O controle é definido por política e tecnologia de acesso."
+      ],
+      [
+        "Extranet permite participação controlada de usuários externos",
+        "Parceiros podem ter acesso delimitado a serviços específicos."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Internet e World Wide Web são termos totalmente equivalentes",
+        "Web é apenas um conjunto de serviços da infraestrutura de internet."
+      ],
+      [
+        "Toda aplicação que usa HTTPS é, por definição, uma intranet",
+        "HTTPS trata transporte seguro, não classificação do público."
+      ]
+    ],
+    "terms": [
+      [
+        "Internet",
+        "Infraestrutura mundial de redes interligadas."
+      ],
+      [
+        "Intranet",
+        "Serviços de acesso interno de uma organização."
+      ],
+      [
+        "Extranet",
+        "Extensão de acesso controlado a parceiros externos."
+      ]
+    ]
+  },
+  "INF-14-002": {
+    "principle": "URL identifica o endereço de um recurso; domínio nomeia um espaço de endereços; DNS traduz nomes para registros necessários à comunicação.",
+    "theory": "Em https://www.exemplo.gov.br/servicos/agenda, https é o esquema, www.exemplo.gov.br é o host e /servicos/agenda é o caminho. Um hiperlink é um elemento clicável que pode apontar para uma URL, mas o texto visível do link pode não revelar seu destino real. O DNS é um serviço distribuído de consulta de nomes e pode retornar endereços e outros registros; ele não garante a legitimidade do site por si só. O navegador usa resolução de nomes para chegar ao servidor quando necessário. Domínios muito parecidos, letras trocadas e subdomínios enganosos exigem atenção, principalmente em mensagens administrativas.",
+    "compare": "URL completa inclui esquema e caminho; domínio é parte do nome de rede. DNS resolve nomes, mas não verifica se o conteúdo publicado é verdadeiro. Hiperlink mostra um rótulo e tem um destino efetivo que precisa ser conferido.",
+    "procedure": "Antes de clicar em mensagem de serviço, inspecione o destino real e confira o domínio completo. Analise a parte à direita do nome, não apenas palavras institucionais no começo. Caso receba link suspeito, abra o serviço conhecido pelo endereço oficial digitado ou obtido por canal confiável.",
+    "pitfalls": "Um endereço com nome de órgão escrito no caminho de outro domínio não se torna oficial. O cadeado indica proteção de transporte, não valida a veracidade do conteúdo. A consulta DNS isolada não autentica o autor de uma página.",
+    "scenario": "Um e-mail exibe o texto “Portal de serviços”, mas o link leva para https://servicos-gov.exemplo.com/login em vez de um domínio institucional conhecido.",
+    "decision": "Conferir o host real do link e acessar o serviço por endereço oficial previamente confirmado, sem inserir credenciais no link duvidoso.",
+    "wrongs": [
+      [
+        "Confiar no texto do hiperlink porque ele mostra o nome do portal",
+        "O rótulo clicável pode ser diferente do destino efetivo."
+      ],
+      [
+        "Interpretar a palavra gov no subdomínio como prova suficiente de domínio oficial",
+        "O domínio registrável pode pertencer a terceiro."
+      ],
+      [
+        "Presumir que resolver o nome no DNS autentica o conteúdo exibido",
+        "DNS auxilia localização técnica, não comprova confiabilidade da página."
+      ]
+    ],
+    "truths": [
+      [
+        "A URL pode conter esquema, host e caminho",
+        "Esses componentes indicam como e onde o recurso é solicitado."
+      ],
+      [
+        "Texto visível de hiperlink pode diferir do endereço de destino",
+        "O destino deve ser verificado independentemente do rótulo."
+      ],
+      [
+        "DNS auxilia a localização de recursos a partir de nomes de domínio",
+        "Respostas DNS podem apontar para endereços de rede e outros registros."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "A presença de gov no início de qualquer link garante domínio governamental",
+        "O nome completo e sua organização precisam ser analisados."
+      ],
+      [
+        "DNS comprova automaticamente a identidade legítima do responsável pelo conteúdo",
+        "Resolução de nomes não equivale à verificação editorial ou institucional."
+      ]
+    ],
+    "terms": [
+      [
+        "URL",
+        "Endereço de um recurso com esquema e localização."
+      ],
+      [
+        "Domínio",
+        "Nome hierárquico empregado na identificação de hosts."
+      ],
+      [
+        "DNS",
+        "Serviço de resolução de nomes e registros."
+      ]
+    ]
+  },
+  "INF-14-003": {
+    "principle": "HTTP transporta solicitações e respostas Web; HTTPS acrescenta proteção criptográfica de transporte via TLS, sem garantir que o conteúdo seja confiável.",
+    "theory": "Quando o navegador carrega uma página, pode enviar uma solicitação HTTP e receber uma resposta com status, cabeçalhos e corpo. HTTPS utiliza TLS para proteger a comunicação em trânsito e autenticar o servidor segundo a validação de certificado; não remove automaticamente a possibilidade de um site malicioso ter certificado válido. Além da Web, a internet suporta e-mail e outros protocolos, cada qual com finalidade específica. O status 404 indica que o recurso solicitado não foi encontrado, não que a conexão seja necessariamente inexistente. Downloads e uploads trafegam dados em sentidos distintos, e seu uso depende de aplicação e autorização.",
+    "compare": "HTTP é protocolo de aplicação; HTTPS indica HTTP sobre canal TLS. Criptografia de transporte não é auditoria de conteúdo. Receber 404 pressupõe que alguma resposta do servidor chegou ao cliente; falha de DNS ocorre em outra etapa.",
+    "procedure": "Verifique a URL e o domínio antes de transmitir informação sensível; confira aviso de certificado inválido em vez de ignorá-lo. Distinga erro de página não encontrada, falta de rede e bloqueio de acesso. Em sistemas administrativos, use os canais oficiais indicados e nunca presuma que HTTPS por si só torna o envio apropriado.",
+    "pitfalls": "Tratar todo site com HTTPS como confiável é erro comum. Confundir erro 404 com ausência de internet prejudica diagnóstico. Pensar que o cadeado impede phishing ignora o risco de domínios enganosos.",
+    "scenario": "Uma servidora acessa um link com HTTPS, mas o endereço é diferente do portal conhecido e pede envio de documentos sigilosos.",
+    "decision": "Verificar domínio e legitimidade institucional por canal independente antes de enviar qualquer documento.",
+    "wrongs": [
+      [
+        "Enviar os dados imediatamente porque o navegador mostra conexão protegida",
+        "TLS protege o transporte, não garante a boa-fé do destinatário."
+      ],
+      [
+        "Ignorar alertas de certificado e continuar com o envio de dados sensíveis",
+        "O alerta indica problema na verificação do canal seguro."
+      ],
+      [
+        "Substituir HTTPS por HTTP para evitar o alerta de certificado",
+        "Remover proteção de transporte aumenta exposição e não resolve identidade do destino."
+      ]
+    ],
+    "truths": [
+      [
+        "HTTPS protege dados transmitidos por meio de TLS",
+        "O canal reduz riscos de leitura ou alteração no trânsito."
+      ],
+      [
+        "Um erro HTTP 404 indica recurso não encontrado na resposta",
+        "Isso difere de falha total de resolução DNS."
+      ],
+      [
+        "Certificado válido não prova que todas as informações do site são verdadeiras",
+        "Confiança editorial e integridade do conteúdo são questões distintas."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "HTTPS garante que o site pertence à instituição mencionada no texto da página",
+        "É necessário verificar domínio e contexto institucional."
+      ],
+      [
+        "Um status 404 significa necessariamente que o computador perdeu a conexão com a internet",
+        "Uma resposta 404 pode chegar normalmente pelo canal de rede."
+      ]
+    ],
+    "terms": [
+      [
+        "HTTP",
+        "Protocolo para solicitações e respostas da Web."
+      ],
+      [
+        "HTTPS",
+        "HTTP transportado em canal protegido por TLS."
+      ],
+      [
+        "TLS",
+        "Mecanismo de proteção da comunicação em trânsito."
+      ]
+    ]
+  },
+  "INF-14-004": {
+    "principle": "Mecanismos de busca indexam páginas; operadores como aspas, site: e sinal de exclusão refinam consultas, mas não garantem completude dos resultados.",
+    "theory": "Uma pesquisa sobre editais pode combinar uma expressão entre aspas para procurar a sequência de palavras e site:dominio.gov.br para restringir domínios; vários buscadores também admitem exclusão com sinal de menos antes do termo. A sintaxe exata e os resultados podem variar conforme o mecanismo e o tempo, pois páginas podem não estar indexadas ou sofrer alterações. Buscar por palavra não equivale a consultar a versão vigente de um edital. Anúncios patrocinados e resultados orgânicos podem aparecer em espaços distintos; a origem deve ser conferida antes de baixar qualquer documento. Pesquisas com datas precisam ser validadas pela publicação oficial.",
+    "compare": "Aspas tentam localizar expressão; site: restringe o domínio alvo; exclusão retira ocorrências indesejadas da consulta. Resultado no topo não comprova oficialidade ou atualização. Indexação não é catálogo completo de todos os documentos publicados na Web.",
+    "procedure": "Escreva o assunto e a instituição, aplique operador site: ao domínio oficial verificado e use aspas quando a expressão exata for relevante. Abra a publicação original e confira data, número do edital e possíveis retificações. Evite reproduzir diretamente informações apenas do resumo do buscador.",
+    "pitfalls": "O operador site: deve apontar a domínio confiável; usar domínio parecido leva a resultados inadequados. A busca pode mostrar cópia antiga mesmo quando há versão nova. Excluir termo demais pode ocultar documentos relevantes.",
+    "scenario": "Uma pessoa quer encontrar no domínio de uma universidade a expressão exata “assistente em administração” em documentos públicos.",
+    "decision": "Pesquisar a expressão entre aspas, restringir pelo operador site: ao domínio oficial e conferir o documento aberto.",
+    "wrongs": [
+      [
+        "Confiar que o primeiro resultado é obrigatoriamente o edital vigente",
+        "Relevância no buscador não demonstra atualização e autenticidade."
+      ],
+      [
+        "Usar site: em um endereço semelhante sem confirmar que é o domínio da universidade",
+        "O filtro pode restringir a fontes não oficiais."
+      ],
+      [
+        "Procurar apenas pelo nome do cargo e copiar trechos do resumo sem abrir o documento",
+        "O resumo pode omitir contexto, datas e retificações."
+      ]
+    ],
+    "truths": [
+      [
+        "Aspas podem ser usadas para buscar expressão exata em mecanismos que suportam a sintaxe",
+        "A consulta tenta localizar palavras na sequência informada."
+      ],
+      [
+        "Operador site: pode restringir resultados a domínio indicado",
+        "A restrição depende do mecanismo e de sua indexação."
+      ],
+      [
+        "Resultado de busca não substitui a conferência da fonte original",
+        "Datas e retificações devem ser verificadas no documento oficial."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "O primeiro resultado de qualquer mecanismo de busca é necessariamente o documento mais atual",
+        "Classificações consideram vários fatores e podem exibir versões antigas."
+      ],
+      [
+        "O operador site: autentica automaticamente a legitimidade do domínio indicado",
+        "Ele restringe busca, mas não valida a propriedade institucional."
+      ]
+    ],
+    "terms": [
+      [
+        "Aspas",
+        "Recurso de busca por expressão literal."
+      ],
+      [
+        "site:",
+        "Operador para restringir domínio pesquisado."
+      ],
+      [
+        "Exclusão -",
+        "Operador para afastar termo da consulta, quando suportado."
+      ]
+    ]
+  },
+  "INF-14-005": {
+    "principle": "Credibilidade de informação depende da origem verificável, data, autoria, finalidade e confirmação em fontes independentes, não apenas da posição nos resultados.",
+    "theory": "Ao consultar uma norma interna, o servidor deve verificar publicação no portal institucional e se houve atualização. Um texto com aparência profissional ou muitas citações não é automaticamente exato. A autoria e o histórico editorial são pistas importantes, mas fontes primárias — como o edital no órgão responsável — costumam ter maior pertinência para regras oficiais. Notícias e publicações secundárias podem ajudar a entender o contexto, porém não substituem o texto normativo. É preciso distinguir data da publicação e data da ocorrência relatada, além de verificar se o conteúdo foi retirado de contexto.",
+    "compare": "Fonte primária apresenta diretamente o documento ou dado original; secundária interpreta ou resume. A autoridade depende da questão concreta: a página de um órgão é relevante para seu próprio edital; a opinião viral não tem o mesmo valor. Consistência entre fontes independentes aumenta confiança, sem tornar qualquer informação infalível.",
+    "procedure": "Abra o documento original e registre endereço, instituição, data, número e eventual versão ou retificação. Compare a informação com comunicação oficial atualizada. Se houver dúvida, não repasse como fato consolidado e procure canal responsável por esclarecer o conteúdo.",
+    "pitfalls": "Confundir número de compartilhamentos com credibilidade é falha recorrente. Link encurtado pode ocultar fonte. Um documento verdadeiro mas desatualizado pode induzir à decisão errada.",
+    "scenario": "Um grupo divulga imagem de suposto novo prazo de inscrição, sem indicar portaria, data nem endereço de publicação.",
+    "decision": "Localizar publicação no portal do órgão, confirmar data e retificações antes de informar o prazo aos interessados.",
+    "wrongs": [
+      [
+        "Divulgar imediatamente porque muitas pessoas compartilharam a imagem",
+        "Popularidade não comprova conteúdo e vigência."
+      ],
+      [
+        "Aceitar a informação apenas porque há um logotipo do órgão na imagem",
+        "Imagens podem ser reutilizadas ou editadas fora de contexto."
+      ],
+      [
+        "Consultar só um comentário de rede social e ignorar o documento oficial",
+        "Comentários não substituem a fonte primária."
+      ]
+    ],
+    "truths": [
+      [
+        "Documentos oficiais devem ser conferidos na fonte primária apropriada",
+        "A página responsável oferece contexto, número e eventuais retificações."
+      ],
+      [
+        "A data da publicação importa para avaliar vigência e atualização",
+        "Texto antigo pode ter sido substituído por nova versão."
+      ],
+      [
+        "Aparência profissional de uma página não basta como prova de precisão",
+        "Elementos visuais podem ser copiados ou usados fora de contexto."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Quantidade de compartilhamentos mede a exatidão normativa de um documento",
+        "Popularidade não é critério técnico de validade."
+      ],
+      [
+        "Uma imagem com logomarca institucional dispensa identificar fonte e data",
+        "A autenticidade do conteúdo exige conferência documental."
+      ]
+    ],
+    "terms": [
+      [
+        "Fonte primária",
+        "Documento ou publicação originária do fato."
+      ],
+      [
+        "Retificação",
+        "Alteração publicada para corrigir ou atualizar conteúdo."
+      ],
+      [
+        "Corroboração",
+        "Conferência de uma afirmação com evidências independentes."
+      ]
+    ]
+  },
+  "INF-14-006": {
+    "principle": "Download recebe dados de um serviço remoto; upload envia dados do dispositivo para um serviço, respeitando permissões e limites do destinatário.",
+    "theory": "Baixar um edital em PDF transfere uma cópia para o computador; enviar um documento ao sistema de protocolo realiza upload. Nem todo link abre um arquivo baixando-o: alguns exibem documentos diretamente no navegador, enquanto outros acionam download conforme configuração e resposta do servidor. Armazenamento em nuvem pode sincronizar dados, mas sincronização contínua não é sinônimo de backup independente. Ao manipular arquivos de processos, confirme destino, tipo aceito, tamanho máximo e proteção de informações pessoais. Também é importante conferir se o envio foi concluído e se o sistema gerou recibo ou número de protocolo.",
+    "compare": "Upload e download têm sentidos opostos; abrir visualizador online não garante arquivo salvo localmente. Compartilhar um link não significa necessariamente conceder acesso aos dados — permissões podem bloquear o destinatário. Transferência concluída não comprova, por si só, que o arquivo foi validado e processado pelo órgão.",
+    "procedure": "Antes do upload, confira nome, formato, tamanho e classificação do documento. Entre no portal correto, envie o arquivo e aguarde confirmação; registre recibo. Antes de usar download, examine origem e tipo do arquivo e guarde cópia em pasta apropriada. Para dados relevantes, mantenha procedimento de backup separado da mera sincronização.",
+    "pitfalls": "Acreditar que o envio terminou só porque a barra de progresso chegou a 100% pode ignorar erro de validação do servidor. Compartilhar link privado sem conceder acesso gera bloqueio. Baixar arquivo executável de origem desconhecida aumenta riscos e não é necessário para ler edital PDF.",
+    "scenario": "Um servidor precisa anexar documento PDF a um requerimento eletrônico e guardar comprovante do protocolo.",
+    "decision": "Fazer upload do PDF no portal correto e confirmar recebimento pelo número ou recibo gerado pelo serviço.",
+    "wrongs": [
+      [
+        "Apenas baixar o formulário do portal e considerar o documento enviado",
+        "Download transfere dados para o usuário, não protocola o arquivo."
+      ],
+      [
+        "Enviar link de pasta privada sem testar as permissões e presumir que o órgão recebeu o PDF",
+        "Acesso pode estar bloqueado e não há confirmação de protocolo."
+      ],
+      [
+        "Fechar o navegador enquanto o envio está pendente, sem verificar recibo",
+        "A operação pode não ter sido concluída ou validada."
+      ]
+    ],
+    "truths": [
+      [
+        "Upload envia dados do dispositivo a um serviço remoto",
+        "É o fluxo usado para anexar documento ao portal."
+      ],
+      [
+        "Download recebe dados de recurso remoto para o dispositivo",
+        "Um arquivo pode ser guardado em pasta local."
+      ],
+      [
+        "Comprovante de protocolo pode ser distinto da barra de progresso da transferência",
+        "O serviço precisa confirmar o recebimento conforme suas regras."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Baixar um formulário do portal equivale a enviar o formulário preenchido",
+        "Download não executa upload."
+      ],
+      [
+        "Enviar um link privado comprova que o destinatário pode visualizar o arquivo",
+        "O acesso depende das permissões e da validade do link."
+      ]
+    ],
+    "terms": [
+      [
+        "Download",
+        "Recebimento de dados remotos."
+      ],
+      [
+        "Upload",
+        "Envio de dados ao serviço."
+      ],
+      [
+        "Compartilhamento",
+        "Oferta de acesso, sujeita a permissões."
+      ]
+    ]
+  },
+  "INF-15-001": {
+    "principle": "Guias organizam páginas numa mesma janela; janelas são unidades independentes, e atalhos comuns facilitam navegação sem alterar necessariamente o conteúdo.",
+    "theory": "Chrome, Edge e Firefox possuem abas (guias) para manter páginas abertas lado a lado. Uma nova janela cria outro contêiner de navegação; uma nova guia fica dentro de uma janela existente. Atalhos comuns no Windows incluem Ctrl+T para nova guia, Ctrl+W para fechar a guia atual e Ctrl+L para selecionar a barra de endereços. Ctrl+Shift+T pode reabrir a última guia fechada conforme o histórico da sessão. Esses atalhos podem variar em macOS, aplicações Web ou políticas de ambiente; sempre identifique o sistema no enunciado. A navegação por histórico não é cópia de segurança do conteúdo de um formulário não enviado.",
+    "compare": "Nova guia não equivale a nova janela; fechar guia não encerra necessariamente o navegador. A barra de endereços recebe URL ou consulta conforme configuração; o campo de pesquisa dentro da página tem outra finalidade. A tecla Alt+Tab alterna janelas do sistema Windows, não necessariamente guias de um único navegador.",
+    "procedure": "Ao consultar três páginas do mesmo processo, abra guias separadas para cada fonte; use Ctrl+L para entrar no endereço oficial. Para comparar duas telas lado a lado, considere duas janelas. Salve rascunhos em sistema apropriado antes de fechar qualquer aba que contenha formulário.",
+    "pitfalls": "Fechar aba com dados não enviados pode causar perda. Ctrl+W atua sobre guia ou janela conforme contexto e aplicativo; não substitui confirmação de saída. Ctrl+T não cria uma janela independente. Abrir muitas guias não melhora por si só a organização das informações.",
+    "scenario": "Uma servidora quer manter o sistema de protocolo aberto enquanto consulta duas normas no mesmo navegador Windows, sem sair da tela principal.",
+    "decision": "Abrir duas novas guias com Ctrl+T e alterná-las, preservando a guia do protocolo sem fechá-la.",
+    "wrongs": [
+      [
+        "Usar Ctrl+W para criar uma nova guia de consulta",
+        "Esse atalho fecha a guia em foco."
+      ],
+      [
+        "Fechar a guia do protocolo antes de salvar o rascunho para liberar espaço",
+        "Um formulário não enviado pode perder dados."
+      ],
+      [
+        "Usar Alt+Tab esperando mudar obrigatoriamente entre guias da mesma janela",
+        "Esse atalho do Windows alterna janelas, não as guias da mesma janela."
+      ]
+    ],
+    "truths": [
+      [
+        "Ctrl+T costuma abrir nova guia em navegadores desktop no Windows",
+        "O atalho opera no contexto do navegador."
+      ],
+      [
+        "Ctrl+L costuma selecionar a barra de endereços",
+        "Permite digitar URL ou consulta conforme o navegador."
+      ],
+      [
+        "Uma janela pode conter várias guias",
+        "Guias compartilham o mesmo contêiner de janela."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Ctrl+W cria nova guia sem alterar as páginas existentes",
+        "Em geral fecha a guia ou janela ativa, conforme o contexto."
+      ],
+      [
+        "Alt+Tab troca exclusivamente guias de um navegador",
+        "No Windows, alterna janelas de aplicativos."
+      ]
+    ],
+    "terms": [
+      [
+        "Guia",
+        "Página de navegação dentro de uma janela."
+      ],
+      [
+        "Janela",
+        "Contêiner independente de uma ou mais guias."
+      ],
+      [
+        "Barra de endereços",
+        "Campo para URL e consultas."
+      ]
+    ]
+  },
+  "INF-15-002": {
+    "principle": "Favoritos guardam referências a páginas; histórico registra visitas; downloads são arquivos recebidos que permanecem onde foram salvos.",
+    "theory": "Adicionar uma página aos Favoritos no Edge ou Chrome, ou aos Marcadores no Firefox, facilita acessá-la depois sem memorizar a URL. O favorito guarda o endereço e metadados, mas não salva necessariamente uma cópia integral da página para leitura offline. O histórico de navegação registra visitas conforme as políticas e o modo utilizado; pode ser apagado ou não registrado na navegação privativa. A lista de downloads é uma interface de acompanhamento de arquivos transferidos, distinta do conteúdo físico da pasta Downloads. Limpar o histórico do navegador não apaga automaticamente todos os arquivos que já foram baixados para o dispositivo.",
+    "compare": "Favoritos são escolhas feitas pelo usuário; histórico decorre das visitas registradas. Download armazena dados do arquivo em local configurado; remover entrada da lista de downloads não implica necessariamente excluir o arquivo. Sincronizar favoritos entre dispositivos depende de conta e configuração.",
+    "procedure": "Ao localizar uma página oficial usada com frequência, confira a URL e salve nos favoritos com nome descritivo. Ao baixar um PDF, verifique pasta de destino e renomeie de forma clara. Consulte histórico para recuperar uma página vista antes, mas não use histórico como substituto da guarda formal de documentos administrativos.",
+    "pitfalls": "Favorito antigo pode apontar para página desatualizada. O histórico não comprova a validade de informação. Apagar a lista visual de downloads não libera necessariamente espaço de armazenamento.",
+    "scenario": "Um servidor visita mensalmente o portal de licitações e precisa achar rapidamente um edital PDF já baixado.",
+    "decision": "Salvar o portal oficial nos favoritos e localizar o PDF na pasta de downloads escolhida, confirmando sua versão.",
+    "wrongs": [
+      [
+        "Confiar que salvar favorito criou uma cópia offline do edital",
+        "Favorito aponta para um endereço e não necessariamente guarda o documento."
+      ],
+      [
+        "Limpar a lista de downloads como método seguro de excluir o PDF do disco",
+        "A remoção do registro visual pode não eliminar o arquivo."
+      ],
+      [
+        "Usar uma entrada antiga do histórico sem conferir se o edital foi retificado",
+        "Visita anterior não demonstra vigência do conteúdo."
+      ]
+    ],
+    "truths": [
+      [
+        "Favorito armazena referência para voltar a uma página",
+        "Em geral não cria uma cópia completa do site."
+      ],
+      [
+        "Histórico pode registrar páginas visitadas em sessões comuns",
+        "Seu comportamento depende das preferências e do modo de navegação."
+      ],
+      [
+        "A lista de downloads é distinta dos arquivos armazenados no disco",
+        "Apagar uma entrada do histórico não exclui necessariamente o arquivo."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Remover uma entrada da lista de downloads apaga necessariamente o arquivo do computador",
+        "Registro visual e arquivo armazenado são entidades diferentes."
+      ],
+      [
+        "Salvar um endereço em favoritos garante que seu conteúdo nunca mudará",
+        "A página remota pode ser atualizada ou removida."
+      ]
+    ],
+    "terms": [
+      [
+        "Favoritos/Marcadores",
+        "Referências salvas pelo usuário."
+      ],
+      [
+        "Histórico",
+        "Registros de navegação conforme configuração."
+      ],
+      [
+        "Downloads",
+        "Transferências recebidas e arquivos locais resultantes."
+      ]
+    ]
+  },
+  "INF-15-003": {
+    "principle": "Cookie é dado associado a site ou sessão; cache guarda recursos para reutilização; histórico registra páginas visitadas em determinadas condições.",
+    "theory": "Um portal pode usar cookies para manter informações de sessão e preferências. O navegador pode armazenar em cache imagens, estilos e outros recursos para acelerar visitas futuras; isso não equivale a salvar integralmente todo o trabalho do usuário. Histórico apresenta páginas visitadas conforme modo e configuração. Ao limpar cookies, o usuário pode ser desconectado de serviços; ao limpar cache, algumas páginas precisarão baixar recursos novamente. Navegadores têm controles de privacidade e permissões separados; bloquear cookies de terceiros pode afetar certas integrações sem impedir toda navegação. A informação armazenada no servidor do serviço não desaparece automaticamente quando o cache local é apagado.",
+    "compare": "Cookie pode identificar sessão; cache armazena cópias de recursos; histórico lista navegação. Apagar cache não costuma cancelar uma conta criada no servidor. Excluir cookies não remove necessariamente os arquivos de PDF baixados.",
+    "procedure": "Para diagnosticar um portal com recursos antigos, teste recarga e limpeza seletiva de cache sem descartar sessões importantes. Se houver necessidade de privacidade, revise cookies e permissões do site em vez de apagar indiscriminadamente tudo. Antes de limpar dados, salve formulários e faça logout de modo apropriado conforme o serviço.",
+    "pitfalls": "Limpar cookies durante protocolo não enviado pode exigir novo login e perder estado de sessão. Confundir cache com backup gera falsa sensação de recuperação. Desabilitar todos os cookies indiscriminadamente pode impedir autenticação em serviços oficiais.",
+    "scenario": "Um navegador continua exibindo versão antiga da folha de estilos de um portal, embora o servidor tenha sido atualizado; o usuário deseja testar sem apagar PDFs baixados.",
+    "decision": "Verificar recarga e limpar seletivamente dados de cache do site, preservando arquivos baixados e avaliando a sessão atual.",
+    "wrongs": [
+      [
+        "Excluir a pasta Downloads para atualizar o visual do site",
+        "Arquivos baixados não são a causa normal de recursos Web em cache."
+      ],
+      [
+        "Apagar a conta do sistema institucional para remover a versão antiga",
+        "Conta no servidor e cache do navegador são coisas distintas."
+      ],
+      [
+        "Limpar imediatamente todos os cookies durante preenchimento sem salvar rascunho",
+        "Pode encerrar sessão e comprometer dados ainda não enviados."
+      ]
+    ],
+    "truths": [
+      [
+        "Cookies podem guardar informações de sessão de sites",
+        "A exclusão pode exigir login novamente."
+      ],
+      [
+        "Cache guarda recursos que podem acelerar carregamentos posteriores",
+        "A reutilização evita baixar certos elementos repetidamente."
+      ],
+      [
+        "Histórico de navegação não é o mesmo que a lista de arquivos baixados",
+        "Visitas e transferências são informações relacionadas, mas distintas."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Apagar cache exclui automaticamente o cadastro do usuário no servidor do órgão",
+        "O cache é armazenamento local de recursos, não a conta remota."
+      ],
+      [
+        "Cookies e cache são nomes diferentes para a mesma estrutura de dados",
+        "Têm propósitos e comportamentos distintos."
+      ]
+    ],
+    "terms": [
+      [
+        "Cookie",
+        "Dado de site utilizado, por exemplo, em sessões e preferências."
+      ],
+      [
+        "Cache",
+        "Cópia local temporária de recursos."
+      ],
+      [
+        "Histórico",
+        "Registro de navegação conforme modo e políticas."
+      ]
+    ]
+  },
+  "INF-15-004": {
+    "principle": "Localizar na página procura termos no documento aberto; zoom muda escala de exibição e impressão produz uma saída paginada com opções próprias.",
+    "theory": "No Windows, Ctrl+F costuma abrir a busca dentro da página atual; ela procura ocorrências do texto exibido ou disponível no documento, não em toda a internet. Ctrl+mais e Ctrl+menos ajustam zoom em muitos navegadores; Ctrl+0 normalmente restaura o nível padrão. Ctrl+P abre a interface de impressão, que pode permitir salvar em PDF conforme sistema e aplicativo. Um conteúdo online longo pode ser fragmentado na impressão por regras CSS, imagens e quebras de página. Zoom de exibição não é a mesma coisa que selecionar escala de impressão. Em páginas muito dinâmicas, partes do conteúdo podem não estar incluídas na saída gerada.",
+    "compare": "Ctrl+F busca na página; motor de busca pesquisa conteúdos indexados na Web. Zoom altera visualização sem reescrever texto de origem. Salvar página HTML não equivale a gerar PDF de impressão e pode produzir arquivos dependentes de recursos associados.",
+    "procedure": "Para localizar uma cláusula, abra a página oficial e use Ctrl+F por termo específico; confirme contexto em volta. Ajuste zoom para leitura sem perder informação, e use a prévia antes de imprimir ou salvar em PDF. Confira se todas as seções necessárias aparecem no documento final.",
+    "pitfalls": "Busca na página pode não localizar conteúdo que ainda não foi carregado. Aumentar zoom não melhora resolução de imagem de baixa qualidade. Imprimir sem prévia pode cortar tabelas, menus ou trechos importantes.",
+    "scenario": "Um regulamento publicado em página Web contém muitas seções; o servidor precisa localizar “prazo de recurso” e imprimir a parte pertinente.",
+    "decision": "Usar Ctrl+F para localizar a expressão na página e Ctrl+P com visualização prévia para conferir impressão.",
+    "wrongs": [
+      [
+        "Usar Ctrl+T para buscar expressão no texto da página",
+        "Esse atalho abre guia, não pesquisa conteúdo."
+      ],
+      [
+        "Ampliar zoom para 200% e presumir que a impressão ficará com maior qualidade",
+        "Zoom de tela não garante definição ou paginação impressa."
+      ],
+      [
+        "Imprimir sem conferir páginas, tabelas e quebras geradas",
+        "O resultado pode omitir ou cortar informações relevantes."
+      ]
+    ],
+    "truths": [
+      [
+        "Ctrl+F costuma localizar texto no conteúdo da página atual",
+        "A função não é busca geral da internet."
+      ],
+      [
+        "Ctrl+P costuma abrir opções de impressão em navegadores Windows",
+        "A prévia ajuda a avaliar paginação."
+      ],
+      [
+        "Zoom da página altera o tamanho de exibição de elementos",
+        "Não muda diretamente os dados originais do servidor."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Ctrl+F procura automaticamente por uma frase em todos os sites da internet",
+        "A busca fica no conteúdo exibido pelo navegador."
+      ],
+      [
+        "Aumentar zoom na tela garante que a página impressa terá todos os textos legíveis",
+        "Impressão segue regras de layout, escala e prévia próprias."
+      ]
+    ],
+    "terms": [
+      [
+        "Localizar na página",
+        "Buscar ocorrências no documento atual."
+      ],
+      [
+        "Zoom",
+        "Ajustar ampliação da visualização."
+      ],
+      [
+        "Imprimir",
+        "Preparar saída paginada em papel ou PDF."
+      ]
+    ]
+  },
+  "INF-15-005": {
+    "principle": "Navegação privativa reduz certos registros locais após a sessão, mas não garante anonimato na rede; perfis, extensões e sincronização têm propósitos diferentes.",
+    "theory": "Em modo Incógnito do Chrome ou navegação privativa do Firefox, o navegador evita guardar parte do histórico e dos dados da sessão comum após o encerramento das janelas privativas, mas sites, redes e serviços ainda podem observar acessos conforme suas capacidades. Arquivos baixados e favoritos explicitamente criados podem permanecer. Perfis separam configurações e dados de navegação entre identidades locais; sincronização, quando ativada, compartilha determinados dados com conta em outros dispositivos. Extensões acrescentam funcionalidades, mas devem ser avaliadas por origem e permissões, pois podem ter acesso a páginas ou dados conforme autorização.",
+    "compare": "Modo privativo não é VPN nem serviço de anonimização total. Perfil organiza dados de usuários; guia privativa é uma sessão com tratamento local distinto. Sincronização mantém dados semelhantes entre dispositivos, mas não substitui backup versionado. Extensão é código adicional sujeito a permissões.",
+    "procedure": "Em computador compartilhado, entre no sistema institucional com procedimento adequado e encerre sessão ao final. Se usar modo privativo para reduzir rastros locais, saiba que isso não oculta a atividade do serviço ou da rede. Revise extensões instaladas e só habilite sincronização conforme política do órgão.",
+    "pitfalls": "Confiar que navegação privativa oculta tudo do provedor e do site é incorreto. Uma extensão com acesso amplo pode comprometer dados. Perfis sincronizados com conta pessoal podem misturar favoritos institucionais e particulares.",
+    "scenario": "Um servidor utiliza um computador compartilhado para consultar serviço online e quer evitar que outro usuário veja o histórico local da sessão, sem presumir invisibilidade na rede.",
+    "decision": "Usar sessão privativa quando apropriado, encerrar o acesso e sair do serviço, sabendo que downloads e registros remotos podem persistir.",
+    "wrongs": [
+      [
+        "Afirmar que o modo privativo impede qualquer registro no servidor do serviço",
+        "O modo atua principalmente sobre dados armazenados localmente pelo navegador."
+      ],
+      [
+        "Instalar extensão desconhecida que exige acesso a todos os sites para supostamente apagar rastros",
+        "Permissões amplas criam novos riscos e não garantem anonimato."
+      ],
+      [
+        "Sincronizar perfil institucional com conta pessoal sem avaliar política de dados",
+        "Isso pode misturar informações e configurações de contextos diferentes."
+      ]
+    ],
+    "truths": [
+      [
+        "Navegação privativa não garante anonimato na internet",
+        "Sites e redes podem continuar observando acessos."
+      ],
+      [
+        "Arquivos baixados podem permanecer após fechar a sessão privativa",
+        "O modo não desfaz necessariamente arquivos salvos no dispositivo."
+      ],
+      [
+        "Extensões devem ser avaliadas pelas permissões que solicitam",
+        "O acesso concedido pode alcançar conteúdo ou dados de navegação."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "O modo Incógnito impede o site de registrar qualquer interação do usuário",
+        "Ele não torna automaticamente a navegação invisível ao serviço remoto."
+      ],
+      [
+        "Sincronização de perfil substitui integralmente um backup histórico e recuperável",
+        "Sincronização propaga dados e alterações, podendo incluir exclusões."
+      ]
+    ],
+    "terms": [
+      [
+        "Modo privativo",
+        "Navegação com retenção local diferenciada."
+      ],
+      [
+        "Perfil",
+        "Conjunto isolável de configurações e dados do navegador."
+      ],
+      [
+        "Extensão",
+        "Programa adicional com recursos e permissões específicos."
+      ]
+    ]
+  },
+  "INF-15-006": {
+    "principle": "Permissões de site controlam recursos como câmera, microfone e notificações; HTTPS protege transporte e certificados ajudam a verificar o servidor, mas não garantem conteúdo legítimo.",
+    "theory": "Um portal de atendimento pode solicitar câmera para reconhecimento por vídeo ou microfone para reunião. O usuário deve avaliar se o recurso é necessário ao serviço e conceder apenas permissões coerentes com a tarefa. Notificações podem ser bloqueadas sem necessariamente impedir acesso ao conteúdo principal. Avisos de certificado HTTPS exigem atenção: certificado expirado, inválido ou de domínio incompatível compromete a verificação de identidade do canal. Mesmo conexão HTTPS válida não demonstra que o portal seja oficial; nomes parecidos podem ser usados para enganar. O cadeado ou ícone de segurança pode ter aparência diferente entre Edge, Chrome e Firefox.",
+    "compare": "Permissão de câmera concede recurso local; certificado TLS participa da segurança da conexão. Bloquear notificações não equivale a bloquear todos os cookies. HTTPS protege comunicação, não avalia veracidade do texto publicado nem legitimidade institucional independentemente do domínio.",
+    "procedure": "Ao entrar em site, confirme URL oficial e observe alertas antes de autenticar. Quando solicitado acesso à câmera, verifique finalidade, origem e política do órgão; recuse recursos desnecessários e revise permissões nas configurações do navegador. Se houver erro de certificado, interrompa envio de dados sensíveis e procure orientação oficial.",
+    "pitfalls": "Clicar em Permitir por hábito pode entregar recursos sem necessidade. Ignorar alerta de certificado para concluir tarefa mais rápido é inseguro. Interpretar símbolo de conexão protegida como selo de veracidade do conteúdo gera risco de phishing.",
+    "scenario": "Um site desconhecido solicita câmera e notificações enquanto mostra aviso de certificado inválido, embora o usuário só desejasse ler um edital público.",
+    "decision": "Não fornecer dados nem conceder permissões desnecessárias; conferir endereço por canal oficial e resolver o alerta antes de continuar.",
+    "wrongs": [
+      [
+        "Aceitar câmera e notificações porque qualquer portal de consulta necessita desses recursos",
+        "Leitura de edital não exige, por padrão, acesso a dispositivos."
+      ],
+      [
+        "Ignorar o alerta de certificado e enviar credenciais para completar a consulta",
+        "Não há garantia de canal validado na situação descrita."
+      ],
+      [
+        "Confiar no ícone de segurança para declarar o site oficialmente vinculado ao órgão",
+        "Proteção da conexão não é prova suficiente de legitimidade institucional."
+      ]
+    ],
+    "truths": [
+      [
+        "Permissões de câmera e microfone são distintas do acesso ao texto de uma página",
+        "Devem ser concedidas conforme necessidade real."
+      ],
+      [
+        "Certificados TLS ajudam a validar o servidor no contexto do domínio consultado",
+        "Alertas de validade ou nome precisam ser tratados com atenção."
+      ],
+      [
+        "HTTPS válido não confirma que todas as informações do site são verdadeiras",
+        "Proteção de transporte e confiabilidade do conteúdo são propriedades separadas."
+      ]
+    ],
+    "falsehoods": [
+      [
+        "Ler um edital público exige, necessariamente, conceder acesso ao microfone do computador",
+        "Consultar texto não requer por padrão gravação de áudio."
+      ],
+      [
+        "Aceitar um certificado inválido é medida adequada para reforçar a segurança da conexão",
+        "Ignorar alerta elimina verificação importante em vez de fortalecê-la."
+      ]
+    ],
+    "terms": [
+      [
+        "Permissão do site",
+        "Autorização para acessar recurso como câmera ou notificações."
+      ],
+      [
+        "Certificado TLS",
+        "Credencial usada na autenticação do servidor durante a conexão segura."
+      ],
+      [
+        "Aviso de segurança",
+        "Alerta de problema de confiança, permissão ou transporte."
+      ]
+    ]
+  }
+}

@@ -1,0 +1,500 @@
+INF-ESTUDO — FASE D / LOTE 3
+RESULTADO REAL DA EXECUÇÃO LOCAL EM 28/11/2026
+
+Ambiente: Node.js v22.16.0, diretório de ensaio montado com ZIPs dos lotes anteriores e arquivos incrementais deste lote.
+Comando: node --test tests/inf-curriculo-fase-c.test.mjs tests/inf-fase-d-lote01r-data.test.mjs tests/inf-fase-d-lote01r-conferencia.test.mjs tests/inf-fase-d-lote02-data.test.mjs tests/inf-fase-d-lote02-conferencia.test.mjs tests/inf-fase-d-lote02-calculos.test.mjs tests/inf-fase-d-lote03-data.test.mjs tests/inf-fase-d-lote03-gabaritos.test.mjs tests/inf-fase-d-lote03-integracao.test.mjs
+
+79 TESTES APROVADOS; 0 FALHAS.
+46 testes dos lotes anteriores e currículo; 33 do Lote 3.
+As dependências js/core/adaptive-review.js, js/core/review-events.js e js/core/question-status.js usadas nesta montagem local foram SIMULADAS. Esses três stubs não são entregues no ZIP.
+O seletor de exercícios, o Banco de Questões, as aulas e os adaptadores são os arquivos reais já existentes, exercitados contra o novo catálogo.
+Nenhuma operação foi executada sobre localStorage real de navegador, GitHub Pages, conta Google ou dados de estudo do usuário.
+A correção automática confere a posição gravada do gabarito contra a referência editorial, mas NÃO equivale a verificação semântica independente por outro especialista.
+
+== LOG TAP INTEGRAL ==
+
+TAP version 13
+# Subtest: Identidade curricular: Informática, 27 módulos e 163 subtópicos
+ok 1 - Identidade curricular: Informática, 27 módulos e 163 subtópicos
+  ---
+  duration_ms: 3.348789
+  type: 'test'
+  ...
+# Subtest: IDs estáveis e únicos; plano curricular original preservado
+ok 2 - IDs estáveis e únicos; plano curricular original preservado
+  ---
+  duration_ms: 1.69706
+  type: 'test'
+  ...
+# Subtest: Publicação gradual: primeiros 15 disponíveis; demais 12 pendentes
+ok 3 - Publicação gradual: primeiros 15 disponíveis; demais 12 pendentes
+  ---
+  duration_ms: 0.567049
+  type: 'test'
+  ...
+# Subtest: Importações pedagógicas não acessam conteúdo PT ou ADM
+ok 4 - Importações pedagógicas não acessam conteúdo PT ou ADM
+  ---
+  duration_ms: 1.360191
+  type: 'test'
+  ...
+# Subtest: 27 módulos e pré-requisitos sem ciclos
+ok 5 - 27 módulos e pré-requisitos sem ciclos
+  ---
+  duration_ms: 0.94212
+  type: 'test'
+  ...
+# Subtest: Contratos disponibilizam materiais somente dos módulos publicados
+ok 6 - Contratos disponibilizam materiais somente dos módulos publicados
+  ---
+  duration_ms: 1.985985
+  type: 'test'
+  ...
+# Subtest: Interface lista disponibilidade de modo dinâmico
+ok 7 - Interface lista disponibilidade de modo dinâmico
+  ---
+  duration_ms: 0.628234
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de ce: gabarito corresponde à resolução textual
+ok 8 - Conferência cruzada de ce: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 1.552137
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de vf: gabarito corresponde à resolução textual
+ok 9 - Conferência cruzada de vf: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 1.204915
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de afirmacoes: gabarito corresponde à resolução textual
+ok 10 - Conferência cruzada de afirmacoes: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.57214
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de associacao: gabarito corresponde à resolução textual
+ok 11 - Conferência cruzada de associacao: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.207308
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de lacunas: gabarito corresponde à resolução textual
+ok 12 - Conferência cruzada de lacunas: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.531183
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de classica: gabarito corresponde à resolução textual
+ok 13 - Conferência cruzada de classica: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.152487
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de exceto: gabarito corresponde à resolução textual
+ok 14 - Conferência cruzada de exceto: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.501284
+  type: 'test'
+  ...
+# Subtest: catálogo: cinco módulos e 22 pendentes, sem contratos quebrados
+ok 15 - catálogo: cinco módulos e 22 pendentes, sem contratos quebrados
+  ---
+  duration_ms: 2.772857
+  type: 'test'
+  ...
+# Subtest: 31 aulas paginadas: introdução, desenvolvimento, diferenças e erros
+ok 16 - 31 aulas paginadas: introdução, desenvolvimento, diferenças e erros
+  ---
+  duration_ms: 0.838268
+  type: 'test'
+  ...
+# Subtest: 31 diagnósticos: um flashcard por subtópico, frente e verso explicativos
+ok 17 - 31 diagnósticos: um flashcard por subtópico, frente e verso explicativos
+  ---
+  duration_ms: 0.576706
+  type: 'test'
+  ...
+# Subtest: 124 questões: 2 médias (1 C/E e 1 variada), 2 difíceis por subtópico
+ok 18 - 124 questões: 2 médias (1 C/E e 1 variada), 2 difíceis por subtópico
+  ---
+  duration_ms: 2.096425
+  type: 'test'
+  ...
+# Subtest: todos os 7 formatos presentes, sem tipo caso não suportado
+ok 19 - todos os 7 formatos presentes, sem tipo caso não suportado
+  ---
+  duration_ms: 0.352195
+  type: 'test'
+  ...
+# Subtest: 124 exemplos e desafios próprios, sem repetir as perguntas da aula
+ok 20 - 124 exemplos e desafios próprios, sem repetir as perguntas da aula
+  ---
+  duration_ms: 0.873365
+  type: 'test'
+  ...
+# Subtest: relatório de conferência: 124 registros vinculados aos gabaritos gravados
+ok 21 - relatório de conferência: 124 registros vinculados aos gabaritos gravados
+  ---
+  duration_ms: 0.888632
+  type: 'test'
+  ...
+# Subtest: validação de índices e permutações: gabarito/comentário preservados
+ok 22 - validação de índices e permutações: gabarito/comentário preservados
+  ---
+  duration_ms: 1.015895
+  type: 'test'
+  ...
+# Subtest: INF-09-001: extensão B2:D6 contém 15 células
+ok 23 - INF-09-001: extensão B2:D6 contém 15 células
+  ---
+  duration_ms: 1.220984
+  type: 'test'
+  ...
+# Subtest: INF-09-005: precedência diferencia custos e operações incorretas
+ok 24 - INF-09-005: precedência diferencia custos e operações incorretas
+  ---
+  duration_ms: 0.347867
+  type: 'test'
+  ...
+# Subtest: INF-10-001: soma, média, mínimo e máximo com três números
+ok 25 - INF-10-001: soma, média, mínimo e máximo com três números
+  ---
+  duration_ms: 1.03367
+  type: 'test'
+  ...
+# Subtest: INF-10-002: distinção entre números, textos e células vazias
+ok 26 - INF-10-002: distinção entre números, textos e células vazias
+  ---
+  duration_ms: 0.473526
+  type: 'test'
+  ...
+# Subtest: INF-10-004: SOMASE/MÉDIASE filtram somente RH
+ok 27 - INF-10-004: SOMASE/MÉDIASE filtram somente RH
+  ---
+  duration_ms: 0.433094
+  type: 'test'
+  ...
+# Subtest: INF-10-006: extração de texto e arredondamento
+ok 28 - INF-10-006: extração de texto e arredondamento
+  ---
+  duration_ms: 0.441624
+  type: 'test'
+  ...
+# Subtest: INF-09-004 e INF-10-003: percentuais e lógica E/OU
+ok 29 - INF-09-004 e INF-10-003: percentuais e lógica E/OU
+  ---
+  duration_ms: 0.441035
+  type: 'test'
+  ...
+# Subtest: Conferência textual de ce: dedução da explicação coincide com a alternativa marcada
+ok 30 - Conferência textual de ce: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 1.385795
+  type: 'test'
+  ...
+# Subtest: Conferência textual de vf: dedução da explicação coincide com a alternativa marcada
+ok 31 - Conferência textual de vf: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 1.227463
+  type: 'test'
+  ...
+# Subtest: Conferência textual de afirmacoes: dedução da explicação coincide com a alternativa marcada
+ok 32 - Conferência textual de afirmacoes: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 2.037061
+  type: 'test'
+  ...
+# Subtest: Conferência textual de associacao: dedução da explicação coincide com a alternativa marcada
+ok 33 - Conferência textual de associacao: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 0.267682
+  type: 'test'
+  ...
+# Subtest: Conferência textual de lacunas: dedução da explicação coincide com a alternativa marcada
+ok 34 - Conferência textual de lacunas: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 0.896771
+  type: 'test'
+  ...
+# Subtest: Conferência textual de classica: dedução da explicação coincide com a alternativa marcada
+ok 35 - Conferência textual de classica: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 0.270286
+  type: 'test'
+  ...
+# Subtest: Conferência textual de exceto: dedução da explicação coincide com a alternativa marcada
+ok 36 - Conferência textual de exceto: dedução da explicação coincide com a alternativa marcada
+  ---
+  duration_ms: 0.591705
+  type: 'test'
+  ...
+# Subtest: matriz: 27 módulos previstos, 15 disponíveis, 12 pendentes; pré-requisitos preservados
+ok 37 - matriz: 27 módulos previstos, 15 disponíveis, 12 pendentes; pré-requisitos preservados
+  ---
+  duration_ms: 1.644323
+  type: 'test'
+  ...
+# Subtest: 33 subtópicos e exatamente uma aula por subtópico publicado no Lote 2
+ok 38 - 33 subtópicos e exatamente uma aula por subtópico publicado no Lote 2
+  ---
+  duration_ms: 4.872936
+  type: 'test'
+  ...
+# Subtest: 33 diagnósticos com frente e verso vinculados e sem pergunta de mera sigla
+ok 39 - 33 diagnósticos com frente e verso vinculados e sem pergunta de mera sigla
+  ---
+  duration_ms: 0.643065
+  type: 'test'
+  ...
+# Subtest: 132 questões: duas médias (uma C/E), duas difíceis, por subtópico
+ok 40 - 132 questões: duas médias (uma C/E), duas difíceis, por subtópico
+  ---
+  duration_ms: 0.760656
+  type: 'test'
+  ...
+# Subtest: questões sem duplicação de IDs; campos, opções e comentários válidos
+ok 41 - questões sem duplicação de IDs; campos, opções e comentários válidos
+  ---
+  duration_ms: 1.774849
+  type: 'test'
+  ...
+# Subtest: sete formatos efetivamente presentes e associados a questões válidas
+ok 42 - sete formatos efetivamente presentes e associados a questões válidas
+  ---
+  duration_ms: 0.253564
+  type: 'test'
+  ...
+# Subtest: 132 exemplos e desafios exclusivos; distintos dos exercícios de recuperação das aulas
+ok 43 - 132 exemplos e desafios exclusivos; distintos dos exercícios de recuperação das aulas
+  ---
+  duration_ms: 0.685139
+  type: 'test'
+  ...
+# Subtest: invariância da permutação: índice original e comentário acompanham a alternativa
+ok 44 - invariância da permutação: índice original e comentário acompanham a alternativa
+  ---
+  duration_ms: 2.831487
+  type: 'test'
+  ...
+# Subtest: registro individual para cada questão e origem autoral identificada
+ok 45 - registro individual para cada questão e origem autoral identificada
+  ---
+  duration_ms: 1.878247
+  type: 'test'
+  ...
+# Subtest: preserva as 124 questões e as 31 aulas existentes da Fase D 1-R
+ok 46 - preserva as 124 questões e as 31 aulas existentes da Fase D 1-R
+  ---
+  duration_ms: 0.915496
+  type: 'test'
+  ...
+# Subtest: Matriz original: 27 módulos e 163 subtópicos, 15 publicados, 12 pendentes
+ok 47 - Matriz original: 27 módulos e 163 subtópicos, 15 publicados, 12 pendentes
+  ---
+  duration_ms: 2.97771
+  type: 'test'
+  ...
+# Subtest: 29 subtópicos e nenhuma substituição de ID anterior
+ok 48 - 29 subtópicos e nenhuma substituição de ID anterior
+  ---
+  duration_ms: 0.288454
+  type: 'test'
+  ...
+# Subtest: 93 aulas no catálogo: uma por subtópico publicado; todas as 29 novas completas
+ok 49 - 93 aulas no catálogo: uma por subtópico publicado; todas as 29 novas completas
+  ---
+  duration_ms: 10.223843
+  type: 'test'
+  ...
+# Subtest: 93 diagnósticos globais: frente e verso coerentes, uma pergunta por subtópico novo
+ok 50 - 93 diagnósticos globais: frente e verso coerentes, uma pergunta por subtópico novo
+  ---
+  duration_ms: 0.687951
+  type: 'test'
+  ...
+# Subtest: 372 questões cumulativas, 116 novas e IDs globalmente únicos
+ok 51 - 372 questões cumulativas, 116 novas e IDs globalmente únicos
+  ---
+  duration_ms: 0.555026
+  type: 'test'
+  ...
+# Subtest: Cada subtópico recebe duas médias, duas difíceis e média C/E fixa
+ok 52 - Cada subtópico recebe duas médias, duas difíceis e média C/E fixa
+  ---
+  duration_ms: 0.449076
+  type: 'test'
+  ...
+# Subtest: Todos os sete formatos reconhecidos sem tipo paralelo caso
+ok 53 - Todos os sete formatos reconhecidos sem tipo paralelo caso
+  ---
+  duration_ms: 0.15703
+  type: 'test'
+  ...
+# Subtest: Campos, gabaritos, alternativas e comentários individualizados
+ok 54 - Campos, gabaritos, alternativas e comentários individualizados
+  ---
+  duration_ms: 0.894945
+  type: 'test'
+  ...
+# Subtest: 116 exemplos e desafios distintos entre si e das recuperações ativas
+ok 55 - 116 exemplos e desafios distintos entre si e das recuperações ativas
+  ---
+  duration_ms: 0.523098
+  type: 'test'
+  ...
+# Subtest: Ledger presente para as 116 questões sem inventar origem REAL
+ok 56 - Ledger presente para as 116 questões sem inventar origem REAL
+  ---
+  duration_ms: 1.240741
+  type: 'test'
+  ...
+# Subtest: Bancos antigos não mudam de contagem nem de campos obrigatórios
+ok 57 - Bancos antigos não mudam de contagem nem de campos obrigatórios
+  ---
+  duration_ms: 0.489477
+  type: 'test'
+  ...
+# Subtest: 116 resoluções editoriais apontam a alternativa específica, independentemente da posição
+ok 58 - 116 resoluções editoriais apontam a alternativa específica, independentemente da posição
+  ---
+  duration_ms: 1.354671
+  type: 'test'
+  ...
+# Subtest: Comentário correto e comentário incorreto são acompanhados pelo índice original após permutações
+ok 59 - Comentário correto e comentário incorreto são acompanhados pelo índice original após permutações
+  ---
+  duration_ms: 1.00219
+  type: 'test'
+  ...
+# Subtest: Exceção EXCETO é única: uma proposição falsa e três verdadeiras segundo referências editoriais
+ok 60 - Exceção EXCETO é única: uma proposição falsa e três verdadeiras segundo referências editoriais
+  ---
+  duration_ms: 0.832191
+  type: 'test'
+  ...
+# Subtest: Sequências de V/F: quatro alternativas únicas, resposta analisada por proposições
+ok 61 - Sequências de V/F: quatro alternativas únicas, resposta analisada por proposições
+  ---
+  duration_ms: 0.325882
+  type: 'test'
+  ...
+# Subtest: Estudos de caso: solução retida, três erros diferentes com fundamentos próprios
+ok 62 - Estudos de caso: solução retida, três erros diferentes com fundamentos próprios
+  ---
+  duration_ms: 5.829837
+  type: 'test'
+  ...
+# Subtest: INF-11: sessão real escolhe 18 itens sem repetição
+ok 63 - INF-11: sessão real escolhe 18 itens sem repetição
+  ---
+  duration_ms: 2.170624
+  type: 'test'
+  ...
+# Subtest: INF-11: respostas, autoavaliação e agenda não duplicam IDs
+ok 64 - INF-11: respostas, autoavaliação e agenda não duplicam IDs
+  ---
+  duration_ms: 1.881301
+  type: 'test'
+  ...
+# Subtest: INF-11: aula renderiza seções e grava conclusão em estado simulado
+ok 65 - INF-11: aula renderiza seções e grava conclusão em estado simulado
+  ---
+  duration_ms: 0.545335
+  type: 'test'
+  ...
+# Subtest: INF-12: sessão real escolhe 18 itens sem repetição
+ok 66 - INF-12: sessão real escolhe 18 itens sem repetição
+  ---
+  duration_ms: 0.543151
+  type: 'test'
+  ...
+# Subtest: INF-12: respostas, autoavaliação e agenda não duplicam IDs
+ok 67 - INF-12: respostas, autoavaliação e agenda não duplicam IDs
+  ---
+  duration_ms: 1.661492
+  type: 'test'
+  ...
+# Subtest: INF-12: aula renderiza seções e grava conclusão em estado simulado
+ok 68 - INF-12: aula renderiza seções e grava conclusão em estado simulado
+  ---
+  duration_ms: 0.161551
+  type: 'test'
+  ...
+# Subtest: INF-13: sessão real escolhe 16 itens sem repetição
+ok 69 - INF-13: sessão real escolhe 16 itens sem repetição
+  ---
+  duration_ms: 0.284844
+  type: 'test'
+  ...
+# Subtest: INF-13: respostas, autoavaliação e agenda não duplicam IDs
+ok 70 - INF-13: respostas, autoavaliação e agenda não duplicam IDs
+  ---
+  duration_ms: 1.011869
+  type: 'test'
+  ...
+# Subtest: INF-13: aula renderiza seções e grava conclusão em estado simulado
+ok 71 - INF-13: aula renderiza seções e grava conclusão em estado simulado
+  ---
+  duration_ms: 0.315664
+  type: 'test'
+  ...
+# Subtest: INF-14: sessão real escolhe 18 itens sem repetição
+ok 72 - INF-14: sessão real escolhe 18 itens sem repetição
+  ---
+  duration_ms: 0.463064
+  type: 'test'
+  ...
+# Subtest: INF-14: respostas, autoavaliação e agenda não duplicam IDs
+ok 73 - INF-14: respostas, autoavaliação e agenda não duplicam IDs
+  ---
+  duration_ms: 1.118135
+  type: 'test'
+  ...
+# Subtest: INF-14: aula renderiza seções e grava conclusão em estado simulado
+ok 74 - INF-14: aula renderiza seções e grava conclusão em estado simulado
+  ---
+  duration_ms: 0.265236
+  type: 'test'
+  ...
+# Subtest: INF-15: sessão real escolhe 18 itens sem repetição
+ok 75 - INF-15: sessão real escolhe 18 itens sem repetição
+  ---
+  duration_ms: 0.206486
+  type: 'test'
+  ...
+# Subtest: INF-15: respostas, autoavaliação e agenda não duplicam IDs
+ok 76 - INF-15: respostas, autoavaliação e agenda não duplicam IDs
+  ---
+  duration_ms: 0.836769
+  type: 'test'
+  ...
+# Subtest: INF-15: aula renderiza seções e grava conclusão em estado simulado
+ok 77 - INF-15: aula renderiza seções e grava conclusão em estado simulado
+  ---
+  duration_ms: 0.111225
+  type: 'test'
+  ...
+# Subtest: Banco: filtros combinados de módulo, subtópico, formato e não respondidas
+ok 78 - Banco: filtros combinados de módulo, subtópico, formato e não respondidas
+  ---
+  duration_ms: 3.508845
+  type: 'test'
+  ...
+# Subtest: Banco global aceita questões novas isoladas e preserva o estado após encerrar sessão
+ok 79 - Banco global aceita questões novas isoladas e preserva o estado após encerrar sessão
+  ---
+  duration_ms: 0.713305
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 79
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 489.617704
+

@@ -1,0 +1,63 @@
+{
+  "lote": "Fase D / Lote 3",
+  "modulos": [
+    "INF-11",
+    "INF-12",
+    "INF-13",
+    "INF-14",
+    "INF-15"
+  ],
+  "modulosAdicionados": 5,
+  "subtopicosAdicionados": 29,
+  "aulasAdicionadas": 29,
+  "diagnosticosAdicionados": 29,
+  "questoesAdicionadas": 116,
+  "medias": 58,
+  "dificeis": 58,
+  "porTipo": {
+    "ce": 29,
+    "vf": 13,
+    "classica": 29,
+    "exceto": 10,
+    "afirmacoes": 12,
+    "associacao": 12,
+    "lacunas": 11
+  },
+  "porModulo": {
+    "INF-11": {
+      "subtopicos": 6,
+      "aulas": 6,
+      "diagnosticos": 6,
+      "questoes": 24,
+      "questoesNaSessao": 18
+    },
+    "INF-12": {
+      "subtopicos": 6,
+      "aulas": 6,
+      "diagnosticos": 6,
+      "questoes": 24,
+      "questoesNaSessao": 18
+    },
+    "INF-13": {
+      "subtopicos": 5,
+      "aulas": 5,
+      "diagnosticos": 5,
+      "questoes": 20,
+      "questoesNaSessao": 16
+    },
+    "INF-14": {
+      "subtopicos": 6,
+      "aulas": 6,
+      "diagnosticos": 6,
+      "questoes": 24,
+      "questoesNaSessao": 18
+    },
+    "INF-15": {
+      "subtopicos": 6,
+      "aulas": 6,
+      "diagnosticos": 6,
+      "questoes": 24,
+      "questoesNaSessao": 18
+    }
+  }
+}

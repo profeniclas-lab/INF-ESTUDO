@@ -13,7 +13,7 @@ const L1_QUESTIONS=QUESTIONS.filter(q=>/^Q-INF-0[1-5]-/.test(q.id));
 const L1_LESSONS=Object.fromEntries(Object.entries(LESSONS).filter(([id])=>/^INF-0[1-5]-/.test(id)));
 const ledger=JSON.parse(fs.readFileSync(new URL('../docs/FASE_D_LOTE_1R_GABARITOS_124.json',import.meta.url),'utf8'));
 test('catálogo: cinco módulos e 22 pendentes, sem contratos quebrados',()=>{
- assert.equal(L1_MODULES.length,5);assert.equal(MODULES.length,10);assert.equal(PENDING_MODULES.length,17);
+ assert.equal(L1_MODULES.length,5);assert.equal(MODULES.length,15);assert.equal(PENDING_MODULES.length,12);
  assert.deepEqual(L1_MODULES.map(x=>x.id),['INF-01','INF-02','INF-03','INF-04','INF-05']);
  assert.deepEqual(validateCatalog(),[]);
 });
