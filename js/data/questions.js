@@ -14,6 +14,11 @@ import { INF_12_QUESTIONS } from "./informatica/inf-12-questions.js";
 import { INF_13_QUESTIONS } from "./informatica/inf-13-questions.js";
 import { INF_14_QUESTIONS } from "./informatica/inf-14-questions.js";
 import { INF_15_QUESTIONS } from "./informatica/inf-15-questions.js";
+import { INF_16_QUESTIONS } from "./informatica/inf-16-questions.js";
+import { INF_17_QUESTIONS } from "./informatica/inf-17-questions.js";
+import { INF_18_QUESTIONS } from "./informatica/inf-18-questions.js";
+import { INF_19_QUESTIONS } from "./informatica/inf-19-questions.js";
+import { INF_20_QUESTIONS } from "./informatica/inf-20-questions.js";
 export const QUESTIONS = Object.freeze([
   ...INF_01_QUESTIONS,
   ...INF_02_QUESTIONS,
@@ -29,6 +34,11 @@ export const QUESTIONS = Object.freeze([
   ...INF_12_QUESTIONS,
   ...INF_13_QUESTIONS,
   ...INF_14_QUESTIONS,
-  ...INF_15_QUESTIONS
+  ...INF_15_QUESTIONS,
+  ...INF_16_QUESTIONS,
+  ...INF_17_QUESTIONS,
+  ...INF_18_QUESTIONS,
+  ...INF_19_QUESTIONS,
+  ...INF_20_QUESTIONS
 ]);
 export const questionsForModule = id => QUESTIONS.filter(q => q.moduleId === id);

@@ -14,6 +14,11 @@ import { INF_12_LESSONS } from "./informatica/inf-12-lessons.js";
 import { INF_13_LESSONS } from "./informatica/inf-13-lessons.js";
 import { INF_14_LESSONS } from "./informatica/inf-14-lessons.js";
 import { INF_15_LESSONS } from "./informatica/inf-15-lessons.js";
+import { INF_16_LESSONS } from "./informatica/inf-16-lessons.js";
+import { INF_17_LESSONS } from "./informatica/inf-17-lessons.js";
+import { INF_18_LESSONS } from "./informatica/inf-18-lessons.js";
+import { INF_19_LESSONS } from "./informatica/inf-19-lessons.js";
+import { INF_20_LESSONS } from "./informatica/inf-20-lessons.js";
 export const LESSONS = Object.freeze({
   ...INF_01_LESSONS,
   ...INF_02_LESSONS,
@@ -29,6 +34,11 @@ export const LESSONS = Object.freeze({
   ...INF_12_LESSONS,
   ...INF_13_LESSONS,
   ...INF_14_LESSONS,
-  ...INF_15_LESSONS
+  ...INF_15_LESSONS,
+  ...INF_16_LESSONS,
+  ...INF_17_LESSONS,
+  ...INF_18_LESSONS,
+  ...INF_19_LESSONS,
+  ...INF_20_LESSONS
 });
 export const getLesson = id => LESSONS[id] || null;

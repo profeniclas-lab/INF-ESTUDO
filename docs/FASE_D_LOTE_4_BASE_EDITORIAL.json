@@ -1,0 +1,1682 @@
+{
+  "INF-16-001": {
+    "terms": [
+      [
+        "Para",
+        "Destinatário a quem a mensagem se dirige e de quem normalmente se espera ação."
+      ],
+      [
+        "Cc",
+        "Destinatário informado com endereço visível aos demais participantes da mensagem."
+      ],
+      [
+        "Cco",
+        "Destinatário que recebe cópia sem ter seu endereço exibido aos demais destinatários."
+      ]
+    ],
+    "facts": [
+      [
+        "Um endereço inserido em Cc normalmente fica visível aos outros destinatários.",
+        "A cópia aberta preserva transparência, não sigilo da lista."
+      ],
+      [
+        "Cco protege a visibilidade do endereço perante os outros destinatários, mas não anonimiza o autor nem protege o conteúdo.",
+        "O mecanismo limita a exibição da lista, não substitui confidencialidade."
+      ],
+      [
+        "O assunto deve descrever objetivamente a finalidade do expediente.",
+        "Um assunto claro facilita triagem e recuperação do registro."
+      ]
+    ],
+    "myth": [
+      "Colocar cem cidadãos em Cc impede que vejam os endereços uns dos outros.",
+      "Cc exibe os endereços aos participantes; não oferece ocultação da lista."
+    ],
+    "case": "Uma secretaria precisa enviar o mesmo aviso de serviço a cem cidadãos, sem divulgar os endereços pessoais uns aos outros.",
+    "decision": [
+      "Enviar mensagem individual ou usar Cco para os cidadãos, com assunto claro e dados estritamente necessários.",
+      "A lista não ficará exposta entre os destinatários; individualizar pode ser mais adequado à sensibilidade."
+    ],
+    "wrongs": [
+      [
+        "Inserir todos os cidadãos em Cc para que confirmem visualmente o recebimento.",
+        "Cc revela os endereços da lista e confirmação visual não comprova recebimento."
+      ],
+      [
+        "Preencher somente Para com todos os endereços, pois Para tem ocultação automática.",
+        "Para não oculta a lista de destinatários."
+      ],
+      [
+        "Usar Cco e incluir informações pessoais completas de todos no corpo.",
+        "Cco protege a lista de endereços, não a divulgação de dados no corpo."
+      ]
+    ],
+    "nuance": "O Cco não comprova a entrega da mensagem, e regras institucionais podem impor plataformas próprias para comunicação em massa.",
+    "procedure": "Conferir destinatários e classificação dos dados antes de enviar; preencher assunto, revisar anexos e verificar a lista uma última vez.",
+    "risk": "Um envio incorreto pode revelar dados pessoais de terceiros e exige tratamento conforme a política de incidentes."
+  },
+  "INF-16-002": {
+    "terms": [
+      [
+        "Responder",
+        "Enviar retorno principalmente ao remetente original."
+      ],
+      [
+        "Responder a todos",
+        "Retornar ao remetente e aos participantes visíveis pertinentes, segundo o cliente."
+      ],
+      [
+        "Encaminhar",
+        "Produzir nova mensagem para outros destinatários contendo o conteúdo selecionado."
+      ]
+    ],
+    "facts": [
+      [
+        "Responder a todos pode ampliar desnecessariamente a audiência de uma resposta.",
+        "Verificar os participantes é indispensável antes de enviar."
+      ],
+      [
+        "Encaminhar permite redirecionar informação a alguém que não estava na conversa.",
+        "O destinatário novo deve ter autorização para receber os dados."
+      ],
+      [
+        "Responder normalmente não reinsere automaticamente os anexos recebidos.",
+        "É preciso conferir anexos antes de depender deles na resposta; o comportamento varia com o cliente."
+      ]
+    ],
+    "myth": [
+      "A opção Responder a todos responde apenas ao remetente e oculta automaticamente os demais.",
+      "Ela pode incluir outros destinatários presentes em Para e Cc."
+    ],
+    "case": "Um gestor solicitou confirmação de leitura a uma servidora, enquanto dezenas de pessoas constam em cópia; o retorno não interessa a todas.",
+    "decision": [
+      "Escolher Responder e conferir o campo de destinatários antes do envio.",
+      "Responde diretamente ao solicitante, sem notificar desnecessariamente toda a lista."
+    ],
+    "wrongs": [
+      [
+        "Usar Responder a todos sem rever os endereços para manter todos informados.",
+        "Os participantes não precisam receber mera confirmação individual."
+      ],
+      [
+        "Encaminhar a solicitação a um grupo externo para documentar o retorno.",
+        "Encaminhamento cria nova audiência e pode revelar conteúdo institucional."
+      ],
+      [
+        "Enviar um novo e-mail contendo toda a cadeia anterior para os mesmos participantes.",
+        "Cadeia extensa amplia exposição e não é necessária para simples confirmação."
+      ]
+    ],
+    "nuance": "Um cliente pode tratar listas de distribuição, destinatários em Cco e respostas de formas diferentes; a regra segura é conferir o destinatário final.",
+    "procedure": "Ler o pedido, definir quem precisa do retorno, selecionar a ação e validar os campos antes de enviar.",
+    "risk": "Uso indiscriminado de Responder a todos provoca ruído, aumenta a circulação de informações e dificulta identificar ações pendentes."
+  },
+  "INF-16-003": {
+    "terms": [
+      [
+        "Anexo",
+        "Arquivo cuja cópia é incorporada ou vinculada à mensagem enviada."
+      ],
+      [
+        "Link compartilhado",
+        "Endereço de acesso a arquivo hospedado, sujeito a permissões configuradas."
+      ],
+      [
+        "Limite de tamanho",
+        "Restrição aplicada pelo serviço de envio ou recebimento ao volume da mensagem."
+      ]
+    ],
+    "facts": [
+      [
+        "Um link compartilhado pode deixar de funcionar quando a permissão do arquivo é revogada.",
+        "O acesso depende de regras definidas no serviço de armazenamento."
+      ],
+      [
+        "A existência de um link não garante acesso ao destinatário.",
+        "É necessário verificar se sua conta tem autorização."
+      ],
+      [
+        "Serviços de e-mail podem impor limites diferentes a anexos.",
+        "Não existe tamanho máximo universal para todas as contas e provedores."
+      ]
+    ],
+    "myth": [
+      "Anexar um documento grande sempre entrega um arquivo sem qualquer limitação pelo provedor.",
+      "Limites de tamanho e políticas variam por serviço."
+    ],
+    "case": "O setor precisa enviar uma planilha grande a três fiscais e garantir que apenas eles tenham acesso à versão atual.",
+    "decision": [
+      "Hospedar em serviço institucional e compartilhar link restrito aos fiscais, conferindo leitura e versão.",
+      "O arquivo fica centralizado e o acesso pode ser limitado a identidades autorizadas."
+    ],
+    "wrongs": [
+      [
+        "Publicar o link como acesso irrestrito e informar apenas aos fiscais.",
+        "Qualquer pessoa com o link poderá ter acesso, se a opção pública for usada."
+      ],
+      [
+        "Comprimir o arquivo e presumir que toda restrição de tamanho desapareceu.",
+        "Compressão nem sempre reduz o suficiente e não elimina limites do serviço."
+      ],
+      [
+        "Enviar versões diferentes em anexos sucessivos sem identificação.",
+        "Múltiplas versões dificultam integridade e rastreabilidade dos registros."
+      ]
+    ],
+    "nuance": "Links podem representar um arquivo vivo, enquanto um anexo normalmente representa uma versão enviada; o controle deve respeitar retenção e auditoria.",
+    "procedure": "Conferir destinatários, versão, tamanho, formato e permissões de acesso; testar o link com perfil autorizado antes do envio.",
+    "risk": "O acesso público indevido a arquivos institucionais pode expor informações protegidas."
+  },
+  "INF-16-004": {
+    "terms": [
+      [
+        "Pasta",
+        "Contêiner utilizado para agrupar mensagens segundo organização do cliente."
+      ],
+      [
+        "Etiqueta",
+        "Marcador de classificação que pode coexistir com outros marcadores em uma mesma mensagem."
+      ],
+      [
+        "Filtro ou regra",
+        "Automação configurada para aplicar ações quando uma mensagem atende a critérios."
+      ]
+    ],
+    "facts": [
+      [
+        "Filtros podem organizar mensagens recebidas conforme remetente, assunto ou outros critérios disponíveis.",
+        "As condições dependem do aplicativo e da política."
+      ],
+      [
+        "Pesquisar mensagens por palavras ou metadados pode ser mais eficiente do que navegar pastas manualmente.",
+        "A consulta não altera o conteúdo por si só."
+      ],
+      [
+        "Uma etiqueta não é necessariamente igual à movimentação exclusiva de uma mensagem para uma pasta.",
+        "Clientes diferentes usam modelos de organização distintos."
+      ]
+    ],
+    "myth": [
+      "Criar uma etiqueta apaga automaticamente todas as mensagens sem aquela etiqueta.",
+      "Etiquetas categorizam; não implicam exclusão automática de mensagens."
+    ],
+    "case": "Uma repartição recebe muitas mensagens sobre contratos e precisa localizar, meses depois, notificações de cada processo sem perder as demais.",
+    "decision": [
+      "Criar regras por assuntos ou identificadores confiáveis e pesquisar periodicamente os resultados.",
+      "Organização por critério e busca preserva rastreabilidade e reduz classificação manual."
+    ],
+    "wrongs": [
+      [
+        "Excluir automaticamente toda mensagem fora da pasta Contratos.",
+        "Exclusão pode eliminar correspondência válida e descumprir retenção."
+      ],
+      [
+        "Criar filtros apenas com a palavra contrato e confiar que nada será classificado errado.",
+        "Correspondência textual simples pode gerar falsos positivos e negativos."
+      ],
+      [
+        "Marcar todas as mensagens como lidas para evitar notificações.",
+        "Isso altera o status, mas não organiza corretamente por processo."
+      ]
+    ],
+    "nuance": "No Gmail, etiquetas podem coexistir; em muitos clientes Outlook, pastas são uma forma principal de organização. Não generalize interface.",
+    "procedure": "Definir identificador de processo, testar a regra com exemplos e revisar periodicamente a pasta/etiqueta antes de automatizar exclusões.",
+    "risk": "Regras excessivamente amplas podem ocultar alertas relevantes; filtros não substituem política de arquivamento."
+  },
+  "INF-16-005": {
+    "terms": [
+      [
+        "Spam",
+        "Mensagem indesejada ou não solicitada, que não precisa conter fraude."
+      ],
+      [
+        "Phishing",
+        "Tentativa de enganar uma pessoa para obter dados, credenciais ou ações indevidas."
+      ],
+      [
+        "Autenticidade do remetente",
+        "Avaliação da origem alegada da mensagem por canais e sinais confiáveis."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma mensagem em caixa de entrada pode ser fraudulenta mesmo sem ter sido marcada como spam.",
+        "Filtros automáticos não identificam todas as ameaças."
+      ],
+      [
+        "A urgência artificial pode ser indício de engenharia social.",
+        "A pressão tenta abreviar a conferência de informações."
+      ],
+      [
+        "O endereço visualmente familiar do remetente não é prova suficiente de legitimidade.",
+        "Nomes exibidos podem imitar pessoas e instituições."
+      ]
+    ],
+    "myth": [
+      "Toda mensagem que chega à pasta principal foi verificada e aprovada quanto à identidade de quem a enviou.",
+      "A entrega na caixa principal não garante autenticidade."
+    ],
+    "case": "Um e-mail usa o nome de uma chefia e exige confirmação imediata de senha em um endereço não conhecido pela instituição.",
+    "decision": [
+      "Não fornecer credenciais, confirmar a solicitação em canal institucional conhecido e reportar suspeita.",
+      "A verificação independente evita confiar apenas na mensagem possivelmente adulterada."
+    ],
+    "wrongs": [
+      [
+        "Responder ao e-mail pedindo que ele confirme ser legítimo.",
+        "O mesmo remetente suspeito não é fonte independente de validação."
+      ],
+      [
+        "Clicar no link para verificar a aparência do formulário de login.",
+        "Abrir páginas suspeitas aumenta a exposição e a aparência não comprova origem."
+      ],
+      [
+        "Digitar uma senha antiga para testar a autenticidade do pedido.",
+        "Nenhuma senha deve ser compartilhada como teste de legitimidade."
+      ]
+    ],
+    "nuance": "Spam pode ser publicidade não desejada; phishing pode chegar por e-mail, SMS ou outros canais. As categorias não são sinônimos.",
+    "procedure": "Conferir canal oficial por acesso independente; comunicar ao suporte e seguir política institucional de tratamento da mensagem.",
+    "risk": "Pedidos de credenciais e anexos inesperados exigem cautela mesmo quando parecem vir de pessoas conhecidas."
+  },
+  "INF-16-006": {
+    "terms": [
+      [
+        "Netiqueta",
+        "Conjunto de boas práticas de respeito e clareza na comunicação digital."
+      ],
+      [
+        "Minimização de dados",
+        "Compartilhamento apenas do que é necessário ao objetivo definido."
+      ],
+      [
+        "Registro institucional",
+        "Mensagem mantida em canal oficial para rastreabilidade e cumprimento de normas de arquivo."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma mensagem institucional deve indicar propósito e providência solicitada com clareza.",
+        "Assunto e corpo orientam o destinatário."
+      ],
+      [
+        "Linguagem objetiva reduz mal-entendidos sem dispensar cordialidade.",
+        "Concisão não significa frieza ou omissão de informação."
+      ],
+      [
+        "Dados pessoais devem circular apenas para quem precise deles.",
+        "Boa redação não substitui controle de acesso e finalidade legítima."
+      ]
+    ],
+    "myth": [
+      "Uma comunicação cordial pode incluir todos os dados pessoais do processo porque o tom respeitoso elimina riscos de privacidade.",
+      "Cordialidade não justifica exposição de dados além do necessário."
+    ],
+    "case": "Uma servidora deve informar a um fornecedor a pendência de documentação, sem encaminhar dados de outros participantes do processo.",
+    "decision": [
+      "Enviar mensagem objetiva com identificação do processo e apenas os dados necessários ao fornecedor.",
+      "A finalidade é atendida sem expor informações de terceiros."
+    ],
+    "wrongs": [
+      [
+        "Encaminhar o processo inteiro para evitar possíveis perguntas futuras.",
+        "O envio pode expor dados que não são necessários à pendência."
+      ],
+      [
+        "Redigir apenas “resolva isso” sem contexto ou prazo.",
+        "A mensagem é ambígua e dificulta identificar a providência."
+      ],
+      [
+        "Usar conta pessoal e apagar a conversa após o envio.",
+        "Pode comprometer registro e controles de acesso institucionais."
+      ]
+    ],
+    "nuance": "Rotinas oficiais podem exigir canal, identificação e guarda específicos; a expressão “netiqueta” não substitui normas de comunicação oficial.",
+    "procedure": "Identificar assunto, destinatário competente, fato, ação e prazo; revisar sigilo e anexos antes da transmissão.",
+    "risk": "Erros de destinatário e circulação desnecessária de anexos prejudicam tanto a privacidade quanto a confiança administrativa."
+  },
+  "INF-17-001": {
+    "terms": [
+      [
+        "LAN",
+        "Rede de alcance local, como a rede de um edifício ou campus."
+      ],
+      [
+        "WAN",
+        "Rede que interliga pontos geograficamente distantes por enlaces de comunicação."
+      ],
+      [
+        "Internet",
+        "Sistema global de redes interconectadas que empregam protocolos interoperáveis."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma rede LAN pode funcionar sem conexão à internet.",
+        "Dispositivos locais podem comunicar-se mesmo se o enlace externo falhar."
+      ],
+      [
+        "Uma WAN pode ligar unidades administrativas de municípios distintos.",
+        "A classificação considera alcance e interligação, não se a rede é pública."
+      ],
+      [
+        "A internet não é sinônimo de toda rede interna corporativa.",
+        "Uma intranet pode usar tecnologias da internet com acesso restrito."
+      ]
+    ],
+    "myth": [
+      "Se o acesso à internet caiu, dois computadores na mesma LAN não podem compartilhar impressora local.",
+      "A LAN pode continuar operacional sem o acesso à internet."
+    ],
+    "case": "Durante a interrupção do provedor externo, os computadores da mesma secretaria ainda conseguem consultar um servidor de arquivos local.",
+    "decision": [
+      "Diagnosticar separadamente a LAN e o enlace com a internet, mantendo serviços locais autorizados.",
+      "O fato de haver conectividade local demonstra que a falha externa não extinguiu a rede interna."
+    ],
+    "wrongs": [
+      [
+        "Tratar a LAN como indisponível porque o navegador não abriu um site externo.",
+        "O teste de site externo não comprova falha da comunicação local."
+      ],
+      [
+        "Substituir imediatamente todo cabeamento interno sem testar a conectividade local.",
+        "A medida ignora a evidência de serviços internos funcionais."
+      ],
+      [
+        "Abrir o servidor interno publicamente para recuperar o acesso externo.",
+        "Expor um recurso não soluciona a causa da interrupção e aumenta risco."
+      ]
+    ],
+    "nuance": "Alcance, topologia e administração não definem sozinhos se há conexão à internet; uma LAN pode fazer parte de uma WAN maior.",
+    "procedure": "Verificar primeiro recurso local, gateway e resolução de nomes; comunicar ao suporte a camada em que surgiu a falha.",
+    "risk": "Confundir falha de WAN com falha de LAN leva a intervenções desnecessárias e perda de tempo."
+  },
+  "INF-17-002": {
+    "terms": [
+      [
+        "Switch",
+        "Encaminha quadros em uma rede local conforme informações de enlace."
+      ],
+      [
+        "Roteador",
+        "Interliga redes IP e decide o encaminhamento de pacotes entre elas."
+      ],
+      [
+        "Ponto de acesso",
+        "Oferece conexão sem fio dos clientes a uma infraestrutura de rede."
+      ]
+    ],
+    "facts": [
+      [
+        "Um switch típico de camada 2 encaminha tráfego dentro da LAN com base em endereços MAC.",
+        "Essa função difere do roteamento entre redes IP."
+      ],
+      [
+        "Um roteador conecta redes distintas e pode servir de gateway.",
+        "Seu papel é decidir o próximo caminho para os pacotes IP."
+      ],
+      [
+        "Ponto de acesso fornece rádio Wi-Fi, mas não precisa ser o dispositivo que roteia a internet.",
+        "A função de acesso sem fio pode ser separada da função de roteamento."
+      ]
+    ],
+    "myth": [
+      "Um switch comum substitui automaticamente o roteador de internet porque ambos recebem cabos de rede.",
+      "As funções de comutação local e roteamento entre redes são diferentes."
+    ],
+    "case": "Um andar da universidade precisa ampliar portas Ethernet para equipamentos da mesma rede e criar cobertura Wi-Fi em uma sala distante.",
+    "decision": [
+      "Usar comutação adequada para portas locais e ponto de acesso administrado para cobertura sem fio.",
+      "Cada equipamento atende à função específica, sem presumir que o roteador seja dispensável."
+    ],
+    "wrongs": [
+      [
+        "Instalar somente um modem adicional em cada estação, sem planejar a LAN.",
+        "Um modem não é multiplicador de portas locais nem substitui projeto de rede."
+      ],
+      [
+        "Trocar o roteador por um switch simples para garantir acesso à internet.",
+        "Switch simples não executa, por si, a função de gateway IP."
+      ],
+      [
+        "Instalar roteadores domésticos sem coordenação de endereços e Wi-Fi.",
+        "Pode criar redes paralelas, conflito de DHCP e políticas inconsistentes."
+      ]
+    ],
+    "nuance": "Um equipamento doméstico pode combinar modem, roteador, switch e ponto de acesso no mesmo gabinete; a questão deve avaliar funções.",
+    "procedure": "Mapear número de portas, cobertura, segmentos IP e gestão central antes de escolher equipamentos.",
+    "risk": "Equipamentos não gerenciados sem configuração podem ampliar superfície de acesso indevido."
+  },
+  "INF-17-003": {
+    "terms": [
+      [
+        "Ethernet",
+        "Tecnologia de enlace comum em redes locais cabeadas."
+      ],
+      [
+        "Wi-Fi",
+        "Tecnologia de rede local sem fio, geralmente da família IEEE 802.11."
+      ],
+      [
+        "Bluetooth",
+        "Comunicação sem fio de curto alcance para periféricos e dispositivos próximos."
+      ]
+    ],
+    "facts": [
+      [
+        "Wi-Fi e Ethernet podem conectar a mesma LAN, embora utilizem meios de acesso diferentes.",
+        "O meio físico não determina sozinho a rede IP."
+      ],
+      [
+        "Bluetooth não é substituto geral de uma LAN corporativa.",
+        "É mais associado a comunicação local de alcance e perfis específicos."
+      ],
+      [
+        "Conexão móvel usa infraestrutura de operadora e pode ter condições de cobertura e franquia diferentes.",
+        "Tecnologias móveis e Wi-Fi não são idênticas."
+      ]
+    ],
+    "myth": [
+      "Bluetooth é a tecnologia normal de acesso de todos os computadores à LAN cabeada do órgão.",
+      "Periféricos Bluetooth não equivalem à infraestrutura Ethernet da LAN."
+    ],
+    "case": "Uma servidora precisa imprimir por um equipamento na LAN e usar um teclado sem fio no notebook.",
+    "decision": [
+      "Usar a rede institucional via Wi-Fi ou Ethernet e conectar o teclado por Bluetooth, quando suportado.",
+      "As funções atendem necessidades diferentes: acesso à LAN e conexão de periférico."
+    ],
+    "wrongs": [
+      [
+        "Parear o notebook por Bluetooth com qualquer dispositivo próximo para obter internet institucional.",
+        "Pareamento com periféricos não garante acesso à rede do órgão."
+      ],
+      [
+        "Desligar a rede institucional e enviar documentos pessoais pelo dispositivo móvel sem autorização.",
+        "Altera o canal de trabalho e pode desrespeitar políticas."
+      ],
+      [
+        "Tratar Wi-Fi e Bluetooth como redes equivalentes e usar uma senha comum.",
+        "São tecnologias com perfis de segurança e finalidades diferentes."
+      ]
+    ],
+    "nuance": "Em alguns contextos há compartilhamento de internet via Bluetooth ou rede móvel; isso não torna as tecnologias intercambiáveis.",
+    "procedure": "Identificar o dispositivo de destino, os controles institucionais e o meio de enlace apropriado antes da conexão.",
+    "risk": "Conectar a redes não autorizadas pode expor tráfego e contornar registros institucionais."
+  },
+  "INF-17-004": {
+    "terms": [
+      [
+        "IP",
+        "Endereço lógico usado no encaminhamento de dados entre dispositivos em redes IP."
+      ],
+      [
+        "DNS",
+        "Serviço que resolve nomes de domínio para registros, como endereços IP."
+      ],
+      [
+        "DHCP",
+        "Serviço que pode fornecer automaticamente parâmetros de rede a clientes."
+      ]
+    ],
+    "facts": [
+      [
+        "O endereço MAC identifica uma interface no contexto de rede local, enquanto o IP é lógico e pode mudar.",
+        "São identificadores de camadas diferentes."
+      ],
+      [
+        "O DNS pode falhar mesmo quando há conexão IP com um destino conhecido.",
+        "Falha na resolução de nomes não prova ausência total de conectividade."
+      ],
+      [
+        "O DHCP pode fornecer endereço IP, máscara, gateway e servidores DNS.",
+        "A atribuição é automática quando disponível e configurada."
+      ]
+    ],
+    "myth": [
+      "DNS distribui endereços IP automaticamente aos computadores; DHCP apenas traduz nomes de sites.",
+      "As funções foram trocadas: DHCP configura clientes e DNS resolve nomes."
+    ],
+    "case": "Um computador abre um serviço interno pelo endereço IP, mas não pelo nome curto do servidor; outros serviços da rede funcionam.",
+    "decision": [
+      "Investigar configuração de DNS e resolução de nomes, preservando as demais hipóteses de diagnóstico.",
+      "O acesso por IP sugere que o caminho IP existe, mas a tradução do nome pode falhar."
+    ],
+    "wrongs": [
+      [
+        "Trocar a placa de rede porque o problema prova falha física.",
+        "A conexão IP bem-sucedida contradiz diagnóstico imediato de falha de hardware."
+      ],
+      [
+        "Desativar o DHCP no servidor sem conferir o endereço do cliente.",
+        "Pode interromper a configuração de outros usuários sem atacar a resolução de nomes."
+      ],
+      [
+        "Afirmar que o MAC do servidor mudou porque o nome não resolveu.",
+        "Resolução DNS não indica alteração do endereço físico."
+      ]
+    ],
+    "nuance": "DNS também resolve outros tipos de registros; DHCP é um dos modos, não o único, de configurar endereços IP.",
+    "procedure": "Conferir IP, gateway, DNS configurado e teste por nome/IP, anotando resultados para o suporte.",
+    "risk": "Alterar configurações centrais sem diagnóstico pode causar indisponibilidade em toda a rede."
+  },
+  "INF-17-005": {
+    "terms": [
+      [
+        "Largura de banda",
+        "Capacidade nominal de transmissão de dados de um enlace, normalmente medida em bits por segundo."
+      ],
+      [
+        "Taxa efetiva",
+        "Quantidade realmente transmitida em uma condição de uso."
+      ],
+      [
+        "Latência",
+        "Atraso temporal entre uma comunicação enviada e a resposta ou entrega avaliada."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma conexão com grande capacidade nominal ainda pode apresentar alta latência.",
+        "Capacidade e atraso são métricas distintas."
+      ],
+      [
+        "Congestionamento e perdas podem reduzir a taxa efetiva abaixo do valor nominal.",
+        "A medição depende de condições reais e overhead."
+      ],
+      [
+        "Disponibilidade refere-se ao serviço permanecer acessível quando necessário.",
+        "Não é sinônimo de velocidade máxima."
+      ]
+    ],
+    "myth": [
+      "Dobrar a largura de banda sempre reduz o tempo de ida e volta de um pacote à metade.",
+      "Largura de banda e latência não variam necessariamente de forma proporcional."
+    ],
+    "case": "Um sistema de atendimento demora a reagir a comandos pequenos, apesar de um teste de download indicar grande taxa de transferência.",
+    "decision": [
+      "Medir latência e perdas além da taxa de transferência antes de concluir o diagnóstico.",
+      "A demora interativa pode depender do atraso e do processamento, não só da banda."
+    ],
+    "wrongs": [
+      [
+        "Comprar mais banda e descartar medições porque a causa está determinada.",
+        "Mais capacidade não resolve necessariamente latência."
+      ],
+      [
+        "Afirmar que serviço lento significa sempre falta de disponibilidade total.",
+        "Lentidão e indisponibilidade são condições diferentes."
+      ],
+      [
+        "Medir apenas o tamanho de um arquivo transferido, sem tempo nem condições.",
+        "Tamanho isolado não informa taxa nem atraso."
+      ]
+    ],
+    "nuance": "Transferência costuma usar bits/s e capacidade de arquivos usa bytes; 1 byte equivale a 8 bits, sem confundir o prefixo.",
+    "procedure": "Medir o problema no horário afetado; registrar latência, perdas, taxa efetiva e escopo das estações atingidas.",
+    "risk": "Diagnóstico reduzido a um único número pode levar a investimento inadequado em infraestrutura."
+  },
+  "INF-17-006": {
+    "terms": [
+      [
+        "Compartilhamento",
+        "Disponibilização controlada de recursos, como impressoras e arquivos, a outros usuários."
+      ],
+      [
+        "Autenticação",
+        "Verificação da identidade alegada por um usuário ou dispositivo."
+      ],
+      [
+        "Autorização",
+        "Determinação das operações permitidas após a verificação de identidade."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma impressora compartilhada pode ser acessível apenas a um grupo autorizado.",
+        "Conectividade não elimina controles de acesso."
+      ],
+      [
+        "Permissão de leitura é diferente de permissão de alteração em um arquivo compartilhado.",
+        "Operações precisam ser autorizadas segundo a função."
+      ],
+      [
+        "Uma conexão criptografada ajuda a proteger dados em trânsito.",
+        "Criptografia não substitui autenticação nem autorização."
+      ]
+    ],
+    "myth": [
+      "Se um arquivo está acessível por rede, todo usuário autenticado precisa receber permissão de edição.",
+      "Autenticação não equivale a autorização irrestrita."
+    ],
+    "case": "Uma equipe deve consultar relatórios de patrimônio em pasta de rede, mas apenas responsáveis pelo inventário podem alterá-los.",
+    "decision": [
+      "Configurar leitura para a equipe e edição apenas para responsáveis, com contas identificadas.",
+      "Permissões diferenciadas implementam menor privilégio e responsabilidade pelo dado."
+    ],
+    "wrongs": [
+      [
+        "Conceder edição a todo usuário para eliminar pedidos de suporte.",
+        "Aumenta risco de alteração acidental e indevida."
+      ],
+      [
+        "Compartilhar a pasta sem conta nem registro porque a rede é interna.",
+        "Rede interna não garante confiança nem responsabilização."
+      ],
+      [
+        "Tratar HTTPS como autorização para editar arquivos de qualquer pasta.",
+        "Transporte seguro não concede permissões de conteúdo."
+      ]
+    ],
+    "nuance": "Acesso pode ser condicionado por identidade, grupos, compartilhamento e permissões do sistema de arquivos; deve-se conferir a combinação aplicável.",
+    "procedure": "Identificar donos dos dados, usuários e operações necessárias; atribuir permissões mínimas e revisar acessos periodicamente.",
+    "risk": "Acesso aberto aumenta risco de vazamento, alterações não rastreadas e falhas de integridade."
+  },
+  "INF-18-001": {
+    "terms": [
+      [
+        "Confidencialidade",
+        "Propriedade de impedir acesso ou divulgação a partes não autorizadas."
+      ],
+      [
+        "Integridade",
+        "Propriedade de manter correção e impedir alteração ou destruição indevida."
+      ],
+      [
+        "Disponibilidade",
+        "Propriedade de permitir acesso ao recurso quando necessário ao serviço autorizado."
+      ]
+    ],
+    "facts": [
+      [
+        "Um arquivo íntegro pode estar indisponível durante falha de energia.",
+        "Integridade e disponibilidade são propriedades independentes."
+      ],
+      [
+        "Criptografia pode apoiar confidencialidade de dados em repouso ou trânsito.",
+        "Sem controles de chave e acesso, não resolve todos os riscos."
+      ],
+      [
+        "Cópia de segurança pode apoiar disponibilidade e recuperação após incidentes.",
+        "Backup isolado não substitui controle de acesso ou validação de dados."
+      ]
+    ],
+    "myth": [
+      "Disponibilidade significa manter os dados secretos e integridade significa acesso rápido ao sistema.",
+      "Segredo corresponde à confidencialidade; integridade trata de alterações e disponibilidade de acesso."
+    ],
+    "case": "Uma servidora acessa relatório sigiloso com permissão regular, mas percebe valores alterados sem autorização.",
+    "decision": [
+      "Verificar trilha de alterações e comunicar incidente de integridade, preservando evidências.",
+      "O problema central é a alteração indevida, embora o acesso esteja disponível."
+    ],
+    "wrongs": [
+      [
+        "Classificar a ocorrência apenas como falta de disponibilidade porque o documento foi aberto.",
+        "O arquivo está acessível; o sinal é modificação incorreta."
+      ],
+      [
+        "Publicar o relatório para aumentar confidencialidade.",
+        "Divulgação aberta contradiz o controle de sigilo."
+      ],
+      [
+        "Apagar as versões anteriores antes de comparar valores.",
+        "Isso elimina evidências e dificulta recuperação de conteúdo íntegro."
+      ]
+    ],
+    "nuance": "Uma mesma ocorrência pode atingir mais de um pilar; a classificação deve examinar a consequência concreta.",
+    "procedure": "Identificar quem pode ler, quem pode alterar e como restaurar o acesso, testando controles associados a cada requisito.",
+    "risk": "Confundir os três pilares impede selecionar a medida adequada à falha observada."
+  },
+  "INF-18-002": {
+    "terms": [
+      [
+        "Autenticidade",
+        "Confiança justificada de que uma identidade ou origem corresponde ao que é alegado."
+      ],
+      [
+        "Não repúdio",
+        "Capacidade de sustentar evidências para evitar negar indevidamente a autoria de um ato."
+      ],
+      [
+        "Controle de acesso",
+        "Conjunto de regras que determina identidades e ações permitidas sobre recursos."
+      ]
+    ],
+    "facts": [
+      [
+        "Um login válido não demonstra sozinho que uma ação específica foi autorizada.",
+        "Autenticação de identidade e autorização de operação têm finalidades distintas."
+      ],
+      [
+        "Assinaturas digitais verificáveis podem apoiar autenticidade e não repúdio dentro de uma infraestrutura adequada.",
+        "A evidência depende de chaves, certificados, registros e políticas."
+      ],
+      [
+        "Registros de auditoria ajudam a investigar quem realizou determinada operação.",
+        "Logs precisam ser protegidos e contextualizados para serem confiáveis."
+      ]
+    ],
+    "myth": [
+      "O simples uso de senha em um formulário garante não repúdio absoluto de qualquer ato posterior.",
+      "Senha pode ser compartilhada ou comprometida; exige evidências e gestão de identidade."
+    ],
+    "case": "Um processo eletrônico registra autorização de despesa, e a chefia precisa verificar a origem do documento e as permissões de assinatura.",
+    "decision": [
+      "Conferir assinatura verificável, identidade, atribuições e registros associados ao ato.",
+      "A análise une autenticidade, autorização e evidência sem confundir seus papéis."
+    ],
+    "wrongs": [
+      [
+        "Considerar o documento autêntico porque foi recebido por e-mail com nome conhecido.",
+        "Nome exibido é indício insuficiente de origem."
+      ],
+      [
+        "Permitir qualquer servidor assinar porque todos têm login no sistema.",
+        "Login não concede atribuição para aprovar despesas."
+      ],
+      [
+        "Apagar trilhas de auditoria após a confirmação visual da assinatura.",
+        "A supressão compromete evidência para futura apuração."
+      ]
+    ],
+    "nuance": "Não repúdio não é uma garantia mágica de impossibilidade absoluta de contestação; depende de mecanismos e contexto jurídico.",
+    "procedure": "Verificar identidade, permissão e evidência da ação, separando cada uma das três perguntas.",
+    "risk": "Sem trilhas protegidas e perfis definidos, decisões podem se tornar contestáveis e difíceis de auditar."
+  },
+  "INF-18-003": {
+    "terms": [
+      [
+        "Política de segurança",
+        "Conjunto de diretrizes aprovadas que orientam proteção de ativos e responsabilidades."
+      ],
+      [
+        "Classificação",
+        "Atribuição de categoria à informação conforme sensibilidade e necessidade de proteção."
+      ],
+      [
+        "Retenção",
+        "Prazo e condições para conservar registros conforme normas aplicáveis."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma informação pública e uma informação restrita podem exigir controles diferentes.",
+        "A finalidade e a classificação orientam armazenamento e circulação."
+      ],
+      [
+        "Diretrizes precisam ser traduzidas em procedimentos e responsáveis.",
+        "Uma política sem execução consistente tem eficácia limitada."
+      ],
+      [
+        "Classificação não autoriza apagar registros sujeitos a guarda obrigatória.",
+        "Regras de retenção e proteção devem ser compatibilizadas."
+      ]
+    ],
+    "myth": [
+      "Todo documento produzido em instituição pública é automaticamente livre de restrições e pode ser enviado a qualquer endereço.",
+      "Pode haver informações pessoais, sigilos legais ou restrições de acesso."
+    ],
+    "case": "Um arquivo contém dados de servidores e deve ser compartilhado para preparar uma folha de conferência interna.",
+    "decision": [
+      "Consultar a classificação e enviar apenas a pessoas autorizadas pelo canal previsto.",
+      "A circulação decorre de necessidade, finalidade e normas institucionais."
+    ],
+    "wrongs": [
+      [
+        "Disponibilizar o arquivo em link público porque pertence ao setor público.",
+        "Origem pública da instituição não torna todo dado irrestrito."
+      ],
+      [
+        "Remover os registros após um mês sem verificar tabela de temporalidade.",
+        "Retenção não é definida por preferência pessoal."
+      ],
+      [
+        "Ignorar política de segurança porque o envio é entre colegas.",
+        "Ambiente interno também tem requisitos de acesso e classificação."
+      ]
+    ],
+    "nuance": "Termos e categorias variam entre instituições; não confunda classificação de segurança com classificação arquivística.",
+    "procedure": "Identificar tipo de dado, classificar conforme política, determinar pessoas autorizadas, canal e prazo de guarda.",
+    "risk": "A divulgação indevida de informações institucionais pode produzir danos e responsabilidades administrativas."
+  },
+  "INF-18-004": {
+    "terms": [
+      [
+        "Menor privilégio",
+        "Concessão apenas das permissões necessárias às funções e pelo tempo apropriado."
+      ],
+      [
+        "Perfil de acesso",
+        "Conjunto de permissões associado a um papel ou conjunto de usuários."
+      ],
+      [
+        "Segregação de funções",
+        "Separação de atividades críticas entre pessoas ou papéis para reduzir riscos."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma pessoa pode precisar de leitura sem precisar editar ou excluir documentos.",
+        "Permissões devem corresponder à tarefa real."
+      ],
+      [
+        "Revisão periódica de acessos remove privilégios que deixaram de ser necessários.",
+        "Mudanças de cargo exigem atualização de perfis."
+      ],
+      [
+        "Separar elaboração e aprovação reduz concentração indevida de poder.",
+        "A segregação é controle organizacional complementar."
+      ]
+    ],
+    "myth": [
+      "Menor privilégio significa conceder acesso de administrador a todos para impedir pedidos de autorização.",
+      "O princípio exige restringir privilégios ao mínimo adequado."
+    ],
+    "case": "Uma estagiária precisará consultar notas fiscais digitalizadas, mas não poderá autorizar pagamentos nem excluir documentos.",
+    "decision": [
+      "Atribuir perfil somente de consulta e revisar a permissão ao fim da atividade.",
+      "O perfil corresponde à necessidade e evita operações sensíveis."
+    ],
+    "wrongs": [
+      [
+        "Atribuir administrador porque o uso é temporário.",
+        "Privilégio amplo aumenta risco mesmo por pouco tempo."
+      ],
+      [
+        "Compartilhar a senha da chefia para evitar criação de usuário.",
+        "Remove rastreabilidade e dá acesso além da função."
+      ],
+      [
+        "Desabilitar logs para não expor os acessos da estagiária.",
+        "Perde-se controle de auditoria justamente numa atividade sensível."
+      ]
+    ],
+    "nuance": "Menor privilégio não é negar todo acesso: é assegurar o acesso suficiente e somente o necessário.",
+    "procedure": "Listar tarefas, mapear operações indispensáveis, conceder permissões e criar revisão ao mudar função ou terminar vínculo.",
+    "risk": "Privilégios excessivos aumentam danos potenciais de erro humano, uso indevido e contas comprometidas."
+  },
+  "INF-18-005": {
+    "terms": [
+      [
+        "Atualização",
+        "Mudança distribuída ao software para melhorias, compatibilidade e correções."
+      ],
+      [
+        "Correção de segurança",
+        "Atualização destinada a reduzir uma vulnerabilidade identificada."
+      ],
+      [
+        "Fim de suporte",
+        "Período em que o fornecedor deixa de oferecer determinado atendimento ou atualizações relevantes."
+      ]
+    ],
+    "facts": [
+      [
+        "Software atualizado geralmente reduz exposição a vulnerabilidades já corrigidas.",
+        "Atualizações não eliminam a necessidade de outras camadas de proteção."
+      ],
+      [
+        "Uma atualização pode exigir testes de compatibilidade em sistemas críticos.",
+        "Implantação coordenada evita interrupção operacional."
+      ],
+      [
+        "Software fora de suporte demanda plano específico de substituição ou mitigação.",
+        "Sem atualizações, vulnerabilidades conhecidas podem permanecer."
+      ]
+    ],
+    "myth": [
+      "Ativar antivírus torna desnecessárias as atualizações do sistema operacional.",
+      "As proteções são complementares e resolvem classes de risco diferentes."
+    ],
+    "case": "Uma estação usada para protocolo trabalha com versão antiga de aplicativo que não recebe mais correções do fornecedor.",
+    "decision": [
+      "Planejar atualização ou substituição compatível, com backup, teste e janela de implantação.",
+      "O risco decorre da ausência de suporte e deve ser tratado sem interromper operação sem planejamento."
+    ],
+    "wrongs": [
+      [
+        "Manter indefinidamente a versão antiga porque abre normalmente.",
+        "Funcionamento aparente não demonstra ausência de vulnerabilidade."
+      ],
+      [
+        "Desligar todas as atualizações de todas as máquinas para eliminar reinicializações.",
+        "Aumenta exposição e bloqueia correções necessárias."
+      ],
+      [
+        "Instalar software obtido em mensagem informal para substituir a versão.",
+        "Fonte não validada pode introduzir programas indesejados."
+      ]
+    ],
+    "nuance": "Nem todo update altera funcionalidades; patches de segurança podem ser urgentes, mas sua implantação deve considerar criticidade.",
+    "procedure": "Inventariar versões, verificar ciclo de suporte, testar compatibilidade e agendar implantação com plano de retorno.",
+    "risk": "Atrasar correções aumenta a janela de exposição mesmo em sistemas pouco usados."
+  },
+  "INF-18-006": {
+    "terms": [
+      [
+        "Defesa em profundidade",
+        "Uso combinado de controles que reduzem dependência de uma única barreira."
+      ],
+      [
+        "Backup testado",
+        "Cópia cuja recuperação foi verificada em condições controladas."
+      ],
+      [
+        "Resposta a incidentes",
+        "Processo organizado de identificação, contenção, registro e recuperação de ocorrências."
+      ]
+    ],
+    "facts": [
+      [
+        "Senhas fortes e MFA protegem identidades, mas não substituem backup e atualizações.",
+        "Cada controle enfrenta riscos diferentes."
+      ],
+      [
+        "Um backup não testado pode falhar quando realmente necessário.",
+        "A existência do arquivo não comprova recuperabilidade."
+      ],
+      [
+        "Treinamento e canais de reporte são controles importantes na administração.",
+        "Comportamento e governança complementam ferramentas técnicas."
+      ]
+    ],
+    "myth": [
+      "Se há firewall institucional, é dispensável revisar permissões e treinar usuários.",
+      "Firewall não resolve todos os riscos nem erros humanos."
+    ],
+    "case": "Uma repartição precisa reduzir interrupções provocadas por arquivos maliciosos e falhas humanas durante o atendimento diário.",
+    "decision": [
+      "Combinar atualizações, permissões mínimas, MFA, backups testados e orientação para reporte.",
+      "Camadas de proteção diminuem dependência de um único mecanismo."
+    ],
+    "wrongs": [
+      [
+        "Confiar exclusivamente no antivírus para prevenir qualquer incidente.",
+        "Uma ferramenta isolada não cobre todas as ameaças e erros."
+      ],
+      [
+        "Deixar toda estação com privilégios administrativos para agilizar o serviço.",
+        "Amplia a extensão possível de falhas e uso indevido."
+      ],
+      [
+        "Manter backups na mesma pasta acessível a todos sem teste de restauração.",
+        "Os dados podem ser afetados pelo mesmo incidente e a cópia pode não restaurar."
+      ]
+    ],
+    "nuance": "Nenhuma combinação torna risco zero; o objetivo é reduzir probabilidade e impacto, com capacidade de resposta.",
+    "procedure": "Definir responsáveis, revisar acessos, confirmar backups restauráveis e praticar comunicação de incidentes.",
+    "risk": "Ausência de planos e testes pode transformar falhas pequenas em paralisação prolongada."
+  },
+  "INF-19-001": {
+    "terms": [
+      [
+        "Vírus",
+        "Código malicioso que se associa a um hospedeiro e geralmente depende de execução para propagar-se."
+      ],
+      [
+        "Worm",
+        "Código malicioso capaz de propagar-se entre sistemas com maior autonomia."
+      ],
+      [
+        "Trojan",
+        "Programa que se apresenta como legítimo ou útil para induzir execução de conteúdo malicioso."
+      ]
+    ],
+    "facts": [
+      [
+        "Spyware busca coletar ou monitorar informações sem autorização apropriada.",
+        "A finalidade de espionagem é diferente do meio de propagação."
+      ],
+      [
+        "Nem toda ameaça maliciosa se propaga da mesma maneira.",
+        "Vírus, worms e trojans distinguem mecanismos e apresentação."
+      ],
+      [
+        "Atualizações e fontes confiáveis reduzem exposição, mas não garantem imunidade.",
+        "Proteção envolve múltiplas camadas."
+      ]
+    ],
+    "myth": [
+      "Todo trojan se replica de forma autônoma em rede, exatamente como um worm.",
+      "Trojan caracteriza disfarce; propagação autônoma define worms em muitos contextos."
+    ],
+    "case": "Uma equipe encontra um utilitário apresentado como atualização de impressora em um e-mail não solicitado, sem origem validada.",
+    "decision": [
+      "Não executar o arquivo e verificar a necessidade da atualização pelo suporte institucional.",
+      "A aparência de utilitário legítimo não comprova que seja seguro."
+    ],
+    "wrongs": [
+      [
+        "Instalar o utilitário numa máquina do setor para confirmar o comportamento.",
+        "Execução de arquivo desconhecido introduz risco ao ambiente."
+      ],
+      [
+        "Compartilhar o arquivo com colegas para obter uma segunda opinião informal.",
+        "Difunde conteúdo não verificado e aumenta exposição."
+      ],
+      [
+        "Desligar proteção de endpoint para evitar falso positivo da atualização.",
+        "Reduz defesas antes da avaliação de procedência."
+      ]
+    ],
+    "nuance": "As classes de malware podem se sobrepor; um programa pode desempenhar mais de uma função maliciosa.",
+    "procedure": "Utilizar apenas repositórios aprovados e pedir análise ao suporte antes de executar programas recebidos por mensagem.",
+    "risk": "A execução de software sem validação pode comprometer dispositivos e informações institucionais."
+  },
+  "INF-19-002": {
+    "terms": [
+      [
+        "Ransomware",
+        "Malware associado a bloqueio ou indisponibilização de dados para extorsão."
+      ],
+      [
+        "Cópia isolada",
+        "Backup com separação suficiente para reduzir impacto de incidentes no sistema principal."
+      ],
+      [
+        "Restauração",
+        "Processo de recuperar dados e serviços a partir de cópias confiáveis e verificadas."
+      ]
+    ],
+    "facts": [
+      [
+        "Ransomware pode tornar arquivos ou serviços inacessíveis.",
+        "Indisponibilidade é um impacto comum, às vezes acompanhado por exposição de dados."
+      ],
+      [
+        "Backups separados e testados apoiam recuperação após incidentes.",
+        "Cópia no mesmo local afetado pode não estar disponível."
+      ],
+      [
+        "O plano de recuperação deve incluir investigação e restauração segura.",
+        "Restaurar sem verificar o ambiente pode repetir o problema."
+      ]
+    ],
+    "myth": [
+      "Pagar uma exigência de extorsão garante a recuperação íntegra e confidencial de todos os dados.",
+      "Não há garantia técnica nem contratual de recuperação ou não divulgação."
+    ],
+    "case": "Um servidor de arquivos passa a exibir indisponibilidade inesperada e a equipe suspeita de incidente de ransomware.",
+    "decision": [
+      "Acionar imediatamente resposta a incidentes, preservar registros e seguir orientações de isolamento e recuperação da equipe responsável.",
+      "Evita ações improvisadas e permite coordenar a contenção e a recuperação."
+    ],
+    "wrongs": [
+      [
+        "Pagar imediatamente por conta própria para evitar informar a chefia.",
+        "Não garante retorno dos dados e compromete resposta institucional."
+      ],
+      [
+        "Apagar todos os registros de atividade antes de avisar o suporte.",
+        "Destrói evidências necessárias à investigação."
+      ],
+      [
+        "Conectar todas as unidades de backup sem avaliação da equipe técnica.",
+        "Pode ampliar risco às cópias destinadas à recuperação."
+      ]
+    ],
+    "nuance": "Extorsão pode envolver criptografia, ameaça de vazamento ou ambos; não se deve limitar a análise apenas ao efeito visível.",
+    "procedure": "Comunicar pelos canais de emergência definidos; seguir plano institucional de contingência e recuperação testada.",
+    "risk": "Improvisação durante incidente pode aumentar indisponibilidade e comprometer cópias de recuperação."
+  },
+  "INF-19-003": {
+    "terms": [
+      [
+        "Phishing",
+        "Fraude que tenta induzir entrega de dados, instalação ou ação indevida por engano."
+      ],
+      [
+        "Smishing",
+        "Phishing realizado principalmente por mensagens SMS ou texto em dispositivo móvel."
+      ],
+      [
+        "Vishing",
+        "Engenharia social praticada por chamadas de voz."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma chamada de voz pode imitar o número da instituição.",
+        "Identificador aparente não garante origem legítima."
+      ],
+      [
+        "Fraudes podem usar urgência e autoridade alegada para obter dados.",
+        "Pressão psicológica busca evitar conferências independentes."
+      ],
+      [
+        "Verificação por canal oficial conhecido reduz risco de responder à fraude.",
+        "O contato precisa ser independente do conteúdo suspeito."
+      ]
+    ],
+    "myth": [
+      "Se uma solicitação chegou por telefone, não pode ser phishing porque phishing existe apenas por e-mail.",
+      "A fraude assume diferentes canais, inclusive voz e mensagens."
+    ],
+    "case": "Alguém liga alegando ser do suporte e exige que a recepção informe imediatamente o código de autenticação recebido no celular.",
+    "decision": [
+      "Recusar divulgação do código e contatar o suporte por canal institucional previamente conhecido.",
+      "Códigos de autenticação não devem ser enviados a terceiros por telefone."
+    ],
+    "wrongs": [
+      [
+        "Informar parte do código para provar que a conta pertence ao setor.",
+        "Mesmo divulgação parcial pode ajudar fraude e não comprova identidade do solicitante."
+      ],
+      [
+        "Pedir que o próprio interlocutor forneça outro número para confirmar a chamada.",
+        "Outro número indicado pelo suspeito não é canal independente."
+      ],
+      [
+        "Desligar a proteção de autenticação para não receber mais ligações.",
+        "Retira barreira de segurança em vez de verificar o pedido."
+      ]
+    ],
+    "nuance": "Uma mensagem ou ligação pode ser fraudulenta mesmo com linguagem formal e dados corretos obtidos em fontes públicas.",
+    "procedure": "Interromper interação, registrar dados mínimos do contato e comunicar a tentativa ao responsável institucional.",
+    "risk": "Divulgação de códigos de segundo fator pode permitir acesso não autorizado às contas."
+  },
+  "INF-19-004": {
+    "terms": [
+      [
+        "Domínio",
+        "Parte do endereço utilizada para identificar a organização ou serviço na web."
+      ],
+      [
+        "Anexo suspeito",
+        "Arquivo recebido em contexto inesperado ou com procedência não confirmada."
+      ],
+      [
+        "Página falsa",
+        "Site construído para imitar serviço legítimo e induzir fornecimento de dados."
+      ]
+    ],
+    "facts": [
+      [
+        "Uma página com cadeado HTTPS ainda pode conter conteúdo fraudulento.",
+        "A conexão criptografada não valida honestidade do negócio."
+      ],
+      [
+        "Endereços parecidos visualmente podem conduzir a domínios diferentes.",
+        "A análise deve observar o domínio efetivo, não só palavras familiares."
+      ],
+      [
+        "Arquivos anexados podem causar risco mesmo quando o corpo parece institucional.",
+        "É preciso conferir origem, necessidade e tipo do conteúdo."
+      ]
+    ],
+    "myth": [
+      "O ícone de cadeado do navegador comprova que o formulário pertence ao órgão anunciado.",
+      "HTTPS indica proteção do transporte e validação do certificado, não legitimidade do conteúdo."
+    ],
+    "case": "Um e-mail orienta atualizar dados em página com aparência da intranet, mas o domínio mostrado difere do usado pelo órgão.",
+    "decision": [
+      "Não preencher o formulário; acessar o serviço digitando endereço institucional conhecido ou por favorito validado.",
+      "Origem independente evita depender do link contido na mensagem suspeita."
+    ],
+    "wrongs": [
+      [
+        "Confiar no logotipo e continuar porque a página apresenta HTTPS.",
+        "Design e HTTPS não demonstram que o domínio é legítimo."
+      ],
+      [
+        "Baixar o anexo do e-mail para conferir se a mensagem é oficial.",
+        "O anexo não é verificação independente e pode apresentar riscos."
+      ],
+      [
+        "Alterar as configurações de segurança do navegador para remover avisos.",
+        "Reduz alertas sem validar a origem da solicitação."
+      ]
+    ],
+    "nuance": "A grafia do domínio deve ser conferida com cuidado; o caminho da URL e subdomínios podem conter nomes enganosos.",
+    "procedure": "Comparar domínio com fonte institucional segura, evitar anexos inesperados e reportar mensagens fraudulentas.",
+    "risk": "Páginas falsas podem comprometer dados de acesso e expor usuários à coleta indevida de informações."
+  },
+  "INF-19-005": {
+    "terms": [
+      [
+        "Boato",
+        "Informação não verificada que circula como se fosse fato."
+      ],
+      [
+        "Desinformação",
+        "Conteúdo falso ou enganoso disseminado com intenção de induzir erro em muitos contextos."
+      ],
+      [
+        "Fonte primária",
+        "Registro original ou canal institucional responsável pela informação alegada."
+      ]
+    ],
+    "facts": [
+      [
+        "Número de compartilhamentos não demonstra que uma notícia é verdadeira.",
+        "Popularidade e evidência são critérios distintos."
+      ],
+      [
+        "Publicações recortadas podem perder data, contexto e autoria.",
+        "Verificação precisa reconstruir o contexto."
+      ],
+      [
+        "Canais oficiais e documentos originais ajudam a confrontar afirmações.",
+        "A fonte precisa ser pertinente à alegação e atual."
+      ]
+    ],
+    "myth": [
+      "Uma mensagem encaminhada centenas de vezes deve ser tratada como comunicação oficial do órgão.",
+      "A frequência de compartilhamento não autentica origem."
+    ],
+    "case": "Um grupo anuncia alteração urgente do horário de inscrição de concurso, citando imagem sem data e sem link para edital.",
+    "decision": [
+      "Conferir edital e retificações nos canais oficiais antes de compartilhar ou orientar candidatos.",
+      "A referência original e a data prevalecem sobre imagem não contextualizada."
+    ],
+    "wrongs": [
+      [
+        "Repassar o aviso para não ser responsável pelo atraso de terceiros.",
+        "Divulgação sem checagem pode propagar erro."
+      ],
+      [
+        "Tomar o número de encaminhamentos como evidência documental.",
+        "Popularidade não substitui confirmação."
+      ],
+      [
+        "Alterar a informação do site interno com base na captura de tela anônima.",
+        "Mudança institucional exige fonte verificável."
+      ]
+    ],
+    "nuance": "Mesmo informação verdadeira pode estar desatualizada; conferir data de publicação, contexto e eventuais retificações.",
+    "procedure": "Localizar documento primário, comparar datas, identificar emissor responsável e registrar a fonte usada.",
+    "risk": "Informações falsas podem causar perda de prazos e atendimento incorreto ao público."
+  },
+  "INF-19-006": {
+    "terms": [
+      [
+        "Prevenção",
+        "Medidas anteriores ao incidente que reduzem probabilidade ou impacto de risco."
+      ],
+      [
+        "Registro de ocorrência",
+        "Documentação objetiva de sinais observados, horário e contexto relevante."
+      ],
+      [
+        "Comunicação de incidente",
+        "Notificação tempestiva ao canal responsável para investigação e orientação."
+      ]
+    ],
+    "facts": [
+      [
+        "Relatar suspeitas rapidamente permite que equipe responsável avalie abrangência.",
+        "Não é preciso diagnosticar sozinho toda a causa."
+      ],
+      [
+        "Preservar mensagens e horários pode ajudar análise, conforme política.",
+        "Informações de contexto tornam o relato útil."
+      ],
+      [
+        "Procedimentos de resposta devem ser definidos previamente pelo órgão.",
+        "A improvisação individual pode aumentar impacto."
+      ]
+    ],
+    "myth": [
+      "Só se deve comunicar um incidente depois de comprovar tecnicamente qual malware o causou.",
+      "O reporte de suspeita é oportuno antes da identificação definitiva."
+    ],
+    "case": "Após clicar inadvertidamente num link suspeito, uma servidora percebe solicitação inesperada de credenciais.",
+    "decision": [
+      "Interromper a interação, não fornecer dados e avisar imediatamente ao suporte pelo canal oficial.",
+      "Relato rápido orienta contenção e análise conforme os procedimentos da instituição."
+    ],
+    "wrongs": [
+      [
+        "Ignorar o episódio porque nenhuma mensagem de erro apareceu.",
+        "Ausência de aviso não comprova ausência de risco."
+      ],
+      [
+        "Apagar todo histórico e arquivos do dispositivo por iniciativa própria.",
+        "Pode eliminar evidências e afetar continuidade do trabalho."
+      ],
+      [
+        "Compartilhar o link suspeito com colegas para que testem se também funciona.",
+        "Amplia exposição sem análise autorizada."
+      ]
+    ],
+    "nuance": "O usuário não precisa realizar perícia nem decidir sozinho como isolar sistemas; deve cumprir o plano institucional.",
+    "procedure": "Registrar horário, canal, contexto e ações realizadas; comunicar ao ponto de contato e seguir orientações recebidas.",
+    "risk": "Atraso ou omissão no reporte dificulta contenção e aumenta o número de usuários afetados."
+  },
+  "INF-20-001": {
+    "terms": [
+      [
+        "Frase secreta",
+        "Credencial de múltiplas palavras, geralmente mais fácil de memorizar quando longa e única."
+      ],
+      [
+        "Gerenciador de senhas",
+        "Ferramenta que guarda e pode gerar credenciais protegidas para contas."
+      ],
+      [
+        "Reutilização",
+        "Emprego da mesma senha em diferentes serviços, ampliando o impacto de comprometimento."
+      ]
+    ],
+    "facts": [
+      [
+        "Senhas longas e exclusivas diminuem riscos de ataques baseados em adivinhação e reutilização.",
+        "Comprimento e exclusividade importam."
+      ],
+      [
+        "Gerenciadores confiáveis ajudam a usar senhas diferentes em múltiplos serviços.",
+        "O usuário não precisa memorizar cada credencial individualmente."
+      ],
+      [
+        "Uma credencial não deve ser enviada por e-mail ou compartilhada com colegas.",
+        "A identificação deve ser pessoal para preservar responsabilidade e proteção."
+      ]
+    ],
+    "myth": [
+      "Trocar o último dígito da mesma senha em todos os serviços torna as credenciais independentes e seguras.",
+      "Padrões previsíveis facilitam comprometimento múltiplo."
+    ],
+    "case": "Uma servidora usa a mesma senha para e-mail institucional e para um serviço externo que anunciou vazamento de contas.",
+    "decision": [
+      "Trocar a senha institucional por credencial única e robusta e habilitar MFA conforme política.",
+      "Evita dependência da credencial já potencialmente exposta no serviço externo."
+    ],
+    "wrongs": [
+      [
+        "Manter a mesma senha e acrescentar apenas o ano corrente.",
+        "Padrões semelhantes continuam previsíveis e não eliminam reutilização."
+      ],
+      [
+        "Enviar a senha à chefia para criar cópia de segurança.",
+        "Compartilhamento de credenciais compromete responsabilidade."
+      ],
+      [
+        "Desativar o bloqueio de conta para reduzir erros de digitação.",
+        "Remove proteção sem resolver reutilização de senha."
+      ]
+    ],
+    "nuance": "Frases secretas não dispensam MFA e gestão de recuperação; a proteção da conta principal do gerenciador requer atenção.",
+    "procedure": "Criar credenciais exclusivas, guardar em ferramenta institucional aprovada e ativar fatores adicionais quando disponíveis.",
+    "risk": "Credenciais reutilizadas podem permitir acesso a outros serviços após comprometimento de uma conta."
+  },
+  "INF-20-002": {
+    "terms": [
+      [
+        "Primeiro fator",
+        "Evidência de autenticação, como algo que o usuário sabe: senha ou PIN."
+      ],
+      [
+        "Segundo fator",
+        "Evidência adicional de categoria independente, como dispositivo ou biometria."
+      ],
+      [
+        "MFA resistente a phishing",
+        "Método que reduz a possibilidade de uso de fatores obtidos em páginas ou pedidos fraudulentos."
+      ]
+    ],
+    "facts": [
+      [
+        "Usar senha e aplicativo autenticador normalmente combina conhecimento e posse.",
+        "Fatores de categorias distintas oferecem proteção adicional."
+      ],
+      [
+        "Dois códigos enviados ao mesmo dispositivo nem sempre constituem dois fatores independentes.",
+        "Contagem de etapas não equivale à diversidade de fatores."
+      ],
+      [
+        "MFA reduz riscos, mas códigos e aprovações ainda podem ser explorados por engenharia social.",
+        "O usuário deve verificar pedidos inesperados."
+      ]
+    ],
+    "myth": [
+      "Receber dois SMS consecutivos sempre constitui autenticação de dois fatores independentes.",
+      "Duas mensagens ao mesmo número não necessariamente representam categorias diferentes de fatores."
+    ],
+    "case": "Uma servidora recebe uma notificação de aprovação de acesso à conta em horário no qual não tentou entrar.",
+    "decision": [
+      "Negar a solicitação, verificar a conta por canal oficial e comunicar o evento ao suporte.",
+      "Pedido inesperado pode indicar tentativa de autenticação indevida."
+    ],
+    "wrongs": [
+      [
+        "Aprovar para fazer a notificação desaparecer.",
+        "Confirma uma tentativa que a usuária não iniciou."
+      ],
+      [
+        "Informar código de verificação a pessoa que ligou dizendo ser suporte.",
+        "Códigos não devem ser fornecidos a terceiros."
+      ],
+      [
+        "Desativar MFA porque notificações são incômodas.",
+        "Retira uma camada de proteção justamente após sinal suspeito."
+      ]
+    ],
+    "nuance": "Métodos com chave de segurança ou credenciais vinculadas à origem podem ser mais resistentes a phishing que códigos digitados.",
+    "procedure": "Ativar MFA aprovado, cadastrar recuperação segura e revisar alertas de acesso antes de aprovar qualquer solicitação.",
+    "risk": "Aprovações automáticas e códigos divulgados permitem que tentativas fraudulentas ultrapassem barreiras adicionais."
+  },
+  "INF-20-003": {
+    "terms": [
+      [
+        "Bloqueio de tela",
+        "Proteção da sessão ao exigir nova autenticação após inatividade ou ação manual."
+      ],
+      [
+        "Conta individual",
+        "Identidade de usuário atribuída a pessoa determinada com permissões rastreáveis."
+      ],
+      [
+        "Perfil de acesso",
+        "Conjunto de permissões e preferências associado a uma conta ou função."
+      ]
+    ],
+    "facts": [
+      [
+        "Bloquear a estação ao se ausentar protege a sessão já autenticada.",
+        "O acesso físico de terceiros não deve permitir usar a sessão aberta."
+      ],
+      [
+        "Contas individuais favorecem auditoria e aplicação de permissões adequadas.",
+        "Compartilhamento de login reduz identificação de ações."
+      ],
+      [
+        "Um bloqueio de tela não encerra necessariamente programas nem grava automaticamente formulários.",
+        "A sessão permanece aberta, mas exige autenticação para retomada."
+      ]
+    ],
+    "myth": [
+      "O bloqueio da tela faz logout completo e salva automaticamente todos os documentos em edição.",
+      "Bloquear não equivale a encerrar sessão ou salvar dados."
+    ],
+    "case": "Em um balcão compartilhado, a servidora precisa se afastar por cinco minutos enquanto um formulário com dados pessoais permanece aberto.",
+    "decision": [
+      "Salvar o trabalho conforme o sistema e bloquear a sessão antes de sair da estação.",
+      "O bloqueio reduz acesso físico enquanto o registro permanece sob responsabilidade da conta."
+    ],
+    "wrongs": [
+      [
+        "Deixar a sessão aberta porque a ausência é breve.",
+        "Terceiros podem visualizar ou alterar dados na sessão."
+      ],
+      [
+        "Pedir a um colega que use a mesma conta para manter o atendimento.",
+        "Compartilhar identidade enfraquece rastreabilidade e permissões."
+      ],
+      [
+        "Desativar o tempo de bloqueio automático para evitar interrupções.",
+        "Amplia janela de exposição quando o posto está desocupado."
+      ]
+    ],
+    "nuance": "Em Windows, o atalho Win+L normalmente bloqueia a sessão; não confunda bloqueio com desconexão de rede, suspensão ou saída completa.",
+    "procedure": "Salvar o que for necessário, bloquear a sessão manualmente e configurar tempo de bloqueio segundo regras do órgão.",
+    "risk": "Sessões desbloqueadas em áreas comuns podem permitir consulta e alteração indevida de dados."
+  },
+  "INF-20-004": {
+    "terms": [
+      [
+        "Antivírus",
+        "Ferramenta que detecta e ajuda a impedir software malicioso por diferentes técnicas."
+      ],
+      [
+        "Firewall",
+        "Mecanismo de filtragem de comunicações conforme regras de rede."
+      ],
+      [
+        "Atualização automática",
+        "Recurso que obtém ou aplica correções conforme política e configuração do sistema."
+      ]
+    ],
+    "facts": [
+      [
+        "Antivírus e firewall cumprem funções diferentes e podem atuar em conjunto.",
+        "Detecção de malware não é idêntica à filtragem de tráfego."
+      ],
+      [
+        "Atualizações de sistema e assinaturas de proteção ajudam a enfrentar ameaças conhecidas.",
+        "Componentes desatualizados podem apresentar lacunas."
+      ],
+      [
+        "Nenhuma dessas ferramentas garante proteção absoluta contra toda fraude.",
+        "Engenharia social pode envolver decisões humanas e serviços externos."
+      ]
+    ],
+    "myth": [
+      "Ativar o firewall do dispositivo substitui a necessidade de atualizar o sistema operacional e verificar anexos.",
+      "Firewall não impede todas as vulnerabilidades nem corrige riscos de anexos."
+    ],
+    "case": "O setor constata que as estações estão com proteção de endpoint ativa, mas as atualizações de segurança foram pausadas há meses.",
+    "decision": [
+      "Restabelecer gestão de atualizações com testes e política institucional, mantendo antivírus e firewall ativos.",
+      "Controles complementares precisam operar em conjunto."
+    ],
+    "wrongs": [
+      [
+        "Desativar antivírus para agilizar instalação de programas não aprovados.",
+        "Enfraquece controle sem validar procedência."
+      ],
+      [
+        "Bloquear indiscriminadamente toda conexão sem planejar os serviços do setor.",
+        "Pode interromper sistemas legítimos e não substitui análise de risco."
+      ],
+      [
+        "Presumir que o antivírus atualizado corrigiu automaticamente as falhas do Windows.",
+        "Assinaturas e correções do sistema têm funções diferentes."
+      ]
+    ],
+    "nuance": "Funções e nomes de produto variam conforme plataforma; as questões tratam de conceitos, não de promessas de detecção perfeita.",
+    "procedure": "Consultar inventário de versões, política de correção, estado da proteção e regras de comunicação necessárias aos serviços.",
+    "risk": "Defesas mal configuradas ou desatualizadas podem causar exposição ou interrupções evitáveis."
+  },
+  "INF-20-005": {
+    "terms": [
+      [
+        "Permissão de aplicativo",
+        "Autorização para acessar recurso do dispositivo, como câmera, microfone ou arquivos."
+      ],
+      [
+        "Privacidade",
+        "Controle adequado sobre coleta, uso e divulgação de informações pessoais."
+      ],
+      [
+        "Compartilhamento restrito",
+        "Disponibilização de dados apenas para destinatários e finalidades autorizados."
+      ]
+    ],
+    "facts": [
+      [
+        "Um aplicativo pode solicitar permissão desnecessária à sua finalidade.",
+        "É prudente avaliar necessidade antes de conceder acesso."
+      ],
+      [
+        "Permissões podem ser revisadas nas configurações conforme sistema e versão.",
+        "Concessões antigas não devem permanecer sem avaliação."
+      ],
+      [
+        "Compartilhar um link apenas com contas selecionadas reduz exposição em comparação com acesso público.",
+        "O controle depende de permissões do serviço e identidade."
+      ]
+    ],
+    "myth": [
+      "Se um aplicativo foi instalado de loja oficial, qualquer permissão solicitada é indispensável e deve ser aceita.",
+      "Procedência não significa necessidade irrestrita de acesso a todos os recursos."
+    ],
+    "case": "Uma ferramenta de leitura de documentos pede acesso ao microfone e aos contatos de toda a equipe, sem justificativa funcional.",
+    "decision": [
+      "Negar permissões incompatíveis com a finalidade e consultar política institucional antes de prosseguir.",
+      "O acesso solicitado excede a necessidade aparente para leitura de arquivos."
+    ],
+    "wrongs": [
+      [
+        "Conceder tudo porque o aplicativo aparece no catálogo de loja.",
+        "Origem formal não justifica permissões excessivas."
+      ],
+      [
+        "Habilitar link público do documento para facilitar testes da ferramenta.",
+        "Exposição pública é desnecessária ao diagnóstico."
+      ],
+      [
+        "Copiar dados de colegas para um formulário de suporte desconhecido.",
+        "Aumenta divulgação e desvia da finalidade autorizada."
+      ]
+    ],
+    "nuance": "Revogar permissão pode afetar funções legítimas; avalie o propósito de cada recurso em vez de negar tudo mecanicamente.",
+    "procedure": "Inspecionar finalidade, permissões, destinatários e prazo de retenção conforme regras aplicáveis ao serviço.",
+    "risk": "Permissões amplas e compartilhamentos públicos podem revelar informações institucionais e pessoais."
+  },
+  "INF-20-006": {
+    "terms": [
+      [
+        "Rede Wi-Fi pública",
+        "Rede sem fio destinada a acesso amplo ou de usuários não controlados pela instituição."
+      ],
+      [
+        "Dispositivo compartilhado",
+        "Equipamento usado sucessivamente por várias pessoas ou contas."
+      ],
+      [
+        "Sessão autenticada",
+        "Estado em que uma aplicação reconhece identidade após login válido."
+      ]
+    ],
+    "facts": [
+      [
+        "A rede pública não deve ser presumida confiável apenas por ter nome parecido com o do local.",
+        "Origem e configuração precisam ser verificadas."
+      ],
+      [
+        "HTTPS pode proteger comunicação em trânsito, mas não torna seguro um computador compartilhado comprometido.",
+        "Dispositivo e canal apresentam riscos distintos."
+      ],
+      [
+        "Encerrar sessão e evitar salvar credenciais são cuidados importantes em equipamentos compartilhados.",
+        "O usuário seguinte não deve herdar acesso anterior."
+      ]
+    ],
+    "myth": [
+      "Usar janela privativa em computador público garante que nenhum software local capture dados ou ações do usuário.",
+      "Modo privativo reduz histórico local no navegador, não neutraliza riscos do equipamento."
+    ],
+    "case": "Uma servidora precisa consultar um sistema institucional fora da repartição, utilizando um computador compartilhado em local público.",
+    "decision": [
+      "Preferir dispositivo institucional confiável e canal aprovado; se o acesso compartilhado for inevitável, seguir política e encerrar todas as sessões.",
+      "Reduz exposição de credenciais e dados deixados para outros usuários."
+    ],
+    "wrongs": [
+      [
+        "Salvar a senha no navegador compartilhado para facilitar acessos futuros.",
+        "Permite acesso posterior a contas institucionais."
+      ],
+      [
+        "Usar modo privativo e considerar o equipamento totalmente imune a monitoramento local.",
+        "O modo privativo não desativa software do sistema."
+      ],
+      [
+        "Deixar a aplicação aberta ao terminar porque a rede possui HTTPS.",
+        "HTTPS não encerra sessões nem impede uso da estação por terceiros."
+      ]
+    ],
+    "nuance": "VPN aprovada pode ser exigida por política e protege certos fluxos, mas não elimina riscos de dispositivo inseguro; não improvisar ferramentas.",
+    "procedure": "Confirmar rede e equipamento, reduzir acesso ao necessário, encerrar sessões e remover arquivos temporários conforme orientação.",
+    "risk": "Credenciais e documentos podem ficar acessíveis ao próximo usuário se uma sessão permanecer aberta."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "baseGitHub": "29dcf62bf3f95f7c758f3825795a26f1da19e208",
+  "modulosLote4": [
+    "INF-16",
+    "INF-17",
+    "INF-18",
+    "INF-19",
+    "INF-20"
+  ],
+  "subtopicos": 30,
+  "aulas": 30,
+  "diagnosticos": 30,
+  "questoes": 120,
+  "porDificuldade": {
+    "media": 60,
+    "dificil": 60
+  },
+  "porTipo": {
+    "ce": 30,
+    "lacunas": 10,
+    "classica": 40,
+    "afirmacoes": 10,
+    "vf": 10,
+    "associacao": 10,
+    "exceto": 10
+  },
+  "respostasNaoCE": {
+    "2": 22,
+    "3": 21,
+    "0": 23,
+    "1": 24
+  },
+  "modulosAtivosAposInstalacao": 20,
+  "modulosEmPreparacao": 7,
+  "aulasCumulativas": 123,
+  "diagnosticosCumulativos": 123,
+  "questoesCumulativas": 492,
+  "observacao": "A base GitHub consultada ainda não continha INF-11 a INF-15; instalar Lote 3 antes do Lote 4."
+}

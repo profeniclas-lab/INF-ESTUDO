@@ -14,11 +14,11 @@ const allowed=['ce','vf','afirmacoes','associacao','lacunas','classica','exceto'
 const ledger=JSON.parse(readFileSync(new URL('../docs/FASE_D_LOTE_3_GABARITOS_116.json',import.meta.url)));
 const editorial=JSON.parse(readFileSync(new URL('../docs/FASE_D_LOTE_3_BASE_EDITORIAL.json',import.meta.url)));
 
-test('Matriz original: 27 módulos e 163 subtópicos, 15 publicados, 12 pendentes',()=>{
+test('Matriz original: 27 módulos e 163 subtópicos, 20 publicados, 7 pendentes',()=>{
  assert.equal(ALL_PLANNED_MODULES.length,27);
  assert.equal(ALL_PLANNED_MODULES.reduce((n,m)=>n+m.subtopics.length,0),163);
- assert.equal(MODULES.length,15);assert.equal(PENDING_MODULES.length,12);
- assert.deepEqual(MODULES.slice(10).map(m=>m.id),ids);
+ assert.equal(MODULES.length,20);assert.equal(PENDING_MODULES.length,7);
+ assert.deepEqual(MODULES.slice(10,15).map(m=>m.id),ids);
  assert.deepEqual(validateCatalog(),[]);
 });
 test('29 subtópicos e nenhuma substituição de ID anterior',()=>{
@@ -26,8 +26,8 @@ test('29 subtópicos e nenhuma substituição de ID anterior',()=>{
  assert.equal(MODULES.slice(0,10).reduce((n,m)=>n+m.subtopics.length,0),64);
  for(const mid of ids)assert.equal(MODULES.find(m=>m.id===mid).subtopics.length,expected[mid]);
 });
-test('93 aulas no catálogo: uma por subtópico publicado; todas as 29 novas completas',()=>{
- assert.equal(Object.keys(LESSONS).length,93);
+test('123 aulas no catálogo: uma por subtópico publicado; todas as 29 novas completas',()=>{
+ assert.equal(Object.keys(LESSONS).length,123);
  for(const t of topics){const l=getLesson(t.id);assert.ok(l,t.id);assert.equal(l.id,t.id);
   for(const k of required.filter(x=>x!=='id'))assert.ok(typeof l[k]==='string'&&l[k].length>55,`${t.id} ${k}`);
   assert.ok(l.explanation.length>1100,t.id);
@@ -35,15 +35,15 @@ test('93 aulas no catálogo: uma por subtópico publicado; todas as 29 novas com
   assert.notEqual(l.reviewQuestion,l.reviewAnswer);
  }
 });
-test('93 diagnósticos globais: frente e verso coerentes, uma pergunta por subtópico novo',()=>{
- assert.equal(Object.keys(DIAGNOSTICS).length,15);
+test('123 diagnósticos globais: frente e verso coerentes, uma pergunta por subtópico novo',()=>{
+ assert.equal(Object.keys(DIAGNOSTICS).length,20);
  for(const mid of ids){const m=MODULES.find(x=>x.id===mid),cards=getDiagnosticCards(m);
   assert.equal(cards?.length,expected[mid]);assert.equal(new Set(cards.map(c=>c.subtopicId)).size,expected[mid]);
   for(const c of cards){assert.ok(c.question.length>100);assert.ok(c.answer.length>250);assert.ok(topicIds.has(c.subtopicId));}
  }
 });
-test('372 questões cumulativas, 116 novas e IDs globalmente únicos',()=>{
- assert.equal(QUESTIONS.length,372);assert.equal(bank.length,116);
+test('492 questões cumulativas, 116 novas e IDs globalmente únicos',()=>{
+ assert.equal(QUESTIONS.length,492);assert.equal(bank.length,116);
  assert.equal(new Set(QUESTIONS.map(q=>q.id)).size,QUESTIONS.length);
  for(const mid of ids)assert.equal(questionsForModule(mid).length,expected[mid]*4);
 });

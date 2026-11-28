@@ -1,0 +1,31 @@
+INF-ESTUDO — Fase D / Lote 4 — Testes de montagem local
+
+Base da montagem: ZIPs da Fase C, Lote 1-R, Lote 2 e Lote 3. Não foi executado um clone integral do GitHub.
+Foram criadas SIMULAÇÕES LOCAIS para três dependências de revisão e estado de questões, além de estado inicial usado nos testes. Estes arquivos de simulação NÃO estão no pacote ZIP.
+
+TESTES EXECUTADOS (montagem local):
+- 108 aprovados, 0 reprovados, 0 ignorados.
+- Novos testes Lote 4: 8 verificações de dados, 4 verificações de gabarito e 17 verificações de integração; total = 29.
+- Regressão de dados e dos lotes anteriores executável em montagem isolada: 79 verificações adicionais.
+
+TESTES NÃO EXECUTADOS NESSA MONTAGEM:
+- tests/inf-fase-d-lote01r-integration.test.mjs
+- tests/inf-fase-d-lote02-integration.test.mjs
+Motivo: dependem de arquivos do motor (exemplo: js/features/module-achievement.js) que não existem nos ZIPs incrementais usados como fonte local. Quando foram incluídos numa execução exploratória, esses dois ARQUIVOS de teste falharam com ERR_MODULE_NOT_FOUND, e não com divergência pedagógica. Reexecutá-los somente com o repositório real completo.
+
+VALIDAÇÕES: IDs, formatos, gabarito derivado da referência editorial, comentários alinhados ao índice, 30 subtópicos, sessões completas para cinco módulos, Banco por filtro, contagens acumuladas, compatibilidade da aula, bloqueio dos pendentes, sintaxe JS e integridade do ZIP.
+
+A conferência cruzada de gabaritos usa a base editorial preparada junto com o conteúdo; NÃO é certificação independente externa. Homologação visual, testes reais de backup/Google Drive e auditoria humana da precisão técnica: PENDENTES.
+
+SAÍDA FINAL DA SUÍTE LOCAL:
+  type: 'test'
+  ...
+1..108
+# tests 108
+# suites 0
+# pass 108
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 668.474

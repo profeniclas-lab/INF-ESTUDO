@@ -706,7 +706,7 @@ export const ALL_PLANNED_MODULES = Object.freeze([
         "priority": "alta"
       }
     ],
-    "status": "em_preparacao"
+    "status": "disponivel"
   },
   {
     "id": "INF-17",
@@ -750,7 +750,7 @@ export const ALL_PLANNED_MODULES = Object.freeze([
         "priority": "media"
       }
     ],
-    "status": "em_preparacao"
+    "status": "disponivel"
   },
   {
     "id": "INF-18",
@@ -793,7 +793,7 @@ export const ALL_PLANNED_MODULES = Object.freeze([
         "priority": "alta"
       }
     ],
-    "status": "em_preparacao"
+    "status": "disponivel"
   },
   {
     "id": "INF-19",
@@ -836,7 +836,7 @@ export const ALL_PLANNED_MODULES = Object.freeze([
         "priority": "alta"
       }
     ],
-    "status": "em_preparacao"
+    "status": "disponivel"
   },
   {
     "id": "INF-20",
@@ -880,7 +880,7 @@ export const ALL_PLANNED_MODULES = Object.freeze([
         "priority": "alta"
       }
     ],
-    "status": "em_preparacao"
+    "status": "disponivel"
   },
   {
     "id": "INF-21",
