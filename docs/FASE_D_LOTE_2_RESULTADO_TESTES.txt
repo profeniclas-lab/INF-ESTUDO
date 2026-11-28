@@ -1,0 +1,43 @@
+# Fase D — Lote 2 — Resultado dos testes locais
+
+Data: 2026-11-27 (horário do pedido). Node.js: 22.16.0.
+Base: branch `nova-arquitetura` / commit verificado `ebb66d962c7bfb87bfcdca4f0678b57101980838`.
+
+## Suítes executadas
+
+Comando no ambiente de teste montado pela composição dos pacotes oficiais Fases B/C/D1-R, mais os arquivos deste lote:
+
+```bash
+node --test tests/inf-curriculo-fase-c.test.mjs tests/inf-fase-d-lote01r-data.test.mjs tests/inf-fase-d-lote01r-conferencia.test.mjs tests/inf-fase-d-lote01r-integration.test.mjs tests/inf-fase-d-lote02-data.test.mjs tests/inf-fase-d-lote02-conferencia.test.mjs tests/inf-fase-d-lote02-integration.test.mjs tests/inf-fase-d-lote02-calculos.test.mjs
+```
+
+Resultado local agregado: **83 testes, 83 aprovados, 0 falhas**.
+
+| Categoria | Testes | Resultado | Limite |
+|---|---:|---|---|
+| Currículo, dados e conferência textual (Fases C/D1-R/D2) | 39 | Aprovados | Não equivale a revisão semântica por segundo especialista |
+| Exemplos numéricos reproduzíveis de planilhas | 7 | Aprovados | Amostra de exemplos, não valida todas as operações do software real |
+| Percursos de exercícios, filtros, páginas e estado | 37 | Aprovados | Executados com dependências locais simuladas de revisão, progresso e histórico |
+| **Total** | **83** | **83/83** | **Homologação no repositório completo pendente** |
+
+Validação adicional: `node --check` de todos os `.js`/`.mjs` do ZIP concluído sem erros. Conferidos SHA-1 Git dos arquivos-base `modules.js`, `diagnostics.js`, `lessons.js`, `questions.js` e `features/exercises.js` — todos coincidentes com o repositório no commit-base.
+
+## Conferência editorial
+
+- 5 módulos, 33 subtópicos, 33 aulas e 33 cartões.
+- 132 questões autorais: 66 médias e 66 difíceis; quatro por subtópico.
+- 33 itens C/E médios; mais 33 médias em formatos variados; 66 difíceis.
+- Sete formatos presentes; nenhuma questão com tipo `caso` novo.
+- Comentários por alternativa e gabaritos dentro dos intervalos válidos.
+- 132 respostas inferidas pelas explicações textuais coincidiram com o índice de gabarito gravado. Isso **não** demonstra que as explicações sejam todas verdadeiras; revisão semântica independente ainda deve ser feita.
+- Alternativas fora de C/E estão distribuídas nas posições A/B/C/D: 25 / 25 / 24 / 25. Cada mudança de posição moveu junto o texto da alternativa e seu comentário.
+
+## Verificações pendentes
+
+1. Executar as suítes de integração **no repositório completo**, sem os módulos simulados usados localmente.
+2. Navegar pelo aplicativo no GitHub Pages (módulos, flashcards, aulas, exercícios, Banco de Questões, simulados, dashboard e backup).
+3. Revisão semântica independente dos 132 itens, especialmente versões de Word/Writer e Excel/Calc.
+4. Verificar permissões e operações no Linux/LibreOffice de versões diferentes, quando cobradas em edital específico.
+5. Testar acesso ao Drive somente com dados de testes e consentimento do usuário.
+
+**Não houve commit nem escrita em armazenamento local real da pessoa usuária.**

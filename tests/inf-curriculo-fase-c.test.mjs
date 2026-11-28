@@ -33,14 +33,14 @@ test('IDs estáveis e únicos; plano curricular original preservado',()=>{
  }
  assert.equal(unique.size,163);
 });
-test('Publicação gradual: primeiros 5 disponíveis; demais 22 pendentes',()=>{
- assert.deepEqual(MODULES.map(m=>m.id),['INF-01','INF-02','INF-03','INF-04','INF-05']);
- assert.equal(PENDING_MODULES.length,22);
+test('Publicação gradual: primeiros 10 disponíveis; demais 17 pendentes',()=>{
+ assert.deepEqual(MODULES.map(m=>m.id),['INF-01','INF-02','INF-03','INF-04','INF-05','INF-06','INF-07','INF-08','INF-09','INF-10']);
+ assert.equal(PENDING_MODULES.length,17);
  assert.ok(PENDING_MODULES.every(m=>m.status==='em_preparacao'));
  assert.ok(getModuleById('INF-05'));
- assert.equal(getModuleById('INF-06'),null);
+ assert.ok(getModuleById('INF-06'));assert.equal(getModuleById('INF-11'),null);
  assert.ok(getSubtopicById('INF-01-001'));
- assert.equal(getSubtopicById('INF-06-001'),null);
+ assert.ok(getSubtopicById('INF-06-001'));assert.equal(getSubtopicById('INF-11-001'),null);
 });
 test('Importações pedagógicas não acessam conteúdo PT ou ADM',()=>{
  for(const p of ['js/data/modules.js','js/data/diagnostics.js','js/data/lessons.js','js/data/questions.js']){
@@ -57,15 +57,15 @@ test('27 módulos e pré-requisitos sem ciclos',()=>{
 });
 test('Contratos disponibilizam materiais somente dos módulos publicados',()=>{
  assert.deepEqual(Object.keys(DIAGNOSTICS).sort(),MODULES.map(m=>m.id).sort());
- assert.equal(Object.keys(LESSONS).length,31);
- assert.equal(QUESTIONS.length,124);
+ assert.equal(Object.keys(LESSONS).length,64);
+ assert.equal(QUESTIONS.length,256);
  for(const module of MODULES){
   assert.equal(getDiagnosticCards(module)?.length,module.subtopics.length);
   for(const topic of module.subtopics)assert.ok(getLesson(topic.id));
   assert.equal(questionsForModule(module.id).length,module.subtopics.length*4);
  }
  assert.equal(getDiagnosticCards(PENDING_MODULES[0]),null);
- assert.equal(questionsForModule('INF-06').length,0);
+ assert.equal(questionsForModule('INF-11').length,0);
 });
 test('Interface lista disponibilidade de modo dinâmico',()=>{
  const src=read('js/features/modules.js');

@@ -4,6 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {QUESTIONS} from '../js/data/questions.js';
+const L1_QUESTIONS=QUESTIONS.filter(q=>/^Q-INF-0[1-5]-/.test(q.id));
 const roman=['I','II','III'];
 const truth=explanation=>Object.fromEntries([...explanation.matchAll(/\b(I|II|III)\s*[:=]\s*([VF])\b/g)].map(m=>[m[1],m[2]==='V']));
 const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[—–]/g,'-').replace(/\s+/g,' ').trim();
@@ -43,7 +44,7 @@ function infer(q){
 }
 for(const type of ['ce','vf','afirmacoes','associacao','lacunas','classica','exceto']){
  test(`Conferência cruzada de ${type}: gabarito corresponde à resolução textual`,()=>{
-  const qs=QUESTIONS.filter(q=>q.type===type);assert.ok(qs.length);
+  const qs=L1_QUESTIONS.filter(q=>q.type===type);assert.ok(qs.length);
   for(const q of qs){const predicted=infer(q);assert.equal(predicted,q.answer,`${q.id}: resposta textual e índice divergem`);
    assert.equal(q.optionComments.length,q.options.length,q.id);
    assert.ok(q.optionComments[q.answer].length>35,q.id);

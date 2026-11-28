@@ -1,0 +1,16 @@
+{
+  "modulos": [
+    "INF-06",
+    "INF-07",
+    "INF-08",
+    "INF-09",
+    "INF-10"
+  ],
+  "subtopicos": 33,
+  "aulas": 33,
+  "diagnosticos": 33,
+  "questoes": 132,
+  "medias": 66,
+  "dificeis": 66,
+  "versao_base": "INF-ESTUDO Fase D Lote 1-R"
+}
