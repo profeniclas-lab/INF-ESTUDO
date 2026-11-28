@@ -1,0 +1,87 @@
+/** INF-ESTUDO — Fase D/Lote 1-R: material pedagógico autoral revisto. */
+export const INF_02_LESSONS = {
+  "INF-02-001": {
+    "id": "INF-02-001",
+    "objective": "Explicar cpu, memória ram e dispositivos de entrada e saída.",
+    "concept": "CPU executa instruções; RAM guarda dados de trabalho temporários; periféricos fazem a entrada e a saída de informações.",
+    "explanation": "A CPU executa instruções e coordena operações de processamento. A RAM oferece armazenamento temporário de trabalho aos programas durante sua execução. Teclado e mouse enviam comandos ou dados ao computador; monitor exibe imagens como saída. Alguns dispositivos podem exercer mais de um papel, como telas sensíveis ao toque. A CPU não mantém automaticamente todos os dados após o desligamento; para persistência usamos SSD, HD ou outra mídia não volátil. Ao abrir vários programas, a capacidade de RAM pode influenciar a fluidez, mas desempenho também depende de CPU, armazenamento, sistema e demanda real. Identificar gargalo requer observar sintomas e uso de recursos, não apenas o valor de uma peça isolada.",
+    "example": "Um formulário digitado pelo teclado é processado pela CPU, fica temporariamente na RAM e só permanece salvo após a gravação no armazenamento. Aplicação administrativa: Durante uma queda de energia, um documento ainda não salvo perde alterações recentes. Justificativa: As alterações estavam em memória de trabalho sem gravação persistente.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: A RAM substitui automaticamente a gravação de arquivos após desligar o computador.",
+    "summary": "CPU executa instruções; RAM guarda dados de trabalho temporários; periféricos fazem a entrada e a saída de informações. CPU processa instruções e RAM mantém dados necessários durante a execução.",
+    "reviewQuestion": "Qual é a diferença entre ter dados na RAM e gravá-los no SSD?",
+    "reviewAnswer": "RAM guarda dados temporários enquanto programas funcionam e é volátil. SSD conserva arquivos de maneira não volátil após a gravação.",
+    "introduction": "Um atendimento digital requer entrada de dados, processamento das informações e exibição de resultados; CPU, RAM e periféricos participam de papéis diferentes.",
+    "differences": "CPU processa; RAM guarda temporariamente informações em uso; SSD/HD persistem dados. Entrada não significa “qualquer dispositivo ligado ao computador”: um monitor convencional é tipicamente saída.",
+    "commonMistakes": "Erro comum: atribuir ao processador a função exclusiva de gravar arquivos permanentemente. Outro erro é considerar que mais RAM sempre resolve qualquer lentidão."
+  },
+  "INF-02-002": {
+    "id": "INF-02-002",
+    "objective": "Explicar placa-mãe, barramentos, portas e conectores.",
+    "concept": "A placa-mãe interliga componentes; barramentos transportam sinais; portas e conectores fazem ligações internas ou externas.",
+    "explanation": "A placa-mãe interliga componentes e disponibiliza circuitos e conectores. Barramentos são conjuntos de mecanismos de comunicação e transferência de sinais ou dados entre partes do sistema. Portas e conectores permitem a conexão física de periféricos, mas o formato externo não determina automaticamente o protocolo, a velocidade ou a capacidade de alimentação elétrica. Exemplos incluem conexões USB com diferentes gerações, HDMI para sinais de vídeo e áudio compatíveis e interfaces internas de armazenamento. Um equipamento também pode exigir driver, energia suficiente e autorização do sistema. Ao documentar uma incompatibilidade, registre qual dispositivo, qual conector e que mensagem ou comportamento foi observado.",
+    "example": "Uma unidade SSD NVMe utiliza conexão compatível na placa-mãe; um periférico USB precisa de porta e suporte apropriados. Aplicação administrativa: Um dispositivo encaixa fisicamente na porta, mas não opera na velocidade anunciada pelo fabricante. Justificativa: Verificar a versão e as capacidades efetivamente suportadas pela porta e pelo dispositivo.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Barramento é somente o cabo de energia do monitor.",
+    "summary": "A placa-mãe interliga componentes; barramentos transportam sinais; portas e conectores fazem ligações internas ou externas. Placa-mãe fornece interconexão entre componentes do computador.",
+    "reviewQuestion": "Por que encaixe físico não assegura todas as funções de um padrão?",
+    "reviewAnswer": "O conector informa encaixe, mas cada função depende de protocolo, geração, capacidade de transmissão, energia e suporte do equipamento e sistema.",
+    "introduction": "Uma conexão fisicamente compatível não garante que um periférico funcione. Para resolver o problema, é preciso considerar barramento, porta, padrão e suporte de software.",
+    "differences": "Conector é a forma física de encaixe; interface ou protocolo descreve a comunicação; barramento integra comunicação interna. Um adaptador muda a forma de conexão, mas não cria automaticamente funções ausentes.",
+    "commonMistakes": "Erro comum: supor que “encaixou, funcionou”. Não confunda cabo de alimentação de monitor com barramento de dados da placa-mãe."
+  },
+  "INF-02-003": {
+    "id": "INF-02-003",
+    "objective": "Explicar teclado, mouse, monitor, webcam e microfone.",
+    "concept": "Teclado e mouse são entradas; monitor apresenta saída; microfone captura som; webcam captura imagens.",
+    "explanation": "O teclado e o mouse são dispositivos de entrada, assim como o microfone, que capta sinais sonoros, e a webcam, que captura imagens. O monitor convencional é dispositivo de saída, pois apresenta informação visual. Alto-falantes também produzem saída de áudio. Algumas telas possuem toque e, nesse caso, combinam entrada e saída. A qualidade de uma reunião depende de selecionar os dispositivos corretos no aplicativo, permitir seu uso e observar condições de iluminação e ruído. Ao ouvir colegas mas não ser ouvido, por exemplo, a primeira verificação deve incluir microfone selecionado, função de mudo e permissões; alterar o monitor não ataca a causa do problema.",
+    "example": "Em uma videoconferência institucional, webcam e microfone captam áudio e vídeo; monitor e alto-falantes apresentam o conteúdo recebido. Aplicação administrativa: A equipe quer registrar a voz em uma reunião, mas tem apenas monitor, teclado e mouse. Justificativa: Conectar ou habilitar um microfone apropriado e verificar permissões do aplicativo.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: O monitor comum captura automaticamente fala do ambiente.",
+    "summary": "Teclado e mouse são entradas; monitor apresenta saída; microfone captura som; webcam captura imagens. Microfone transforma som em dados de entrada ao computador.",
+    "reviewQuestion": "Qual dispositivo capta áudio e qual apenas o reproduz?",
+    "reviewAnswer": "Microfone capta som para entrada; alto-falantes e fones reproduzem som como saída. Alguns dispositivos integram as duas funções.",
+    "introduction": "Em uma videoconferência de equipe, cada periférico participa de uma tarefa: captar áudio, captar imagem, transmitir comandos ou exibir resultados.",
+    "differences": "Microfone capta; alto-falante reproduz; webcam capta imagem; monitor exibe. Um periférico pode combinar funções, mas sua classificação depende do sentido da informação.",
+    "commonMistakes": "Erro frequente: confundir “transmitir” com “reproduzir” e tratar a webcam como saída de som. Verifique as opções do aplicativo antes de presumir defeito físico."
+  },
+  "INF-02-004": {
+    "id": "INF-02-004",
+    "objective": "Explicar impressoras, scanners, multifuncionais e resolução.",
+    "concept": "Impressora produz saída física; scanner digitaliza documentos; multifuncional reúne serviços; resolução indica densidade de detalhes.",
+    "explanation": "Impressoras produzem saída física, enquanto scanners capturam representação digital de um documento; multifuncionais combinam essas e outras tarefas. Resolução costuma ser informada em dpi (pontos por polegada) para impressão/digitalização e influencia a quantidade de detalhes registrada, mas qualidade também depende de foco, contraste e fonte. Um PDF escaneado pode conter apenas imagens, sem camada de texto selecionável. O OCR tenta reconhecer caracteres visuais, produzindo texto que pode ser indexado ou editado, mas precisa de conferência porque letras semelhantes, carimbos e baixa qualidade provocam erros. Em processos administrativos, preserve também o documento original quando exigido e evite supor que um arquivo reconhecido está perfeito.",
+    "example": "Um formulário em papel foi escaneado em imagem; a equipe usa reconhecimento de caracteres para obter texto pesquisável no documento digital. Aplicação administrativa: O setor recebeu um PDF composto apenas de imagens escaneadas e precisa pesquisar pelo nome do interessado. Justificativa: Aplicar OCR adequado e conferir o texto reconhecido.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Uma digitalização em imagem produz sempre texto editável automaticamente.",
+    "summary": "Impressora produz saída física; scanner digitaliza documentos; multifuncional reúne serviços; resolução indica densidade de detalhes. Scanner captura uma representação digital de um documento físico.",
+    "reviewQuestion": "Qual é a diferença entre digitalização de imagem e OCR?",
+    "reviewAnswer": "Digitalizar captura pixels de uma imagem; OCR analisa esses pixels para reconhecer caracteres e produzir texto, sujeito a erros e conferência.",
+    "introduction": "Digitalizar um formulário de papel não equivale automaticamente a obter um texto pesquisável, e aumentar a resolução não recupera detalhes que não existem no original.",
+    "differences": "Scanner é dispositivo de entrada; impressora, saída. OCR é processamento de reconhecimento, não sinônimo de digitalização. Aumentar dpi não transforma uma imagem borrada em documento fiel.",
+    "commonMistakes": "Erro comum: entregar PDF de imagens como se fosse totalmente pesquisável. Após OCR, teste busca por nomes e revise trechos críticos antes de disponibilizar."
+  },
+  "INF-02-005": {
+    "id": "INF-02-005",
+    "objective": "Explicar memória ram, rom, cache e armazenamento permanente.",
+    "concept": "RAM é memória volátil de trabalho; ROM designa memória de leitura ou firmware conforme o contexto; cache acelera acessos frequentes.",
+    "explanation": "A RAM comum é volátil: seu conteúdo normalmente se perde quando não recebe energia. A memória cache, frequentemente integrada ao processador, mantém dados e instruções de acesso muito rápido para reduzir esperas no processamento. ROM designa memória de leitura tradicionalmente associada a instruções persistentes, embora tecnologias modernas permitam atualizar firmware armazenado em memória não volátil. SSD e HD armazenam arquivos de forma persistente, não substituindo a função cotidiana da RAM. Quando há pouca RAM disponível, o sistema pode recorrer a paginação no armazenamento, mas isso pode reduzir o desempenho por diferenças de velocidade. Para proteger trabalho não salvo, não confunda fechar a janela com gravar o arquivo.",
+    "example": "Ao abrir uma planilha grande, dados são carregados do SSD para a RAM; a CPU pode usar cache para acessar informações frequentes. Aplicação administrativa: Um computador apresenta pouca RAM e começa a usar armazenamento secundário para apoiar a memória virtual. Justificativa: Reconhecer que esse uso não torna o SSD equivalente à RAM física.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: A RAM comum mantém necessariamente todos os dados após desligamento.",
+    "summary": "RAM é memória volátil de trabalho; ROM designa memória de leitura ou firmware conforme o contexto; cache acelera acessos frequentes. A memória cache da CPU visa reduzir a latência de acesso a dados usados com frequência.",
+    "reviewQuestion": "Qual é a diferença de volatilidade e finalidade entre RAM e SSD?",
+    "reviewAnswer": "RAM comum é memória volátil de trabalho, com acesso rápido; SSD guarda dados permanentemente e não equivale à RAM mesmo quando usado para paginação.",
+    "introduction": "Uma planilha aberta fica temporariamente na memória de trabalho; ao salvá-la, seu conteúdo é gravado em mídia persistente. Esse fluxo explica diferenças entre RAM e armazenamento.",
+    "differences": "Cache, RAM, ROM e SSD não são intercambiáveis: diferem em função, localização, volatilidade e desempenho. “Não volátil” significa conservar dados sem alimentação, não que seja impossível apagar ou danificar.",
+    "commonMistakes": "Erro comum: chamar todo tipo de memória de RAM ou afirmar que uma memória rápida sempre armazena mais dados. Compare função, não apenas capacidade."
+  },
+  "INF-02-006": {
+    "id": "INF-02-006",
+    "objective": "Explicar dispositivos externos, usb, bluetooth e compatibilidade.",
+    "concept": "USB é família de interfaces para conexão de dispositivos; Bluetooth usa comunicação sem fio de curto alcance.",
+    "explanation": "USB é uma família de padrões que contempla conectores, modos de comunicação e diferentes velocidades; USB-C descreve a forma de um conector, não uma garantia universal de recursos ou taxa. Bluetooth permite comunicação sem fio de curta distância entre dispositivos compatíveis sem exigir, por regra geral, uma rede Wi-Fi compartilhada. A operação depende de hardware, drivers e suporte do sistema; pode exigir emparelhamento ou permissões. Para copiar grandes volumes de dados, considere velocidade real, estado da mídia e integridade da transferência. Ao desconectar uma unidade removível, evite fazê-lo durante uma gravação ativa; a remoção segura pode ser necessária conforme dispositivo e configurações.",
+    "example": "Um teclado Bluetooth precisa ser pareado; um pendrive USB permite transferir arquivos quando reconhecido pelo sistema e montado corretamente. Aplicação administrativa: Uma unidade USB é reconhecida, mas a cópia de arquivos ainda não terminou. Justificativa: Aguardar o fim da gravação e usar a remoção segura quando aplicável.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Remover uma unidade durante gravação ativa não apresenta risco de corromper dados.",
+    "summary": "USB é família de interfaces para conexão de dispositivos; Bluetooth usa comunicação sem fio de curto alcance. Bluetooth pode conectar periféricos sem uso de cabo de dados.",
+    "reviewQuestion": "Por que o mesmo conector USB-C pode oferecer recursos diferentes?",
+    "reviewAnswer": "O conector USB-C define a forma física; os equipamentos e cabos podem implementar gerações, taxas e recursos diferentes.",
+    "introduction": "Conectar um leitor de cartões ou periférico Bluetooth exige mais que aproximar dispositivos. É necessário compreender como ocorre a conexão e o que determina a compatibilidade.",
+    "differences": "USB é interface de conexão por cabo; Bluetooth é comunicação por rádio de curto alcance; Wi-Fi atende outra família de redes. Conector fisicamente igual não significa igual capacidade funcional.",
+    "commonMistakes": "Erro comum: usar “USB-C” como sinônimo de velocidade específica ou assumir que um dispositivo Bluetooth sempre precisa de internet."
+  }
+};

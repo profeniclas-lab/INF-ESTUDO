@@ -1,0 +1,232 @@
+TAP version 13
+# Subtest: Identidade curricular: Informática, 27 módulos e 163 subtópicos
+ok 1 - Identidade curricular: Informática, 27 módulos e 163 subtópicos
+  ---
+  duration_ms: 2.073786
+  type: 'test'
+  ...
+# Subtest: IDs estáveis e únicos; plano curricular original preservado
+ok 2 - IDs estáveis e únicos; plano curricular original preservado
+  ---
+  duration_ms: 0.770395
+  type: 'test'
+  ...
+# Subtest: Publicação gradual: primeiros 5 disponíveis; demais 22 pendentes
+ok 3 - Publicação gradual: primeiros 5 disponíveis; demais 22 pendentes
+  ---
+  duration_ms: 0.289316
+  type: 'test'
+  ...
+# Subtest: Importações pedagógicas não acessam conteúdo PT ou ADM
+ok 4 - Importações pedagógicas não acessam conteúdo PT ou ADM
+  ---
+  duration_ms: 0.713841
+  type: 'test'
+  ...
+# Subtest: 27 módulos e pré-requisitos sem ciclos
+ok 5 - 27 módulos e pré-requisitos sem ciclos
+  ---
+  duration_ms: 0.373
+  type: 'test'
+  ...
+# Subtest: Contratos disponibilizam materiais somente dos módulos publicados
+ok 6 - Contratos disponibilizam materiais somente dos módulos publicados
+  ---
+  duration_ms: 0.415131
+  type: 'test'
+  ...
+# Subtest: Interface lista disponibilidade de modo dinâmico
+ok 7 - Interface lista disponibilidade de modo dinâmico
+  ---
+  duration_ms: 0.231732
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de ce: gabarito corresponde à resolução textual
+ok 8 - Conferência cruzada de ce: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 1.342088
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de vf: gabarito corresponde à resolução textual
+ok 9 - Conferência cruzada de vf: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.585653
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de afirmacoes: gabarito corresponde à resolução textual
+ok 10 - Conferência cruzada de afirmacoes: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.437284
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de associacao: gabarito corresponde à resolução textual
+ok 11 - Conferência cruzada de associacao: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.154447
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de lacunas: gabarito corresponde à resolução textual
+ok 12 - Conferência cruzada de lacunas: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.337016
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de classica: gabarito corresponde à resolução textual
+ok 13 - Conferência cruzada de classica: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.181257
+  type: 'test'
+  ...
+# Subtest: Conferência cruzada de exceto: gabarito corresponde à resolução textual
+ok 14 - Conferência cruzada de exceto: gabarito corresponde à resolução textual
+  ---
+  duration_ms: 0.31214
+  type: 'test'
+  ...
+# Subtest: catálogo: cinco módulos e 22 pendentes, sem contratos quebrados
+ok 15 - catálogo: cinco módulos e 22 pendentes, sem contratos quebrados
+  ---
+  duration_ms: 1.836486
+  type: 'test'
+  ...
+# Subtest: 31 aulas paginadas: introdução, desenvolvimento, diferenças e erros
+ok 16 - 31 aulas paginadas: introdução, desenvolvimento, diferenças e erros
+  ---
+  duration_ms: 0.53611
+  type: 'test'
+  ...
+# Subtest: 31 diagnósticos: um flashcard por subtópico, frente e verso explicativos
+ok 17 - 31 diagnósticos: um flashcard por subtópico, frente e verso explicativos
+  ---
+  duration_ms: 0.364096
+  type: 'test'
+  ...
+# Subtest: 124 questões: 2 médias (1 C/E e 1 variada), 2 difíceis por subtópico
+ok 18 - 124 questões: 2 médias (1 C/E e 1 variada), 2 difíceis por subtópico
+  ---
+  duration_ms: 1.074834
+  type: 'test'
+  ...
+# Subtest: todos os 7 formatos presentes, sem tipo caso não suportado
+ok 19 - todos os 7 formatos presentes, sem tipo caso não suportado
+  ---
+  duration_ms: 0.261815
+  type: 'test'
+  ...
+# Subtest: 124 exemplos e desafios próprios, sem repetir as perguntas da aula
+ok 20 - 124 exemplos e desafios próprios, sem repetir as perguntas da aula
+  ---
+  duration_ms: 0.330537
+  type: 'test'
+  ...
+# Subtest: relatório de conferência: 124 registros vinculados aos gabaritos gravados
+ok 21 - relatório de conferência: 124 registros vinculados aos gabaritos gravados
+  ---
+  duration_ms: 0.272201
+  type: 'test'
+  ...
+# Subtest: validação de índices e permutações: gabarito/comentário preservados
+ok 22 - validação de índices e permutações: gabarito/comentário preservados
+  ---
+  duration_ms: 0.372389
+  type: 'test'
+  ...
+# Subtest: INF-01: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+ok 23 - INF-01: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+  ---
+  duration_ms: 3.33242
+  type: 'test'
+  ...
+# Subtest: INF-02: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+ok 24 - INF-02: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+  ---
+  duration_ms: 0.724417
+  type: 'test'
+  ...
+# Subtest: INF-03: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+ok 25 - INF-03: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+  ---
+  duration_ms: 0.586865
+  type: 'test'
+  ...
+# Subtest: INF-04: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+ok 26 - INF-04: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+  ---
+  duration_ms: 0.503972
+  type: 'test'
+  ...
+# Subtest: INF-05: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+ok 27 - INF-05: sessão inclui TODAS as médias + 6 difíceis sem duplicação
+  ---
+  duration_ms: 0.434921
+  type: 'test'
+  ...
+# Subtest: exercícios: acerto seguro, correção e revisão sem duplicar o ID
+ok 28 - exercícios: acerto seguro, correção e revisão sem duplicar o ID
+  ---
+  duration_ms: 0.742143
+  type: 'test'
+  ...
+# Subtest: Banco: filtros de subtópico e formato, sessão sem repetição, não respondidas
+ok 29 - Banco: filtros de subtópico e formato, sessão sem repetição, não respondidas
+  ---
+  duration_ms: 2.763531
+  type: 'test'
+  ...
+# Subtest: Banco: filtros de formato e subtópico aparecem na interface
+ok 30 - Banco: filtros de formato e subtópico aparecem na interface
+  ---
+  duration_ms: 1.424129
+  type: 'test'
+  ...
+# Subtest: aula: conteúdo aprofundado, progressão, resposta ativa e conclusão
+ok 31 - aula: conteúdo aprofundado, progressão, resposta ativa e conclusão
+  ---
+  duration_ms: 0.927777
+  type: 'test'
+  ...
+# Subtest: módulo: aproveitamento no topo, etapas em ordem e informações ao final
+ok 32 - módulo: aproveitamento no topo, etapas em ordem e informações ao final
+  ---
+  duration_ms: 12.560887
+  type: 'test'
+  ...
+# Subtest: INF-01: percurso integral de 18 questões, sem perdas de respostas
+ok 33 - INF-01: percurso integral de 18 questões, sem perdas de respostas
+  ---
+  duration_ms: 0.994976
+  type: 'test'
+  ...
+# Subtest: INF-02: percurso integral de 18 questões, sem perdas de respostas
+ok 34 - INF-02: percurso integral de 18 questões, sem perdas de respostas
+  ---
+  duration_ms: 0.560976
+  type: 'test'
+  ...
+# Subtest: INF-03: percurso integral de 18 questões, sem perdas de respostas
+ok 35 - INF-03: percurso integral de 18 questões, sem perdas de respostas
+  ---
+  duration_ms: 0.525534
+  type: 'test'
+  ...
+# Subtest: INF-04: percurso integral de 20 questões, sem perdas de respostas
+ok 36 - INF-04: percurso integral de 20 questões, sem perdas de respostas
+  ---
+  duration_ms: 0.648315
+  type: 'test'
+  ...
+# Subtest: INF-05: percurso integral de 18 questões, sem perdas de respostas
+ok 37 - INF-05: percurso integral de 18 questões, sem perdas de respostas
+  ---
+  duration_ms: 0.52921
+  type: 'test'
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 179.692081

@@ -1,0 +1,87 @@
+/** INF-ESTUDO — Fase D/Lote 1-R: material pedagógico autoral revisto. */
+export const INF_01_LESSONS = {
+  "INF-01-001": {
+    "id": "INF-01-001",
+    "objective": "Explicar dado, informação, processamento e armazenamento.",
+    "concept": "Dado é registro bruto; informação é dado organizado e interpretado em um contexto.",
+    "explanation": "Na visão entrada–processamento–saída, os registros entram no sistema, são verificados, classificados e resumidos, e o resultado pode ser apresentado em uma tabela ou relatório. O mesmo dado, como “18”, pode representar pessoas, dias ou processos: sem unidade e contexto, não autoriza uma conclusão. Para apurar atrasos, compare a data do protocolo e a de conclusão, classifique os casos segundo o prazo previsto e conte os registros válidos. O armazenamento guarda tanto os registros originais quanto as versões de relatórios, possibilitando auditoria e atualização. Porém, um cálculo correto sobre dados incorretos pode produzir uma informação enganosa; qualidade da entrada e conferência das regras importam tanto quanto o programa. Uma informação ainda precisa de interpretação pelo responsável para sustentar uma decisão.",
+    "example": "Na recepção de uma universidade, “12”, isolado, é um dado; “12 atendimentos realizados de manhã” é informação contextualizada. O relatório mensal resulta do processamento dos registros. Aplicação administrativa: Um setor tem a lista de 240 protocolos e precisa informar quantos foram resolvidos em até cinco dias. Justificativa: Filtrar as datas de conclusão e calcular a quantidade correspondente.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Todo dado já informa sua finalidade sem qualquer contexto.",
+    "summary": "Dado é registro bruto; informação é dado organizado e interpretado em um contexto. Um número sem contexto pode ser dado, enquanto uma contagem identificada por período se torna informação.",
+    "reviewQuestion": "Que operação transforma os registros brutos em um indicador de cumprimento de prazo?",
+    "reviewAnswer": "Definir prazo de referência e comparar datas de entrada e de conclusão; depois filtrar os registros válidos e contar ou calcular a proporção dos atendimentos no prazo.",
+    "introduction": "Uma secretaria registra protocolos, datas e assuntos de atendimento. Esses elementos só permitem decidir algo quando se conhece seu significado e se define o indicador desejado.",
+    "differences": "Dado não é sinônimo de informação; processar não é o mesmo que armazenar; e relatório não é automaticamente prova de que a fonte está correta. Considere a origem, a unidade, o período e as exclusões do indicador.",
+    "commonMistakes": "Erro típico: tratar quantidade bruta como percentual sem conhecer o total. Outro erro é alterar o dado original ao elaborar um resumo, prejudicando a conferência. Prefira conservar registros e documentar os critérios de cálculo."
+  },
+  "INF-01-002": {
+    "id": "INF-01-002",
+    "objective": "Explicar hardware, software e firmware: diferenças e exemplos.",
+    "concept": "Hardware são componentes físicos; software são instruções/programas; firmware é código associado ao controle básico do dispositivo.",
+    "explanation": "Hardware é tudo que constitui fisicamente o equipamento: placas, cabos, sensores, teclado e unidades de armazenamento. Software corresponde às instruções executadas para prestar serviços; pode incluir o sistema operacional, drivers e aplicativos. Firmware é software de baixo nível armazenado no próprio dispositivo, geralmente em memória não volátil, responsável por inicialização, controle ou comunicação com outros componentes. A atualização de firmware é uma alteração de código e não significa substituir peças. O driver, por sua vez, costuma funcionar no sistema operacional como intermediário de comunicação com um dispositivo. Um computador depende da interação dessas camadas: sem energia ou componente funcional, um programa não resolve defeito físico; sem instruções e suporte adequado, a peça pode não executar a função pretendida.",
+    "example": "Uma impressora possui motores e sensores (hardware), programa de envio de impressão no computador (software) e código interno que controla a própria impressora (firmware). Aplicação administrativa: Ao atualizar o código interno de uma impressora, o técnico não substituiu suas peças. Justificativa: Foi atualizado o firmware do equipamento.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: A presença de circuitos dispensa qualquer software em um computador de uso geral.",
+    "summary": "Hardware são componentes físicos; software são instruções/programas; firmware é código associado ao controle básico do dispositivo. Um SSD é hardware, enquanto o programa que o gerencia no sistema é software.",
+    "reviewQuestion": "Que componente lógico costuma permanecer no equipamento e controlar sua inicialização?",
+    "reviewAnswer": "É o firmware: código mantido em memória não volátil para executar funções básicas, como inicialização e controle do dispositivo.",
+    "introduction": "Quando uma impressora falha, trocar uma peça, reinstalar um programa e atualizar seu firmware são intervenções distintas. Identificar a camada afetada evita soluções inadequadas.",
+    "differences": "Firmware e driver não são equivalentes: ambos são software, mas costumam executar em contextos diferentes. Um SSD é hardware; os dados gravados nele não tornam a unidade um aplicativo. BIOS/UEFI são exemplos de firmware de plataforma.",
+    "commonMistakes": "Erro típico: classificar firmware como peça mecânica ou achar que atualizar um driver é necessariamente atualizar o firmware. No trabalho administrativo, registre modelo, versão e sintomas antes de encaminhar suporte."
+  },
+  "INF-01-003": {
+    "id": "INF-01-003",
+    "objective": "Explicar software básico, aplicativo, utilitário e licenças.",
+    "concept": "Software básico apoia o funcionamento do sistema; aplicativos realizam tarefas do usuário; utilitários executam funções de manutenção ou apoio.",
+    "explanation": "Sistema operacional é software de base que administra processos, memória, arquivos, dispositivos e contas. Aplicativos respondem a tarefas do usuário, como elaborar documentos ou controlar patrimônio. Utilitários auxiliam manutenção e proteção, incluindo ferramentas de backup, compressão e verificação; as categorias podem se sobrepor conforme a finalidade. A licença define as condições de uso, cópia, modificação ou distribuição. Um programa sem preço de aquisição pode restringir redistribuição ou uso comercial. Software livre concede determinadas liberdades por sua licença, e código aberto se refere a acesso e condições de uso do código-fonte; nenhum desses conceitos pode ser inferido apenas de uma oferta gratuita. Antes de instalar em ambiente institucional, confira autorização, procedência, compatibilidade e políticas internas.",
+    "example": "No setor de compras, o sistema operacional gerencia recursos; a planilha registra despesas; a ferramenta de backup auxilia na proteção dos arquivos. Aplicação administrativa: A secretaria recebeu um instalador gratuito e pretende distribuí-lo em dezenas de computadores. Justificativa: Consultar os termos da licença antes de distribuir ou instalar em massa.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Um programa antivírus é, por definição, uma peça de hardware.",
+    "summary": "Software básico apoia o funcionamento do sistema; aplicativos realizam tarefas do usuário; utilitários executam funções de manutenção ou apoio. Editor de planilhas é exemplo de aplicativo voltado ao usuário.",
+    "reviewQuestion": "Por que um programa gratuito pode continuar sujeito a limitações de uso?",
+    "reviewAnswer": "Preço de aquisição não determina a licença. Os termos podem limitar instalação, cópia, modificação e redistribuição mesmo quando o programa é gratuito.",
+    "introduction": "Instalar um editor de documentos em todos os computadores de uma escola pode exigir análise de licença, embora o instalador tenha sido obtido gratuitamente.",
+    "differences": "Ser gratuito descreve preço, não necessariamente direitos. Software de base organiza recursos; aplicativo entrega funcionalidade ao usuário; utilitário executa tarefa de apoio. Uma suíte de escritório não vira sistema operacional por ter muitos recursos.",
+    "commonMistakes": "Erro frequente: confundir domínio público, gratuito e licença livre. Também é incorreto instalar programa não homologado apenas porque seu ícone parece conhecido: verifique origem e regras do setor de TI."
+  },
+  "INF-01-004": {
+    "id": "INF-01-004",
+    "objective": "Explicar sistemas operacionais, aplicativos e usuários.",
+    "concept": "O sistema operacional administra recursos, processos, dispositivos e acesso a arquivos para que aplicativos possam funcionar.",
+    "explanation": "O sistema operacional gerencia a execução concorrente dos programas, distribui recursos, oferece serviços de arquivos e controla a interação com os dispositivos. O aplicativo solicita acesso aos serviços do sistema; a autorização depende da identidade do usuário, das regras de segurança e da política do equipamento. Uma conta comum não deve receber automaticamente privilégios administrativos. Em computadores compartilhados, perfis separados ajudam a preservar preferências, registros e limites de acesso. Múltiplos programas podem estar abertos, mas cada um ainda utiliza memória, tempo de CPU e recursos do sistema. Um arquivo salvo numa pasta protegida pode falhar por falta de permissão, mesmo quando o programa está funcionando corretamente.",
+    "example": "Uma servidora abre um editor de textos no Windows: o sistema gerencia a janela, a memória usada e o arquivo que será salvo. Aplicação administrativa: O computador compartilhado por dois setores necessita impedir que usuários comuns alterem configurações críticas. Justificativa: Utilizar contas e permissões de usuário adequadas para separar privilégios.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Uma conta comum tem automaticamente permissão para alterar qualquer configuração protegida.",
+    "summary": "O sistema operacional administra recursos, processos, dispositivos e acesso a arquivos para que aplicativos possam funcionar. O sistema operacional oferece serviços para executar aplicativos e acessar arquivos.",
+    "reviewQuestion": "Que papel o sistema operacional desempenha entre aplicativo e recursos físicos?",
+    "reviewAnswer": "O sistema operacional aloca memória e processamento, fornece serviços aos aplicativos, intermedeia dispositivos e aplica regras de autorização dos usuários.",
+    "introduction": "Duas pessoas podem utilizar o mesmo computador e abrir o mesmo editor, mas cada conta pode ter arquivos e permissões próprios.",
+    "differences": "Sistema operacional administra o ambiente; aplicativo executa uma tarefa; usuário é uma identidade associada a permissões. “Ser proprietário do arquivo” e “ter permissão para alterá-lo” podem depender de regras adicionais.",
+    "commonMistakes": "Erro comum: atribuir ao aplicativo controle direto e irrestrito de todos os dispositivos. Ao diagnosticar um problema, separe falha do programa, falta de recurso e proibição de acesso."
+  },
+  "INF-01-005": {
+    "id": "INF-01-005",
+    "objective": "Explicar interface gráfica, janelas, ícones e menus.",
+    "concept": "Interface gráfica reúne elementos visuais — janelas, ícones, menus e ponteiro — para interagir com o software.",
+    "explanation": "Uma interface gráfica permite acionar programas e arquivos por elementos visuais: janelas exibem áreas de trabalho, menus oferecem comandos e ícones representam objetos ou ações. A barra de título e as bordas ajudam a identificar e organizar janelas; minimizar não equivale a encerrar um aplicativo. Um atalho é uma referência para abrir algo localizado em outro lugar, portanto sua remoção geralmente não apaga o programa de destino. O menu contextual apresenta ações relacionadas ao item escolhido; a disponibilidade depende das permissões e do programa. Diferentes aplicativos podem exibir interfaces parecidas sem oferecer os mesmos recursos. Interfaces gráficas coexistem com terminais e atalhos de teclado; nenhuma forma é universalmente obrigatória.",
+    "example": "No atendimento, a funcionária usa o ícone do Explorador de Arquivos, escolhe uma pasta e abre o menu contextual para copiar um documento. Aplicação administrativa: Após retirar um atalho da área de trabalho, o editor de texto continua instalado. Justificativa: O atalho era apenas uma referência visual para abrir o aplicativo.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Todo ícone representa exclusivamente uma pasta física.",
+    "summary": "Interface gráfica reúne elementos visuais — janelas, ícones, menus e ponteiro — para interagir com o software. Menus expõem ações disponíveis em determinado contexto.",
+    "reviewQuestion": "Qual é a diferença entre remover um atalho e desinstalar um programa?",
+    "reviewAnswer": "Excluir o atalho retira uma referência de acesso; desinstalar utiliza mecanismos de remoção que afetam o aplicativo efetivamente instalado.",
+    "introduction": "Ao organizar uma pasta de atendimento, um servidor encontra ícones, menus contextuais e diversas janelas. Cada elemento da interface possui uma função própria.",
+    "differences": "Não confunda ícone com arquivo físico nem atalho com instalação. Minimizar oculta a janela; fechar costuma encerrá-la, mas aplicativos podem continuar ativos em segundo plano. Menu e botão também não são a mesma coisa.",
+    "commonMistakes": "Erro comum: tentar “desinstalar” apagando um ícone ou achar que tudo mostrado na área de trabalho está armazenado fisicamente ali. Verifique o destino do atalho antes de apagar."
+  },
+  "INF-01-006": {
+    "id": "INF-01-006",
+    "objective": "Explicar conceitos de arquivo, pasta e extensão.",
+    "concept": "Arquivo é unidade lógica de dados com nome; pasta organiza arquivos e outras pastas; extensão costuma indicar tipo de arquivo.",
+    "explanation": "Um arquivo armazena conteúdo ou instruções segundo determinado formato e possui nome associado a um caminho. Uma pasta, também chamada diretório, organiza itens e pode conter subpastas, formando uma hierarquia. A extensão é a parte final do nome frequentemente usada para associar formatos a programas. Ela não determina, sozinha, o conteúdo: renomear foto.png para foto.docx não a converte em documento do Word. Pastas diferentes podem conter arquivos com o mesmo nome porque seus caminhos completos são distintos; dentro de uma mesma pasta, regras do sistema podem impedir duplicidade de nomes. A organização por pastas facilita a localização, mas não substitui backup nem controle de versões. Para enviar arquivos, confirme formato requerido e permissão do destinatário.",
+    "example": "A pasta “2026” contém “relatorio.pdf” e “custos.xlsx”; cada extensão sugere um formato, mas não prova que o conteúdo seja seguro. Aplicação administrativa: Um servidor renomeou “imagem.png” para “imagem.docx”, mas o editor de textos não conseguiu abri-la como documento. Justificativa: Restaurar a extensão correta ou converter o arquivo por ferramenta apropriada.",
+    "examTip": "Ao resolver um item, identifique a função pedida, a versão ou o contexto e compare as alternativas com os conceitos estudados. Não aceite a generalização: Uma pasta existe apenas para guardar arquivos executáveis.",
+    "summary": "Arquivo é unidade lógica de dados com nome; pasta organiza arquivos e outras pastas; extensão costuma indicar tipo de arquivo. A extensão .xlsx costuma identificar planilha eletrônica.",
+    "reviewQuestion": "Por que a alteração de extensão, isoladamente, não transforma o formato?",
+    "reviewAnswer": "A extensão integra o nome e orienta a associação a programas. O formato depende da estrutura interna dos dados, que deve ser convertida por ferramenta apropriada.",
+    "introduction": "Em uma rotina de protocolo, “documento.docx”, “assinatura.pdf” e “dados.xlsx” são arquivos que podem ser agrupados em pastas por setor e ano.",
+    "differences": "Nome identifica o item no contexto da pasta; caminho identifica sua localização. Extensão sugere formato; conversão exige ferramenta capaz de regravar o conteúdo. Um atalho pode apontar para um arquivo sem conter seus dados.",
+    "commonMistakes": "Erro comum: ocultar extensões e concluir que arquivos não possuem formato, ou alterá-las manualmente tentando converter o conteúdo. Use “Salvar como” ou exportação adequada."
+  }
+};

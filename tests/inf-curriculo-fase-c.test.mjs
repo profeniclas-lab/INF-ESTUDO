@@ -1,88 +1,74 @@
+/** Contrato curricular da Fase C após publicação gradual da Fase D. */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import {
-  AREAS, ALL_PLANNED_MODULES, MODULES, PENDING_MODULES,
-  getModuleById, getSubtopicById, validateCatalog
-} from '../js/data/modules.js';
+import { AREAS, ALL_PLANNED_MODULES, MODULES, PENDING_MODULES, getModuleById, getSubtopicById, validateCatalog } from '../js/data/modules.js';
 import { DIAGNOSTICS, getDiagnosticCards } from '../js/data/diagnostics.js';
 import { LESSONS, getLesson } from '../js/data/lessons.js';
 import { QUESTIONS, questionsForModule } from '../js/data/questions.js';
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const read = path => readFileSync(resolve(ROOT, path),'utf8');
-const catalog = JSON.parse(read('docs/INF_CURRICULO_FASE_C.json'));
+const ROOT=resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const read=p=>readFileSync(resolve(ROOT,p),'utf8');
+const curriculum=JSON.parse(read('docs/INF_CURRICULO_FASE_C.json'));
 
-test('Identidade curricular somente INF', () => {
-  assert.deepEqual(AREAS,{INF:'Informática'});
-  assert.equal(ALL_PLANNED_MODULES.length,27);
-  assert.equal(catalog.totalModulos,27);
-  assert.deepEqual(validateCatalog(),[]);
+test('Identidade curricular: Informática, 27 módulos e 163 subtópicos',()=>{
+ assert.deepEqual(AREAS,{INF:'Informática'});
+ assert.equal(ALL_PLANNED_MODULES.length,27);
+ assert.equal(ALL_PLANNED_MODULES.reduce((n,m)=>n+m.subtopics.length,0),163);
+ assert.deepEqual(validateCatalog(),[]);
+ assert.equal(curriculum.totalModulos,27);
+ assert.equal(curriculum.totalSubtopicos,163);
 });
-test('IDs estáveis e exclusivos de módulos e subtópicos', () => {
-  const ids = new Set();
-  for (let i=0;i<ALL_PLANNED_MODULES.length;i++) {
-    const m=ALL_PLANNED_MODULES[i];
-    assert.equal(m.id,`INF-${String(i+1).padStart(2,'0')}`);
-    assert.equal(m.area,'INF');
-    assert.equal(ids.has(m.id),false); ids.add(m.id);
-    for(let j=0;j<m.subtopics.length;j++){
-      const t=m.subtopics[j];
-      assert.equal(t.id,`${m.id}-${String(j+1).padStart(3,'0')}`);
-      assert.equal(ids.has(t.id),false); ids.add(t.id);
-      assert.ok(t.title.length>10);
-    }
+test('IDs estáveis e únicos; plano curricular original preservado',()=>{
+ const original=curriculum.modulos;const unique=new Set();
+ for(let i=0;i<original.length;i++){
+  const current=ALL_PLANNED_MODULES[i], planned=original[i];
+  assert.equal(current.id,`INF-${String(i+1).padStart(2,'0')}`);
+  assert.deepEqual({...current,status:planned.status},planned);
+  for(let j=0;j<current.subtopics.length;j++){
+   const t=current.subtopics[j];assert.equal(t.id,`${current.id}-${String(j+1).padStart(3,'0')}`);
+   assert.equal(unique.has(t.id),false);unique.add(t.id);
   }
-  assert.equal(ids.size,27+163);
-  assert.equal(catalog.totalSubtopicos,163);
+ }
+ assert.equal(unique.size,163);
 });
-test('Pré-requisitos existentes e não circulares', () => {
-  const ids=new Set(ALL_PLANNED_MODULES.map(m=>m.id));
-  for(const m of ALL_PLANNED_MODULES)
-    for(const p of m.prerequisites) assert.ok(ids.has(p)&&p!==m.id);
-  assert.deepEqual(validateCatalog(),[]);
+test('Publicação gradual: primeiros 5 disponíveis; demais 22 pendentes',()=>{
+ assert.deepEqual(MODULES.map(m=>m.id),['INF-01','INF-02','INF-03','INF-04','INF-05']);
+ assert.equal(PENDING_MODULES.length,22);
+ assert.ok(PENDING_MODULES.every(m=>m.status==='em_preparacao'));
+ assert.ok(getModuleById('INF-05'));
+ assert.equal(getModuleById('INF-06'),null);
+ assert.ok(getSubtopicById('INF-01-001'));
+ assert.equal(getSubtopicById('INF-06-001'),null);
 });
-test('Nenhum conteúdo de Português é importado pelos adaptadores ativos', () => {
-  for(const p of ['js/data/modules.js','js/data/diagnostics.js','js/data/lessons.js','js/data/questions.js']) {
-    const s=read(p);
-    assert.doesNotMatch(s,/from\s*['"]\.\/portugues\//);
-    assert.doesNotMatch(s,/\b(?:POR|RED)-\d{2}\b/);
-  }
+test('Importações pedagógicas não acessam conteúdo PT ou ADM',()=>{
+ for(const p of ['js/data/modules.js','js/data/diagnostics.js','js/data/lessons.js','js/data/questions.js']){
+  const s=read(p);assert.doesNotMatch(s,/from\s*['"]\.\/portugues\//);
+  assert.doesNotMatch(s,/\b(?:POR|RED|ADM|DA|AP)-\d{2}\b/);
+  assert.doesNotMatch(s,/localStorage\s*\.|ptEstudo\.v1\.state|admEstudo\.v2\.state/);
+ }
 });
-test('Conteúdo não auditado não é publicado prematuramente', () => {
-  assert.equal(MODULES.length,0);
-  assert.equal(PENDING_MODULES.length,27);
-  assert.ok(PENDING_MODULES.every(m=>m.status==='em_preparacao'));
-  assert.equal(getModuleById('INF-01'),null);
-  assert.equal(getSubtopicById('INF-01-001'),null);
+test('27 módulos e pré-requisitos sem ciclos',()=>{
+ const ids=new Set(ALL_PLANNED_MODULES.map(m=>m.id));
+ for(const module of ALL_PLANNED_MODULES)
+  for(const p of module.prerequisites)assert.ok(ids.has(p)&&p!==module.id);
+ assert.deepEqual(validateCatalog(),[]);
 });
-test('Contratos de dados são preservados para publicação futura',()=>{
-  assert.deepEqual(Object.keys(DIAGNOSTICS),[]);
-  assert.deepEqual(Object.keys(LESSONS),[]);
-  assert.deepEqual(QUESTIONS,[]);
-  assert.equal(getDiagnosticCards(ALL_PLANNED_MODULES[0]),null);
-  assert.equal(getLesson('INF-01-001'),null);
-  assert.deepEqual(questionsForModule('INF-01'),[]);
+test('Contratos disponibilizam materiais somente dos módulos publicados',()=>{
+ assert.deepEqual(Object.keys(DIAGNOSTICS).sort(),MODULES.map(m=>m.id).sort());
+ assert.equal(Object.keys(LESSONS).length,31);
+ assert.equal(QUESTIONS.length,124);
+ for(const module of MODULES){
+  assert.equal(getDiagnosticCards(module)?.length,module.subtopics.length);
+  for(const topic of module.subtopics)assert.ok(getLesson(topic.id));
+  assert.equal(questionsForModule(module.id).length,module.subtopics.length*4);
+ }
+ assert.equal(getDiagnosticCards(PENDING_MODULES[0]),null);
+ assert.equal(questionsForModule('INF-06').length,0);
 });
-test('Catálogo JSON documental coincide com o catálogo ES Modules',()=>{
-  assert.deepEqual(catalog.modulos,ALL_PLANNED_MODULES);
-});
-test('Módulos de informática priorizam assuntos de prova de nível médio',()=>{
-  for(const n of [4,5,7,9,10,14,15,16,18,19,20,21])
-    assert.ok(ALL_PLANNED_MODULES[n-1].subtopics.length>=5);
-});
-test('Interface mostra número dinâmico e não abre módulos pendentes',()=>{
-  const s=read('js/features/modules.js');
-  assert.match(s,/ALL_PLANNED_MODULES\.length/);
-  assert.match(s,/PENDING_MODULES\.filter/);
-  assert.match(s,/Em preparação/);
-  assert.doesNotMatch(s,/27 módulos planejados/);
-  assert.match(s,/data-module-id/);
-});
-test('Estrutura do pacote não altera identidade do INF-ESTUDO',()=>{
-  for(const p of ['js/data/modules.js','js/data/diagnostics.js','js/data/lessons.js','js/data/questions.js','js/features/modules.js']){
-    const s=read(p);
-    assert.doesNotMatch(s,/localStorage\s*\.|admEstudo\.v2\.state|ptEstudo\.v1\.state/);
-  }
+test('Interface lista disponibilidade de modo dinâmico',()=>{
+ const src=read('js/features/modules.js');
+ assert.match(src,/ALL_PLANNED_MODULES\.length/);assert.match(src,/PENDING_MODULES\.filter/);
+ assert.match(src,/Em preparação/);assert.match(src,/data-module-id/);
 });

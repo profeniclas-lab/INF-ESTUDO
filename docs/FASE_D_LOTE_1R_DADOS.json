@@ -1,0 +1,22 @@
+{
+  "types": {
+    "ce": 31,
+    "vf": 25,
+    "exceto": 11,
+    "associacao": 6,
+    "afirmacoes": 26,
+    "lacunas": 8,
+    "classica": 17
+  },
+  "difficulty": {
+    "media": 62,
+    "dificil": 62
+  },
+  "modules": {
+    "INF-01": 24,
+    "INF-02": 24,
+    "INF-03": 24,
+    "INF-04": 28,
+    "INF-05": 24
+  }
+}
